@@ -155,11 +155,15 @@ const MineCode = {
   },
 
   showXPPopup(amount) {
+    // Flash screen border green
+    document.body.style.boxShadow = 'inset 0 0 50px rgba(76, 175, 80, 0.5)';
+    setTimeout(() => { document.body.style.boxShadow = ''; }, 300);
+    
     const el = document.createElement('div');
-    el.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:2rem;color:#FFD700;font-weight:700;z-index:9999;pointer-events:none;animation:xpPop 1s forwards;';
+    el.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:2.5rem;color:#FFD700;font-weight:700;z-index:9999;pointer-events:none;animation:xpPop 1.2s forwards;text-shadow:0 0 20px #FFD700;';
     el.textContent = `+${amount} XP`;
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1200);
+    setTimeout(() => el.remove(), 1400);
   },
 
   updateUI() {
@@ -203,8 +207,66 @@ const MineCode = {
 
 // Add XP popup animation
 const style = document.createElement('style');
-style.textContent = `@keyframes xpPop { 0% { opacity:1; transform:translate(-50%,-50%) scale(0.5); } 50% { transform:translate(-50%,-50%) scale(1.2); } 100% { opacity:0; transform:translate(-50%,-80%) scale(1); } }`;
+style.textContent = `@keyframes xpPop { 0% { opacity:1; transform:translate(-50%,-50%) scale(0.5); } 50% { transform:translate(-50%,-50%) scale(1.3); } 100% { opacity:0; transform:translate(-50%,-80%) scale(1); } }`;
 document.head.appendChild(style);
+
+// ===== TURTLE CANVAS REWARDS =====
+function initTurtleRewards() {
+  document.querySelectorAll('[data-turtle]').forEach(block => {
+    const canvasEl = block.querySelector('canvas');
+    if (!canvasEl) return;
+    
+    // Hide canvas initially
+    canvasEl.style.display = 'none';
+    
+    // Watch for correct completion
+    const observer = new MutationObserver(() => {
+      const feedback = block.querySelector('.code-feedback');
+      if (feedback && feedback.classList.contains('correct')) {
+        canvasEl.style.display = 'block';
+        const turtleType = block.dataset.turtle;
+        const tc = new TurtleCanvas(canvasEl.id, getTurtleOptions(turtleType));
+        tc.render();
+        
+        // Build the appropriate shape
+        switch(turtleType) {
+          case 'line-8':
+            tc.buildLine(8);
+            break;
+          case 'rect-5-3':
+            tc.buildRect(5, 3);
+            break;
+          case 'farm':
+            // Two rows of farm blocks
+            for (let i = 0; i < 6; i++) {
+              tc.placeBlock('#2d8a2d');
+              tc.forward();
+            }
+            tc.right(); tc.forward(); tc.forward(); tc.right();
+            for (let i = 0; i < 6; i++) {
+              tc.placeBlock('#8B6914');
+              tc.forward();
+            }
+            break;
+        }
+        tc.play(() => showConfetti(canvasEl));
+        observer.disconnect();
+      }
+    });
+    
+    const feedback = block.querySelector('.code-feedback');
+    if (feedback) observer.observe(feedback, { attributes: true, attributeFilter: ['class'] });
+  });
+}
+
+function getTurtleOptions(type) {
+  switch(type) {
+    case 'line-8': return { cols: 10, rows: 2, cellSize: 36, startX: 0, startY: 0 };
+    case 'rect-5-3': return { cols: 7, rows: 5, cellSize: 36, startX: 0, startY: 0 };
+    case 'farm': return { cols: 8, rows: 5, cellSize: 36, startX: 0, startY: 1, stepDelay: 200 };
+    default: return {};
+  }
+}
 
 // ===== QUIZ ENGINE =====
 function initQuizzes() {
@@ -236,6 +298,7 @@ function initQuizzes() {
           opt.classList.add('correct');
           feedback.className = 'quiz-feedback show correct';
           feedback.textContent = `✅ Верно! ${explanation}`;
+          if (typeof showConfetti === 'function') showConfetti(opt);
           if (MineCode.completeQuiz(quizId)) {
             MineCode.addXP(xpReward, `Quiz ${quizId}`);
           }
@@ -339,6 +402,7 @@ function initBossQuiz() {
           opt.classList.add('correct');
           feedback.className = 'quiz-feedback show correct';
           feedback.textContent = '✅ БОСС ПОВЕРЖЕН! 🏆';
+          if (typeof showConfetti === 'function') showConfetti(block);
           MineCode.completeBoss(bossId);
           MineCode.addXP(xpReward, `Boss ${bossId}`);
         } else {
@@ -458,6 +522,7 @@ function initFillBlanks() {
       if (allCorrect) {
         feedback.className = 'code-feedback show correct';
         feedback.textContent = '✅ Всё верно! Отличная работа!';
+        if (typeof showConfetti === 'function') showConfetti(btn);
         if (MineCode.completeQuiz('fill-' + taskId)) {
           MineCode.addXP(15, 'fill-' + taskId);
         }
@@ -481,6 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBossQuiz();
   initFillBlanks();
   initLessonComplete();
+  initTurtleRewards();
 
   // Anti-copypaste on solution blocks
   document.querySelectorAll('details summary').forEach(s => {
