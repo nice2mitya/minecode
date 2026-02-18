@@ -861,3 +861,22 @@ details > div, details > p, details > pre {
   color: var(--text-dimmer);
   font-size: 1.1rem;
 }
+
+/* Turtle replay button */
+.turtle-replay-btn {
+  display: none;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--diamond);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.turtle-replay-btn:hover {
+  border-color: var(--green);
+  background: var(--green-glow);
+}

@@ -250,6 +250,31 @@ function initTurtleRewards() {
             break;
         }
         tc.play(() => showConfetti(canvasEl));
+        
+        // Add replay button
+        let replayBtn = block.querySelector('.turtle-replay-btn');
+        if (!replayBtn) {
+          replayBtn = document.createElement('button');
+          replayBtn.className = 'turtle-replay-btn';
+          replayBtn.textContent = '🔄 Запустить заново';
+          canvasEl.after(replayBtn);
+        }
+        replayBtn.style.display = 'inline-block';
+        replayBtn.onclick = () => {
+          const tc2 = new TurtleCanvas(canvasEl.id, getTurtleOptions(turtleType));
+          tc2.render();
+          switch(turtleType) {
+            case 'line-8': tc2.buildLine(8); break;
+            case 'rect-5-3': tc2.buildRect(5, 3); break;
+            case 'farm':
+              for (let i = 0; i < 6; i++) { tc2.placeBlock('#2d8a2d'); tc2.forward(); }
+              tc2.right(); tc2.forward(); tc2.forward(); tc2.right();
+              for (let i = 0; i < 6; i++) { tc2.placeBlock('#8B6914'); tc2.forward(); }
+              break;
+          }
+          tc2.play(() => showConfetti(canvasEl));
+        };
+        
         observer.disconnect();
       }
     });
