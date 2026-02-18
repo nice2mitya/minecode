@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 1.2: Переменные — MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 1 → Урок 1.2</div>
+    <h1 class="lesson-title">Переменные — инвентарь для данных</h1>
+    <p class="lesson-subtitle">Где программа хранит свои вещи.</p>
+  </div>
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>У тебя в Minecraft есть инвентарь. 36 слотов. В каждый можно положить что-то одно: меч, еду, блоки.</p>
+    <p>Теперь представь: ты строишь дом. Тебе нужно запомнить его размеры — ширина 10, длина 15, высота 5. Где хранить эти числа?</p>
+    <p>В программировании для этого есть <strong>переменные</strong>. Это как слоты инвентаря, но для данных. Ты кладёшь туда значение, даёшь ему имя и используешь когда нужно.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept: Переменные</h2>
+    <p><strong>Переменная</strong> — это именованная ячейка памяти. У неё есть:</p>
+    <ul>
+      <li><strong>Имя</strong> — как подпись на сундуке</li>
+      <li><strong>Значение</strong> — что лежит внутри</li>
+      <li><strong>Тип</strong> — какого рода данные</li>
+    </ul>
+    <pre><code><span class="cm"># Создаём переменные</span>
+<span class="fn">ширина</span> = <span class="nb">10</span>
+<span class="fn">длина</span> = <span class="nb">15</span>
+<span class="fn">высота</span> = <span class="nb">5</span>
+<span class="fn">материал</span> = <span class="st">"камень"</span>
+<span class="fn">есть_крыша</span> = <span class="kw">True</span></code></pre>
+
+    <table>
+      <tr><th>Имя</th><th>Значение</th><th>Тип</th><th>Minecraft-аналогия</th></tr>
+      <tr><td><code>ширина</code></td><td>10</td><td>число (int)</td><td>Стак из 10 блоков</td></tr>
+      <tr><td><code>длина</code></td><td>15</td><td>число (int)</td><td>Стак из 15 блоков</td></tr>
+      <tr><td><code>высота</code></td><td>5</td><td>число (int)</td><td>Стак из 5 блоков</td></tr>
+      <tr><td><code>материал</code></td><td>"камень"</td><td>текст (string)</td><td>Табличка с надписью</td></tr>
+      <tr><td><code>есть_крыша</code></td><td>True</td><td>логический (bool)</td><td>Рычаг: вкл/выкл</td></tr>
+    </table>
+
+    <h3>Основные типы данных</h3>
+    <ul>
+      <li><strong>int</strong> (целое число) — <code>64</code>, <code>0</code>, <code>-5</code>. Количество предметов в стаке.</li>
+      <li><strong>float</strong> (дробное число) — <code>3.14</code>, <code>0.5</code>. Уровень здоровья: 18.5 HP.</li>
+      <li><strong>string</strong> (текст) — <code>"Привет"</code>, <code>"diamond_sword"</code>. Название предмета.</li>
+      <li><strong>bool</strong> (логический) — <code>True</code> или <code>False</code>. Рычаг: включён или выключен.</li>
+    </ul>
+
+    <h3>Переменные можно менять</h3>
+    <p>Это же <em>пере</em>менные. Значение можно обновить:</p>
+    <pre><code><span class="fn">здоровье</span> = <span class="nb">20</span>        <span class="cm"># Полное HP</span>
+<span class="fn">здоровье</span> = <span class="nb">20</span> - <span class="nb">7</span>    <span class="cm"># Крипер взорвался рядом</span>
+<span class="fn">здоровье</span> = <span class="nb">13</span>        <span class="cm"># Теперь 13 HP</span></code></pre>
+
+    <p>И использовать в вычислениях:</p>
+    <pre><code><span class="fn">ширина</span> = <span class="nb">10</span>
+<span class="fn">длина</span> = <span class="nb">15</span>
+<span class="fn">площадь</span> = ширина * длина    <span class="cm"># 150</span>
+<span class="fn">периметр</span> = <span class="nb">2</span> * (ширина + длина)  <span class="cm"># 50 блоков стены</span></code></pre>
+
+    <p>Зачем это круто? Потому что если ты решишь изменить размер дома, тебе нужно поменять <strong>ОДНО</strong> число, а не переписывать всю программу.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q1" data-correct="C" data-explanation="Переменная — это именованная ячейка памяти, как подписанный слот в инвентаре.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что из этого лучше всего описывает переменную?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Команда для компьютера</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Кнопка в программе</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Именованная ячейка для хранения данных</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Тип компьютера</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+
+    <p><strong>Задание 1: Калькулятор ресурсов</strong></p>
+    <p>Ты строишь прямоугольную стену. Нужно посчитать, сколько блоков понадобится.</p>
+    <pre><code><span class="cm"># Допиши код</span>
+<span class="fn">длина_стены</span> = <span class="nb">10</span>
+<span class="fn">высота_стены</span> = <span class="nb">4</span>
+<span class="fn">блоков_нужно</span> = ???    <span class="cm"># Сколько блоков на стену?</span></code></pre>
+
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="fn">блоков_нужно</span> = длина_стены * высота_стены    <span class="cm"># 40</span></code></pre>
+    </details>
+
+    <p><strong>Задание 2: Характеристики моба</strong></p>
+    <p>Создай переменные для описания крипера:</p>
+    <pre><code><span class="cm"># Заполни переменные</span>
+<span class="fn">имя</span> = ???
+<span class="fn">здоровье</span> = ???
+<span class="fn">урон_взрыва</span> = ???
+<span class="fn">боится_кошек</span> = ???</code></pre>
+
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="fn">имя</span> = <span class="st">"Creeper"</span>
+<span class="fn">здоровье</span> = <span class="nb">20</span>
+<span class="fn">урон_взрыва</span> = <span class="nb">49</span>    <span class="cm"># Максимальный урон на Hard</span>
+<span class="fn">боится_кошек</span> = <span class="kw">True</span>  <span class="cm"># Факт из игры</span></code></pre>
+    </details>
+
+    <p><strong>Задание 3: Обмен значений</strong></p>
+    <p>У тебя два слота инвентаря. Нужно поменять их содержимое местами.</p>
+    <pre><code><span class="fn">слот_1</span> = <span class="st">"меч"</span>
+<span class="fn">слот_2</span> = <span class="st">"щит"</span>
+<span class="cm"># Поменяй местами, чтобы слот_1 = "щит", слот_2 = "меч"</span>
+<span class="cm"># Подсказка: тебе понадобится третья переменная</span></code></pre>
+
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Представь, что у тебя два сундука и один пустой. Чтобы поменять предметы местами, нужно сначала положить один из них во временный сундук.</p>
+    </details>
+
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="fn">слот_1</span> = <span class="st">"меч"</span>
+<span class="fn">слот_2</span> = <span class="st">"щит"</span>
+
+<span class="fn">временный</span> = слот_1     <span class="cm"># временный = "меч"</span>
+<span class="fn">слот_1</span> = слот_2        <span class="cm"># слот_1 = "щит"</span>
+<span class="fn">слот_2</span> = временный     <span class="cm"># слот_2 = "меч"</span></code></pre>
+      <p>Это классическая задача на собеседованиях. Да, уже на уроке 2 ты решаешь задачи с собесов. 💪</p>
+    </details>
+  </section>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q2" data-correct="D" data-explanation="Результат: 10 * 15 = 150 блоков.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      Что выведет этот код?
+      <pre><code><span class="fn">ширина</span> = <span class="nb">10</span>
+<span class="fn">длина</span> = <span class="nb">15</span>
+<span class="fn">площадь</span> = ширина * длина
+<span class="fn">print</span>(площадь)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 25</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> "ширина * длина"</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Ошибку</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 150</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q3" data-correct="B" data-explanation="bool хранит True или False — как рычаг в Minecraft.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Какой тип данных лучше всего подходит для переменной <code>есть_щит</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> int (число)</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> bool (логический)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> string (текст)</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> float (дробное число)</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Build: Настраиваемый дом</h2>
+    <p>Черепашка строит дом, размеры которого задаёшь ты через переменные.</p>
+    <pre><code><span class="cm"># Настройки дома</span>
+<span class="fn">ширина</span> = <span class="nb">6</span>
+<span class="fn">длина</span> = <span class="nb">8</span>
+<span class="fn">высота</span> = <span class="nb">4</span>
+<span class="fn">материал</span> = <span class="st">"дуб"</span>
+
+<span class="cm"># Черепашка строит по твоим параметрам</span>
+<span class="fn">построй_дом</span>(ширина, длина, высота, материал)</code></pre>
+    <p>Поменяй значения переменных и запусти снова. Видишь, как один и тот же код строит разные дома? Вот в этом сила переменных — <strong>код пишешь один раз, а результат меняешь, подставляя другие данные</strong>.</p>
+    <p>Попробуй:</p>
+    <ul>
+      <li>Дом 3×3×2 из камня (хижина)</li>
+      <li>Дом 20×20×10 из кварца (дворец)</li>
+      <li>Дом 1×1×50 из обсидиана (башня безумия 😄)</li>
+    </ul>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-02-boss" data-correct="C" data-xp="75">
+    <div class="boss-header">👹 Boss Challenge: Калькулятор строителя <span class="boss-xp">+75 XP</span></div>
+    <p>Ты строишь коробку 10×12×5 из блоков. Нужно посчитать общее количество блоков на стены, пол и потолок.</p>
+    <p>Пол и потолок: по <code>10 × 12 = 120</code> каждый. А стены?</p>
+    <pre><code><span class="fn">ширина</span> = <span class="nb">10</span>
+<span class="fn">длина</span> = <span class="nb">12</span>
+<span class="fn">высота</span> = <span class="nb">5</span>
+
+<span class="fn">пол</span> = ширина * длина           <span class="cm"># 120</span>
+<span class="fn">потолок</span> = ширина * длина        <span class="cm"># 120</span>
+<span class="fn">стены</span> = ???
+<span class="fn">всего</span> = пол + потолок + стены</code></pre>
+    <p>Сколько блоков нужно на стены (высота стен = 3 ряда, т.к. минус пол и потолок)?</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 120</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 88</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 120 (периметр 40 × 3 ряда = 120, если не вычитать углы)</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 200</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p><strong>Теперь ты знаешь:</strong></p>
+      <ul>
+        <li>✅ Переменная = именованная ячейка для данных</li>
+        <li>✅ Четыре базовых типа: числа, текст, логический</li>
+        <li>✅ Переменные можно менять и использовать в вычислениях</li>
+        <li>✅ Одна программа + разные переменные = разные результаты</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Где это в реальном мире:</strong></p>
+      <ul>
+        <li>Корзина в интернет-магазине — переменная <code>total_price</code> обновляется при добавлении товара</li>
+        <li>Счётчик подписчиков на YouTube — переменная, которая растёт (или падает)</li>
+        <li>Твой ник в игре — строковая переменная, которую задал ты</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Пасхалка:</strong> Знаешь, почему переменную для обмена значений называют <code>temp</code>? Это сокращение от temporary (временный). Программисты ленивые — им лень писать полные слова. Привыкай. 😎</p>
+      <p style="margin-top:1rem;"><strong>В следующем уроке:</strong> черепашка научится принимать решения. Если крипер — бежим. Если корова — игнорируем. Это называется «условия».</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-02">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/lessons/m1-lesson-01">← Урок 1.1: Что такое код</a>
+    <a href="/lessons/m1-lesson-03">Урок 1.3: Условия →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>
