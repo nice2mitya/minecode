@@ -753,3 +753,20 @@ details > div, details > p, details > pre {
   border-top: 1px solid var(--border);
   font-family: var(--font-mono);
 }
+
+/* ===== IMAGES ===== */
+.hero-image {
+  width: 100%;
+  max-width: 700px;
+  margin: 1.5rem auto 2rem;
+  display: block;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.lesson-hero-image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
