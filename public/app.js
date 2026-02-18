@@ -321,7 +321,7 @@ function initBossQuiz() {
       const options = block.querySelectorAll('.quiz-option');
       options.forEach(o => { o.classList.add('disabled'); if (o.dataset.value === correct) o.classList.add('correct'); });
       const fb = block.querySelector('.quiz-feedback');
-      if (fb) { fb.className = 'quiz-feedback show correct'; fb.textContent = '✅ Boss побеждён!'; }
+      if (fb) { fb.className = 'quiz-feedback show correct'; fb.textContent = '✅ Босс повержен!'; }
       return;
     }
 
@@ -338,7 +338,7 @@ function initBossQuiz() {
         if (val === correct) {
           opt.classList.add('correct');
           feedback.className = 'quiz-feedback show correct';
-          feedback.textContent = '✅ BOSS DEFEATED! 🏆';
+          feedback.textContent = '✅ БОСС ПОВЕРЖЕН! 🏆';
           MineCode.completeBoss(bossId);
           MineCode.addXP(xpReward, `Boss ${bossId}`);
         } else {
