@@ -194,28 +194,51 @@
   <!-- BOSS -->
   <div class="boss-block" data-boss-id="m1-01-boss" data-correct="B" data-xp="50">
     <div class="boss-header">👹 Босс: Лабиринт <span class="boss-xp">+50 XP</span></div>
-    <p>Твоя черепашка 🐢 стоит на старте лабиринта (Н). Нужно провести её к выходу (В).</p>
-    <pre><code>███████████
-█ Н █     █
-█ █ █ █ █ █
-█   █ █ █ █
-█ ███ █ █ █
-█       █ В
-███████████
+    <p>Твоя черепашка 🐢 стоит в точке Н. Нужно провести её к выходу В. Она умеет: <code>вперёд()</code>, <code>влево()</code>, <code>вправо()</code>.</p>
+    <p>Черепашка смотрит вправо →</p>
+    <pre><code>┌──┬──┬──┬──┬──┐
+│🐢│  │██│  │  │
+├──┼──┼──┼──┼──┤
+│██│  │██│  │██│
+├──┼──┼──┼──┼──┤
+│  │  │  │  │  │
+├──┼──┼──┼──┼──┤
+│██│██│██│  │🏁│
+└──┴──┴──┴──┴──┘
 
-Н = начало (тут стоит черепашка)
-В = выход (сюда нужно попасть)
-█ = стена
-  = проход</code></pre>
-    <p>Какая стратегия гарантированно выведет черепашку из любого лабиринта без островков?</p>
-    <div class="quiz-options">
-      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Всегда идти прямо</div>
-      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Правило правой руки — всегда поворачивай направо, когда можешь</div>
-      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Случайно выбирать направление</div>
-      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Сломать стены</div>
+🐢 = черепашка (старт, смотрит вправо)
+🏁 = выход
+██ = стена (нельзя пройти)
+   = свободный проход</code></pre>
+    <p><strong>Напиши алгоритм:</strong> какие команды нужны черепашке, чтобы дойти до выхода? Считай каждую клетку = один <code>вперёд()</code>.</p>
+
+    <div class="code-input-block" data-check="вперёд|вправо">
+      <textarea class="code-textarea" rows="8" placeholder="# Напиши команды для черепашки:&#10;# вперёд(), влево(), вправо()"></textarea>
+      <button class="code-run-btn">▶ Проверить</button>
     </div>
-    <div class="quiz-feedback"></div>
-    <button class="quiz-retry">🔄 Попробовать снова</button>
+
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Один из путей: вправо 1 клетку, вниз до конца, вправо до финиша. Помни: чтобы пойти вниз, нужно сначала повернуться.</p>
+    </details>
+
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="fn">вперёд</span>()          <span class="cm"># вправо на 1</span>
+<span class="fn">вправо</span>()          <span class="cm"># теперь смотрим вниз</span>
+<span class="fn">вперёд</span>()
+<span class="fn">вперёд</span>()          <span class="cm"># прошли 2 клетки вниз</span>
+<span class="fn">влево</span>()           <span class="cm"># смотрим вправо</span>
+<span class="fn">вперёд</span>()
+<span class="fn">вперёд</span>()
+<span class="fn">вперёд</span>()          <span class="cm"># прошли 3 клетки вправо</span>
+<span class="fn">вправо</span>()          <span class="cm"># смотрим вниз</span>
+<span class="fn">вперёд</span>()          <span class="cm"># дошли до 🏁!</span></code></pre>
+    </details>
+
+    <p style="margin-top:1rem;"><strong>Бонусный вопрос:</strong> а есть ли другой путь? Если да — напиши его тоже. В программировании часто бывает несколько правильных решений.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.95rem;color:var(--text-dim);">Кстати, стратегия «правило правой руки» (всегда поворачивай направо, когда можешь) гарантированно выведет из любого лабиринта без островков. Запомни на будущее.</p>
   </div>
 
   <!-- REFLECTION -->
