@@ -409,51 +409,65 @@ function initLessonComplete() {
   });
 }
 
-// ===== CODE INPUT VALIDATION =====
-function initCodeInputs() {
-  document.querySelectorAll('.code-input-block').forEach(block => {
+// ===== FILL-IN-THE-BLANK VALIDATION =====
+function initFillBlanks() {
+  document.querySelectorAll('.fill-code-block').forEach(block => {
+    const taskId = block.dataset.taskId;
     const btn = block.querySelector('.code-run-btn');
-    const textarea = block.querySelector('.code-textarea');
-    if (!btn || !textarea) return;
-    const checks = (block.dataset.check || '').split('|').map(s => s.trim().toLowerCase()).filter(Boolean);
+    const inputs = block.querySelectorAll('.fill-blank');
     let feedback = block.querySelector('.code-feedback');
     if (!feedback) {
       feedback = document.createElement('div');
       feedback.className = 'code-feedback';
       block.appendChild(feedback);
     }
+
+    // Check if already completed
+    const state = MineCode.getState();
+    if (state.quizzesCompleted && state.quizzesCompleted['fill-' + taskId]) {
+      inputs.forEach(inp => {
+        inp.value = inp.dataset.answer.split('/')[0];
+        inp.disabled = true;
+        inp.classList.add('correct');
+      });
+      feedback.className = 'code-feedback show correct';
+      feedback.textContent = '✅ Уже решено!';
+      return;
+    }
+
     btn.addEventListener('click', () => {
-      const code = textarea.value.trim().toLowerCase();
-      if (!code) {
-        feedback.className = 'code-feedback show warning';
-        feedback.textContent = '✏️ Напиши свой код в поле выше';
-        return;
-      }
-      if (code.length < 10) {
-        feedback.className = 'code-feedback show warning';
-        feedback.textContent = '✏️ Маловато кода. Попробуй написать полное решение!';
-        return;
-      }
-      if (checks.length === 0) {
+      let allCorrect = true;
+      let wrongCount = 0;
+
+      inputs.forEach(inp => {
+        const expected = inp.dataset.answer.toLowerCase().trim();
+        const given = inp.value.toLowerCase().trim();
+        const acceptedAnswers = expected.split('/').map(a => a.trim());
+
+        if (acceptedAnswers.includes(given)) {
+          inp.classList.remove('wrong');
+          inp.classList.add('correct');
+        } else {
+          inp.classList.remove('correct');
+          inp.classList.add('wrong');
+          allCorrect = false;
+          wrongCount++;
+        }
+      });
+
+      if (allCorrect) {
         feedback.className = 'code-feedback show correct';
-        feedback.textContent = '✅ Код записан! Сравни с решением ниже.';
-        return;
-      }
-      const allMatch = checks.every(pattern => code.includes(pattern));
-      if (allMatch) {
-        feedback.className = 'code-feedback show correct';
-        feedback.textContent = '✅ Отлично! Похоже на правильное решение!';
-        MineCode.addXP(10, 'code-check');
+        feedback.textContent = '✅ Всё верно! Отличная работа!';
+        if (MineCode.completeQuiz('fill-' + taskId)) {
+          MineCode.addXP(15, 'fill-' + taskId);
+        }
+        inputs.forEach(inp => inp.disabled = true);
+      } else if (wrongCount === 1) {
+        feedback.className = 'code-feedback show wrong';
+        feedback.textContent = '🤔 Почти! Одно поле неправильно. Подсвечено красным.';
       } else {
         feedback.className = 'code-feedback show wrong';
-        const missingCount = checks.filter(p => !code.includes(p)).length;
-        if (missingCount === 1) {
-          feedback.textContent = '🤔 Почти! Не хватает одной детали. Открой подсказку, если застрял.';
-        } else if (missingCount <= 2) {
-          feedback.textContent = '🤔 На правильном пути! Не хватает пары элементов. Посмотри подсказки ниже.';
-        } else {
-          feedback.textContent = '💪 Хорошая попытка! Посмотри подсказки — они помогут разобраться.';
-        }
+        feedback.textContent = `💪 ${wrongCount} поля неверно. Красные поля нужно исправить.`;
       }
     });
   });
@@ -465,7 +479,15 @@ document.addEventListener('DOMContentLoaded', () => {
   MineCode.initParticles();
   initQuizzes();
   initBossQuiz();
-  initCodeInputs();
+  initFillBlanks();
   initLessonComplete();
+
+  // Anti-copypaste on solution blocks
+  document.querySelectorAll('details summary').forEach(s => {
+    s.parentElement.addEventListener('copy', e => {
+      e.preventDefault();
+      e.clipboardData.setData('text/plain', '🚫 Попробуй написать сам! Копировать решение — не учиться.');
+    });
+  });
   if (document.querySelector('.module-card')) updateCourseMap();
 });

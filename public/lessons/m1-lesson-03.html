@@ -90,25 +90,6 @@
       <tr><td><code>&gt;=</code></td><td>больше или равно</td><td><code>5 >= 5</code></td><td>True</td></tr>
       <tr><td><code>&lt;=</code></td><td>меньше или равно</td><td><code>3 <= 2</code></td><td>False</td></tr>
     </table>
-
-    <h3>Составные условия: and, or, not</h3>
-    <p>Иногда нужно проверить несколько вещей сразу:</p>
-    <pre><code><span class="fn">здоровье</span> = <span class="nb">5</span>
-<span class="fn">есть_еда</span> = <span class="kw">True</span>
-<span class="fn">рядом_крипер</span> = <span class="kw">False</span>
-
-<span class="cm"># И — оба условия должны быть верны</span>
-<span class="kw">if</span> здоровье < <span class="nb">10</span> <span class="kw">and</span> есть_еда:
-    <span class="fn">print</span>(<span class="st">"Ешь! У тебя мало HP"</span>)
-
-<span class="cm"># ИЛИ — достаточно одного</span>
-<span class="kw">if</span> здоровье < <span class="nb">5</span> <span class="kw">or</span> рядом_крипер:
-    <span class="fn">print</span>(<span class="st">"Пора валить!"</span>)
-
-<span class="cm"># НЕ — переворачивает условие</span>
-<span class="kw">if</span> <span class="kw">not</span> рядом_крипер:
-    <span class="fn">print</span>(<span class="st">"Можно расслабиться"</span>)</code></pre>
-    <p>Это как в Minecraft: ты идёшь в пещеру, если у тебя есть <strong>и</strong> кирка, <strong>и</strong> факелы. Или ты не идёшь, если <strong>нет</strong> еды <strong>или</strong> слишком мало HP.</p>
   </section>
 
   <!-- QUIZ 1 -->
@@ -130,142 +111,71 @@
     <h2><span class="section-icon">🔧</span> Практика</h2>
 
     <p><strong>Задание 1: Классификатор мобов</strong></p>
-    <p>Напиши код, который определяет тип моба. Враждебные: крипер, зомби, скелет. Нейтральные: волк, эндермен, паук. Остальные — дружелюбные.</p>
-    <div class="code-input-block" data-check="if|elif|else">
-      <textarea class="code-textarea" rows="8" placeholder="# Напиши свой код здесь..."></textarea>
+    <p>Заполни ключевые слова условий. Враждебные: крипер. Нейтральные: волк. Остальные — дружелюбные.</p>
+    <div class="fill-code-block" data-task-id="m1-03-t1">
+      <pre class="fill-code"><code><span class="fn">моб</span> = <span class="st">"волк"</span>
+
+<input class="fill-blank" data-answer="if" placeholder="???"> моб == <span class="st">"крипер"</span>:
+    тип = <span class="st">"враждебный"</span>
+<input class="fill-blank" data-answer="elif" placeholder="???"> моб == <span class="st">"волк"</span>:
+    тип = <span class="st">"нейтральный"</span>
+<input class="fill-blank" data-answer="else" placeholder="???">:
+    тип = <span class="st">"дружелюбный"</span></code></pre>
       <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
     </div>
-
-    <details class="hint-level-1">
-      <summary>💡 Подсказка 1 (лёгкая)</summary>
-      <p>Используй if для первой проверки, elif для следующих, else для всего остального</p>
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Первая проверка — if. Дополнительная проверка — elif. Всё остальное — else.</p>
     </details>
-    <details class="hint-level-2">
-      <summary>💡 Подсказка 2 (конкретнее)</summary>
-      <p>Проверяй имя моба через == . Враждебных мобов несколько — используй or</p>
-    </details>
-    <details class="hint-level-3">
-      <summary>💡 Подсказка 3 (почти ответ)</summary>
-      <p>if моб == "крипер" or моб == "зомби": → тип = "враждебный"</p>
-    </details>
-
     <details>
       <summary>✅ Решение</summary>
-      <pre><code><span class="fn">моб</span> = <span class="st">"волк"</span>
-
-<span class="kw">if</span> моб == <span class="st">"крипер"</span> <span class="kw">or</span> моб == <span class="st">"зомби"</span> <span class="kw">or</span> моб == <span class="st">"скелет"</span>:
+      <pre><code><span class="kw">if</span> моб == <span class="st">"крипер"</span>:
     тип = <span class="st">"враждебный"</span>
-<span class="kw">elif</span> моб == <span class="st">"волк"</span> <span class="kw">or</span> моб == <span class="st">"эндермен"</span> <span class="kw">or</span> моб == <span class="st">"паук"</span>:
+<span class="kw">elif</span> моб == <span class="st">"волк"</span>:
     тип = <span class="st">"нейтральный"</span>
 <span class="kw">else</span>:
-    тип = <span class="st">"дружелюбный"</span>
-
-<span class="fn">print</span>(<span class="st">f"{моб} — {тип}"</span>)  <span class="cm"># волк — нейтральный</span></code></pre>
+    тип = <span class="st">"дружелюбный"</span></code></pre>
     </details>
 
     <p><strong>Задание 2: Система дня и ночи</strong></p>
-    <p>В Minecraft цикл дня = 24000 тиков. По номеру тика определи время:</p>
-    <div class="code-input-block" data-check="if|elif|тик">
-      <textarea class="code-textarea" rows="8" placeholder="# Напиши свой код здесь..."></textarea>
-      <button class="code-run-btn">▶ Проверить</button>
-    </div>
+    <p>В Minecraft цикл дня = 24000 тиков. Заполни числа-границы:</p>
     <ul>
       <li>0-6000: утро ☀️</li>
       <li>6000-12000: день 🌞</li>
       <li>12000-18000: вечер 🌅</li>
-      <li>18000-24000: ночь 🌙 (мобы спавнятся!)</li>
+      <li>18000-24000: ночь 🌙</li>
     </ul>
+    <div class="fill-code-block" data-task-id="m1-03-t2">
+      <pre class="fill-code"><code><span class="fn">тик</span> = <span class="nb">14500</span>
 
-    <details class="hint-level-1">
-      <summary>💡 Подсказка 1 (лёгкая)</summary>
-      <p>Сравнивай тик с границами диапазонов: 6000, 12000, 18000</p>
+<span class="kw">if</span> тик < <input class="fill-blank" data-answer="6000" placeholder="???">:
+    время = <span class="st">"утро ☀️"</span>
+<span class="kw">elif</span> тик < <input class="fill-blank" data-answer="12000" placeholder="???">:
+    время = <span class="st">"день 🌞"</span>
+<span class="kw">elif</span> тик < <input class="fill-blank" data-answer="18000" placeholder="???">:
+    время = <span class="st">"вечер 🌅"</span>
+<span class="kw">else</span>:
+    время = <span class="st">"ночь 🌙"</span></code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Границы диапазонов: утро кончается на 6000, день — на 12000, вечер — на 18000.</p>
     </details>
-    <details class="hint-level-2">
-      <summary>💡 Подсказка 2 (конкретнее)</summary>
-      <p>if тик &lt; 6000 → утро, elif тик &lt; 12000 → день, и так далее</p>
-    </details>
-    <details class="hint-level-3">
-      <summary>💡 Подсказка 3 (почти ответ)</summary>
-      <p>Добавь отдельную проверку: if тик &gt;= 18000: print('Мобы спавнятся!')</p>
-    </details>
-
     <details>
       <summary>✅ Решение</summary>
-      <pre><code><span class="fn">тик</span> = <span class="nb">14500</span>
-
-<span class="kw">if</span> тик < <span class="nb">6000</span>:
+      <pre><code><span class="kw">if</span> тик < <span class="nb">6000</span>:
     время = <span class="st">"утро ☀️"</span>
 <span class="kw">elif</span> тик < <span class="nb">12000</span>:
     время = <span class="st">"день 🌞"</span>
 <span class="kw">elif</span> тик < <span class="nb">18000</span>:
     время = <span class="st">"вечер 🌅"</span>
 <span class="kw">else</span>:
-    время = <span class="st">"ночь 🌙"</span>
-
-<span class="fn">print</span>(<span class="st">f"Сейчас {время}"</span>)
-
-<span class="kw">if</span> тик >= <span class="nb">18000</span>:
-    <span class="fn">print</span>(<span class="st">"⚠️ Мобы спавнятся! Прячься или дерись!"</span>)</code></pre>
-    </details>
-
-    <p><strong>Задание 3: Может ли игрок крафтить?</strong></p>
-    <p>Для алмазной кирки нужно: 3 алмаза и 2 палки.</p>
-    <div class="code-input-block" data-check="алмазы|палки|and">
-      <textarea class="code-textarea" rows="8" placeholder="# Напиши свой код здесь..."></textarea>
-      <button class="code-run-btn">▶ Проверить</button>
-    </div>
-    <pre><code><span class="fn">алмазы</span> = <span class="nb">2</span>
-<span class="fn">палки</span> = <span class="nb">5</span>
-<span class="cm"># Можно ли скрафтить алмазную кирку?</span></code></pre>
-
-    <details class="hint-level-1">
-      <summary>💡 Подсказка 1 (лёгкая)</summary>
-      <p>Нужно проверить ДВА условия одновременно: хватает ли алмазов И палок</p>
-    </details>
-    <details class="hint-level-2">
-      <summary>💡 Подсказка 2 (конкретнее)</summary>
-      <p>Используй and: if алмазы &gt;= 3 and палки &gt;= 2</p>
-    </details>
-    <details class="hint-level-3">
-      <summary>💡 Подсказка 3 (почти ответ)</summary>
-      <p>Добавь elif для конкретной ошибки: elif алмазы &lt; 3: print('Не хватает алмазов')</p>
-    </details>
-
-    <details>
-      <summary>✅ Решение</summary>
-      <pre><code><span class="fn">алмазы</span> = <span class="nb">2</span>
-<span class="fn">палки</span> = <span class="nb">5</span>
-
-<span class="kw">if</span> алмазы >= <span class="nb">3</span> <span class="kw">and</span> палки >= <span class="nb">2</span>:
-    <span class="fn">print</span>(<span class="st">"Можно крафтить алмазную кирку!"</span>)
-<span class="kw">elif</span> алмазы < <span class="nb">3</span>:
-    <span class="fn">print</span>(<span class="st">f"Не хватает алмазов: нужно 3, есть {алмазы}"</span>)
-<span class="kw">elif</span> палки < <span class="nb">2</span>:
-    <span class="fn">print</span>(<span class="st">f"Не хватает палок: нужно 2, есть {палки}"</span>)</code></pre>
+    время = <span class="st">"ночь 🌙"</span></code></pre>
     </details>
   </section>
-
-  <!-- QUIZ 2 -->
-  <div class="quiz-block" data-quiz-id="m1-03-q2" data-correct="A" data-explanation="and требует, чтобы ОБА условия были True. 3 >= 3 — True, но 1 >= 2 — False. Значит False.">
-    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
-    <div class="quiz-question">
-      Что выведет код?
-      <pre><code><span class="fn">алмазы</span> = <span class="nb">3</span>
-<span class="fn">палки</span> = <span class="nb">1</span>
-<span class="kw">if</span> алмазы >= <span class="nb">3</span> <span class="kw">and</span> палки >= <span class="nb">2</span>:
-    <span class="fn">print</span>(<span class="st">"Крафтим!"</span>)
-<span class="kw">else</span>:
-    <span class="fn">print</span>(<span class="st">"Не хватает"</span>)</code></pre>
-    </div>
-    <div class="quiz-options">
-      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> "Не хватает"</div>
-      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> "Крафтим!"</div>
-      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Ошибку</div>
-      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Ничего</div>
-    </div>
-    <div class="quiz-feedback"></div>
-    <button class="quiz-retry">🔄 Попробовать снова</button>
-  </div>
 
   <!-- BUILD -->
   <section class="lesson-section">
@@ -345,7 +255,6 @@
       <ul>
         <li>✅ <code>if/elif/else</code> — программа может принимать решения</li>
         <li>✅ Операторы сравнения: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
-        <li>✅ <code>and</code>, <code>or</code>, <code>not</code> — составные условия</li>
         <li>✅ Вложенные условия — дерево решений</li>
       </ul>
       <p style="margin-top:1rem;"><strong>Где это в реальном мире:</strong></p>
@@ -353,10 +262,10 @@
         <li>Спам-фильтр почты: if содержит «вы выиграли миллион» → спам</li>
         <li>Автоматические двери: if датчик движения → открыть</li>
         <li>Светофор: if красный → стой, elif зелёный → иди</li>
-        <li>Рекомендации Netflix: if ты смотрел ужасы and оценка > 4 → покажем ещё ужасов</li>
       </ul>
       <p style="margin-top:1rem;"><strong>Fun fact:</strong> Вся логика любого компьютера сводится к двум операциям: сравнение (if) и переход (goto). Буквально всё. Игры, нейросети, операционные системы — просто очень много <code>if</code>. 🤯</p>
-      <p style="margin-top:1rem;"><strong>В следующем уроке:</strong> мы наконец избавимся от копипасты. Помнишь, как мы писали <code>вперёд()</code> пять раз подряд? Циклы решат эту проблему навсегда.</p>
+      <p style="margin-top:1rem;"><strong>В следующем уроке:</strong> составные условия — <code>and</code>, <code>or</code>, <code>not</code>. Когда нужно проверить несколько вещей одновременно.</p>
+      <p style="margin-top:1rem;"><strong>А потом:</strong> мы наконец избавимся от копипасты. Помнишь, как мы писали <code>вперёд()</code> пять раз подряд? Циклы решат эту проблему навсегда.</p>
     </div>
   </section>
 
