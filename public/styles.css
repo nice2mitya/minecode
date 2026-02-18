@@ -834,3 +834,30 @@ details > div, details > p, details > pre {
 
 
 /* (removed old hint-level styles) */
+
+/* ===== LESSON LOCKED OVERLAY ===== */
+.lesson-locked-overlay {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.lesson-locked-message .locked-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.lesson-locked-message h2 {
+  color: var(--text-dim);
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.lesson-locked-message p {
+  color: var(--text-dimmer);
+  font-size: 1.1rem;
+}

@@ -425,14 +425,78 @@ function initBossQuiz() {
   });
 }
 
+// ===== LESSON PREREQUISITES =====
+const LESSON_PREREQS = {
+  'm1-01': null,
+  'm1-02': 'm1-01',
+  'm1-03': 'm1-02',
+  'm1-04': 'm1-03',
+  'm1-05': 'm1-04',
+  'm1-06': 'm1-05',
+};
+
+function isLessonUnlocked(lessonId) {
+  const prereq = LESSON_PREREQS[lessonId];
+  if (!prereq) return true;
+  const state = MineCode.getState();
+  return state.lessonsCompleted.includes(prereq);
+}
+
+function initLessonLocking() {
+  const completeBtn = document.querySelector('.lesson-complete-btn');
+  if (!completeBtn) return;
+
+  const currentLesson = completeBtn.dataset.lessonId;
+  if (!currentLesson) return;
+
+  if (!isLessonUnlocked(currentLesson)) {
+    const prereq = LESSON_PREREQS[currentLesson];
+    const prereqNum = prereq.replace('m1-0', '1.');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lesson-locked-overlay';
+    overlay.innerHTML = `
+      <div class="lesson-locked-message">
+        <span class="locked-icon">🔒</span>
+        <h2>Урок заблокирован</h2>
+        <p>Сначала пройди урок ${prereqNum}</p>
+        <a href="/course-map" class="cta-btn" style="margin-top:1rem;font-size:0.9rem;">← Карта курса</a>
+      </div>
+    `;
+
+    const content = document.querySelector('.page-content');
+    if (content) {
+      const sections = content.querySelectorAll('.lesson-section, .quiz-block, .boss-block, .fill-code-block, .lesson-nav, .lesson-complete-btn, .reflection-box');
+      sections.forEach(s => s.style.display = 'none');
+
+      const header = content.querySelector('.lesson-header');
+      if (header) header.after(overlay);
+      else content.prepend(overlay);
+    }
+  }
+}
+
 // ===== COURSE MAP HELPERS =====
 function updateCourseMap() {
   const state = MineCode.getState();
-  document.querySelectorAll('.module-lessons li').forEach(li => {
+
+  document.querySelectorAll('.module-lessons li[data-lesson-id]').forEach(li => {
     const lessonId = li.dataset.lessonId;
-    if (lessonId && state.lessonsCompleted.includes(lessonId)) {
-      const icon = li.querySelector('.lesson-status-icon');
+    const icon = li.querySelector('.lesson-status-icon');
+    const link = li.querySelector('a');
+
+    if (state.lessonsCompleted.includes(lessonId)) {
       if (icon) icon.textContent = '✅';
+    } else if (isLessonUnlocked(lessonId)) {
+      if (icon) icon.textContent = '📖';
+    } else {
+      if (icon) icon.textContent = '🔒';
+      if (link) {
+        const span = document.createElement('span');
+        span.className = 'locked-lesson';
+        span.textContent = link.textContent;
+        link.replaceWith(span);
+      }
     }
   });
 
@@ -542,6 +606,7 @@ function initFillBlanks() {
 document.addEventListener('DOMContentLoaded', () => {
   MineCode.initHeader();
   MineCode.initParticles();
+  initLessonLocking();
   initQuizzes();
   initBossQuiz();
   initFillBlanks();
