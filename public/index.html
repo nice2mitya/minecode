@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MineCode — Программирование через Minecraft</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --green: #4CAF50;
+    --dark: #1a1a2e;
+    --darker: #0f0f1a;
+    --dirt: #8B6914;
+    --stone: #7f7f7f;
+    --diamond: #4AEDD9;
+    --gold: #FFD700;
+    --text: #e0e0e0;
+  }
+  
+  body {
+    background: var(--darker);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .bg-grid {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      linear-gradient(rgba(76, 175, 80, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(76, 175, 80, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    max-width: 720px;
+  }
+  
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .logo .mine { color: var(--green); }
+  .logo .code { color: var(--diamond); }
+  .logo .dot { color: var(--gold); }
+  
+  .tagline {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: #888;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+  
+  .blocks {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  
+  .block {
+    width: 140px;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+    cursor: default;
+  }
+  
+  .block:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.1);
+  }
+  
+  .block-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .block-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--green);
+    margin-bottom: 1.5rem;
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .subtitle {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .subtitle a {
+    color: var(--diamond);
+    text-decoration: none;
+  }
+  
+  .cursor-blink::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: var(--green);
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .pixel-particles {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .pixel {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--green);
+    opacity: 0;
+    animation: float-up 8s infinite;
+  }
+  
+  @keyframes float-up {
+    0% { transform: translateY(100vh); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-20px); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<div class="pixel-particles" id="particles"></div>
+
+<div class="container">
+  <div class="logo">
+    <span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span>
+  </div>
+  
+  <p class="tagline">
+    Бесплатный курс программирования для школьников.<br>
+    Через Minecraft. Без занудства.
+  </p>
+  
+  <div class="blocks">
+    <div class="block">
+      <span class="block-icon">🧱</span>
+      <span class="block-label">Блоки кода</span>
+    </div>
+    <div class="block">
+      <span class="block-icon">⚡</span>
+      <span class="block-label">Алгоритмы</span>
+    </div>
+    <div class="block">
+      <span class="block-icon">🏗️</span>
+      <span class="block-label">Архитектура</span>
+    </div>
+    <div class="block">
+      <span class="block-icon">🤖</span>
+      <span class="block-label">AI + Code</span>
+    </div>
+  </div>
+  
+  <div class="status">
+    <span class="status-dot"></span>
+    <span>crafting in progress<span class="cursor-blink"></span></span>
+  </div>
+  
+  <p class="subtitle">
+    Учим думать как программист, а не печатать синтаксис.<br>
+    Скоро здесь будет первый модуль. Stay tuned.
+  </p>
+</div>
+
+<script>
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 20; i++) {
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel';
+    pixel.style.left = Math.random() * 100 + '%';
+    pixel.style.animationDelay = Math.random() * 8 + 's';
+    pixel.style.animationDuration = (6 + Math.random() * 4) + 's';
+    const colors = ['#4CAF50', '#4AEDD9', '#FFD700', '#7f7f7f'];
+    pixel.style.background = colors[Math.floor(Math.random() * colors.length)];
+    container.appendChild(pixel);
+  }
+</script>
+
+</body>
+</html>
