@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 1.4: Циклы — MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 1 → Урок 1.4</div>
+    <h1 class="lesson-title">Циклы — строим стену за 3 секунды</h1>
+    <p class="lesson-subtitle">Зачем писать одно и то же 100 раз, если можно один раз и повторить?</p>
+  </div>
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Старт</h2>
+    <p>Помнишь, как ты писал <code>вперёд()</code> пять раз подряд в первом уроке? Представь, что нужно построить стену из 100 блоков. Писать <code>вперёд()</code> сто раз?</p>
+    <p><strong>Нет.</strong> Для этого есть циклы.</p>
+    <p>Цикл — это команда «повтори». Одна строка вместо ста. Программисты ленивы — и это их суперсила.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Теория: Цикл for</h2>
+
+    <h3>for i in range(n) — повтори n раз</h3>
+    <p>Самый частый цикл в Python. Говоришь «сколько раз повторить» — и он повторяет.</p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">10</span>):
+    <span class="fn">поставь_блок</span>()
+    <span class="fn">вперёд</span>()</code></pre>
+    <p>Minecraft-аналогия: поставь 10 блоков в ряд. Без цикла — 20 строк. С циклом — 3.</p>
+
+    <h3>range() — генератор чисел</h3>
+    <p><code>range(5)</code> даёт числа: <strong>0, 1, 2, 3, 4</strong></p>
+    <p>⚠️ Начинается с нуля! И заканчивается <em>до</em> указанного числа. <code>range(5)</code> — это 5 чисел, но последнее — 4, не 5.</p>
+
+    <h3>Переменная цикла i</h3>
+    <p><code>i</code> — это счётчик. На каждом шаге цикла он увеличивается. Как номер блока, который ты ставишь.</p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">print</span>(i)    <span class="cm"># выведет: 0, 1, 2, 3, 4</span></code></pre>
+
+    <h3>Вложенные циклы — стена!</h3>
+    <p>Стена = строки × столбцы. Цикл внутри цикла:</p>
+    <pre><code><span class="kw">for</span> строка <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):       <span class="cm"># 5 строк</span>
+    <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">10</span>):   <span class="cm"># 10 блоков в каждой</span>
+        <span class="fn">поставь_блок</span>()
+        <span class="fn">вперёд</span>()</code></pre>
+    <p>Итого: 5 × 10 = <strong>50 блоков</strong>. Две строки кода вместо пятидесяти.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q1" data-correct="B" data-explanation="range(3) даёт числа 0, 1, 2 — это ровно 3 итерации.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Сколько раз выполнится <code>for i in range(3)</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 2</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 3</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 4</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 0</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q2" data-correct="A" data-explanation="range(4) даёт 0, 1, 2, 3. print(i) выводит каждое число.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      Что выведет этот код?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">4</span>):
+    <span class="fn">print</span>(i)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 0 1 2 3</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 1 2 3 4</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 0 1 2 3 4</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 4</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика: Строим циклами</h2>
+
+    <p><strong>Задача 1:</strong> Построй линию из 7 блоков.</p>
+    <div class="fill-code-block" data-task-id="m1-04-t1">
+      <pre class="fill-code"><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="7" placeholder="???">):
+    <span class="fn">поставь_блок</span>()
+    <input class="fill-blank" data-answer="вперёд" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Нужно 7 блоков — значит range(???). После каждого блока черепашка делает шаг вперёд.</p>
+    </details>
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">7</span>):
+    <span class="fn">поставь_блок</span>()
+    <span class="fn">вперёд</span>()</code></pre>
+    </details>
+
+    <p><strong>Задача 2:</strong> Построй стену 4 высоты × 6 ширины (вложенный цикл).</p>
+    <div class="fill-code-block" data-task-id="m1-04-t2">
+      <pre class="fill-code"><code><span class="kw">for</span> строка <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="4" placeholder="???">):
+    <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="6" placeholder="???">):
+        <span class="fn">поставь_блок</span>()
+        <span class="fn">вперёд</span>()
+    <span class="cm"># переход на следующий ряд</span></code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Высота = количество строк (внешний цикл). Ширина = количество блоков в каждой строке (внутренний цикл).</p>
+    </details>
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="kw">for</span> строка <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">4</span>):
+    <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">6</span>):
+        <span class="fn">поставь_блок</span>()
+        <span class="fn">вперёд</span>()
+    <span class="cm"># переход на следующий ряд</span></code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q3" data-correct="C" data-explanation="Вложенный цикл: 3 × 5 = 15 блоков. Внешний цикл повторяется 3 раза, внутренний — 5 раз на каждую итерацию.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      Сколько блоков поставит этот код?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">3</span>):
+    <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">поставь_блок</span>()</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 8</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 5</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 15</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 3</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: Стена в действии</h2>
+    <p>Представь: ты написал 3 строки кода, нажал «запустить» — и черепашка сама построила стену из 24 блоков. Без единого ручного клика.</p>
+    <p>Вот что делают циклы: <strong>превращают минуты ручной работы в секунды автоматической</strong>. Это как разница между тем, чтобы копать алмазы руками и использовать кирку с Efficiency V.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-04-boss" data-xp="75">
+    <div class="boss-header">👹 Босс: Пиксель-арт <span class="boss-xp">+75 XP</span></div>
+    <p>Черепашка рисует квадрат 5×5 из блоков. Заполни пропуски:</p>
+
+    <div class="fill-code-block" data-task-id="m1-04-boss">
+      <pre class="fill-code"><code><span class="kw">for</span> строка <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+    <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+        <span class="fn">поставь_блок</span>()
+        <span class="fn">вперёд</span>()
+    <span class="cm"># вернуться в начало ряда и подняться</span>
+    <input class="fill-blank" data-answer="развернись" placeholder="???">()</code>
+<code>    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">вперёд</span>()
+    <input class="fill-blank" data-answer="развернись" placeholder="???">()</code>
+<code>    <span class="fn">вверх</span>()</code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Квадрат 5×5 — оба range() одинаковые. После каждого ряда черепашка разворачивается, идёт назад, снова разворачивается и поднимается на один блок вверх.</p>
+    </details>
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="kw">for</span> строка <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">поставь_блок</span>()
+        <span class="fn">вперёд</span>()
+    <span class="fn">развернись</span>()
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">вперёд</span>()
+    <span class="fn">развернись</span>()
+    <span class="fn">вверх</span>()</code></pre>
+    </details>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Итоги</h2>
+      <p><strong>Теперь ты знаешь:</strong></p>
+      <ul>
+        <li>✅ <code>for i in range(n)</code> — повтори n раз</li>
+        <li>✅ <code>range(5)</code> даёт числа 0, 1, 2, 3, 4</li>
+        <li>✅ Вложенные циклы — цикл внутри цикла (строки × столбцы)</li>
+        <li>✅ Циклы превращают 100 строк в 3</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Циклы в реальном мире:</strong></p>
+      <ul>
+        <li>📧 Спам-фильтр проверяет каждое письмо — цикл</li>
+        <li>🖥️ Пиксели экрана обновляются 60 раз/сек — цикл</li>
+        <li>⛏️ Minecraft генерирует чанки — вложенные циклы</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>В следующем уроке:</strong> научимся создавать свои команды — функции. Написал один раз, используешь сколько хочешь.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-04">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/lessons/m1-lesson-03">← Урок 1.3: Условия</a>
+    <a href="/lessons/m1-lesson-05">Урок 1.5: Функции →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

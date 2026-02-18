@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 1.5: Функции — MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 1 → Урок 1.5</div>
+    <h1 class="lesson-title">Функции — создаём свои команды</h1>
+    <p class="lesson-subtitle">Написал один раз — вызываешь сколько хочешь.</p>
+  </div>
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Старт</h2>
+    <p>Ты уже умеешь строить стену. А если нужно 10 разных стен в разных местах? Копировать код 10 раз?</p>
+    <p><strong>Нет.</strong> Ты создаёшь функцию — свою собственную команду. Написал один раз, вызываешь сколько хочешь.</p>
+    <p>Функция — это как рецепт крафта. Один раз записал рецепт кирки — и крафтишь сколько угодно кирок, не вспоминая каждый раз расположение ингредиентов.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Теория: Функции</h2>
+
+    <h3>def имя(): — создаём функцию</h3>
+    <p>Ключевое слово <code>def</code> (от «define» — определить) создаёт новую команду:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">построй_дом</span>():
+    <span class="fn">поставь_стены</span>()
+    <span class="fn">поставь_крышу</span>()
+    <span class="fn">поставь_дверь</span>()</code></pre>
+    <p>Теперь <code>построй_дом()</code> — твоя личная команда. Один раз написал — строишь дома везде:</p>
+    <pre><code><span class="fn">построй_дом</span>()   <span class="cm"># дом №1</span>
+<span class="fn">вперёд</span>()
+<span class="fn">построй_дом</span>()   <span class="cm"># дом №2</span>
+<span class="fn">вперёд</span>()
+<span class="fn">построй_дом</span>()   <span class="cm"># дом №3</span></code></pre>
+
+    <h3>Параметры — настраиваемые функции</h3>
+    <p>Хочешь стены разного размера? Добавь параметры:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">построй_стену</span>(ширина, высота):
+    <span class="kw">for</span> строка <span class="kw">in</span> <span class="fn">range</span>(высота):
+        <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(ширина):
+            <span class="fn">поставь_блок</span>()
+
+<span class="fn">построй_стену</span>(<span class="nb">10</span>, <span class="nb">5</span>)   <span class="cm"># стена 10×5</span>
+<span class="fn">построй_стену</span>(<span class="nb">3</span>, <span class="nb">20</span>)    <span class="cm"># башня 3×20</span></code></pre>
+    <p>Параметры — как ингредиенты в рецепте. Разные ингредиенты → разный результат.</p>
+
+    <h3>return — результат функции</h3>
+    <p>Функция может не только делать что-то, но и <strong>возвращать результат</strong>:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">площадь</span>(a, b):
+    <span class="kw">return</span> a * b
+
+результат = <span class="fn">площадь</span>(<span class="nb">10</span>, <span class="nb">5</span>)   <span class="cm"># результат = 50</span></code></pre>
+    <p><strong>Аналогия:</strong> функция = рецепт крафта. Параметры = ингредиенты. <code>return</code> = результат крафта.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q1" data-correct="B" data-explanation="def (от define) создаёт новую функцию — твою собственную команду, которую можно вызывать сколько угодно раз.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что делает ключевое слово <code>def</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Удаляет переменную</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Создаёт новую функцию (команду)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Запускает цикл</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Выводит текст на экран</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q2" data-correct="C" data-explanation="удвой(5) подставляет x = 5 в формулу x * 2, получается 10.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      Что вернёт вызов <code>удвой(5)</code>?
+      <pre><code><span class="kw">def</span> <span class="fn">удвой</span>(x):
+    <span class="kw">return</span> x * <span class="nb">2</span></code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 5</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 2</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 10</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Ошибку</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика: Создаём функции</h2>
+
+    <p><strong>Задача 1:</strong> Создай функцию <code>линия</code>, которая строит линию заданной длины.</p>
+    <div class="fill-code-block" data-task-id="m1-05-t1">
+      <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">линия</span>(длина):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(длина):
+        <span class="fn">поставь_блок</span>()
+        <input class="fill-blank" data-answer="вперёд" placeholder="???">()</code>
+<code>
+<span class="fn">линия</span>(<input class="fill-blank" data-answer="5/10/7/3/8/4/6/9" placeholder="???">)</code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Чтобы создать функцию, нужно ключевое слово из трёх букв. После каждого блока черепашка шагает вперёд. Вызвать функцию можно с любым числом.</p>
+    </details>
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">линия</span>(длина):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(длина):
+        <span class="fn">поставь_блок</span>()
+        <span class="fn">вперёд</span>()
+
+<span class="fn">линия</span>(<span class="nb">5</span>)</code></pre>
+    </details>
+
+    <p><strong>Задача 2:</strong> Функция с return — посчитай площадь стены.</p>
+    <div class="fill-code-block" data-task-id="m1-05-t2">
+      <pre class="fill-code"><code><span class="kw">def</span> <span class="fn">площадь_стены</span>(ширина, высота):
+    <input class="fill-blank" data-answer="return" placeholder="???"> ширина * высота</code>
+<code>
+блоков = <span class="fn">площадь_стены</span>(<span class="nb">10</span>, <input class="fill-blank" data-answer="5/4/3/6/7/8" placeholder="???">)
+<span class="fn">print</span>(блоков)</code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Чтобы функция вернула результат, используй ключевое слово из 6 букв. Второй параметр — любое число (высота стены).</p>
+    </details>
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">площадь_стены</span>(ширина, высота):
+    <span class="kw">return</span> ширина * высота
+
+блоков = <span class="fn">площадь_стены</span>(<span class="nb">10</span>, <span class="nb">5</span>)
+<span class="fn">print</span>(блоков)   <span class="cm"># 50</span></code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q3" data-correct="A" data-explanation="Да! Вызов функции внутри другой функции — это основа программирования. Так строятся сложные программы из простых кирпичиков.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Можно ли вызвать функцию внутри другой функции?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Да, это основа программирования</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Нет, будет ошибка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Только если функция маленькая</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Только в Python 4</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: Свои команды в действии</h2>
+    <p>Ты только что создал свои первые функции. Теперь у тебя есть <code>линия()</code> и <code>площадь_стены()</code> — команды, которых не существовало до тебя.</p>
+    <p>Знаешь что? <strong>print() — тоже функция.</strong> Просто её написал кто-то до тебя. А <code>range()</code>, которую ты использовал в прошлом уроке? Тоже функция! Кто-то её создал, чтобы тебе не пришлось.</p>
+    <p>Программирование — это создание новых инструментов из существующих. Как крафт в Minecraft: из базовых ресурсов → сложные предметы.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-05-boss" data-xp="100">
+    <div class="boss-header">👹 Босс: Автоматическая ферма <span class="boss-xp">+100 XP</span></div>
+    <p>Создай функцию, которая строит грядку заданного размера и засаживает её:</p>
+
+    <div class="fill-code-block" data-task-id="m1-05-boss">
+      <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">построй_грядку</span>(длина, ширина):
+    <span class="kw">for</span> ряд <span class="kw">in</span> <span class="fn">range</span>(ширина):
+        <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(длина):
+            <span class="fn">вскопай</span>()
+            <input class="fill-blank" data-answer="посади" placeholder="???">()</code>
+<code>            <span class="fn">вперёд</span>()
+        <span class="fn">следующий_ряд</span>()</code>
+<code>
+<span class="fn">построй_грядку</span>(<input class="fill-blank" data-answer="8/5/10/6/7/4/3/9" placeholder="???">, <input class="fill-blank" data-answer="4/3/5/6/8/2/7" placeholder="???">)</code></pre>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Подсказка</summary>
+      <p>Функция начинается с def. После вскопай() нужно посадить семена. Вызвать функцию можно с любыми размерами грядки.</p>
+    </details>
+    <details>
+      <summary>✅ Решение</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">построй_грядку</span>(длина, ширина):
+    <span class="kw">for</span> ряд <span class="kw">in</span> <span class="fn">range</span>(ширина):
+        <span class="kw">for</span> блок <span class="kw">in</span> <span class="fn">range</span>(длина):
+            <span class="fn">вскопай</span>()
+            <span class="fn">посади</span>()
+            <span class="fn">вперёд</span>()
+        <span class="fn">следующий_ряд</span>()
+
+<span class="fn">построй_грядку</span>(<span class="nb">8</span>, <span class="nb">4</span>)</code></pre>
+    </details>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Итоги</h2>
+      <p><strong>Теперь ты знаешь:</strong></p>
+      <ul>
+        <li>✅ <code>def</code> — создаёт новую функцию</li>
+        <li>✅ Параметры — делают функцию настраиваемой</li>
+        <li>✅ <code>return</code> — возвращает результат</li>
+        <li>✅ Функция = написал один раз, используешь везде</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Функции в реальном мире:</strong></p>
+      <ul>
+        <li>📱 Каждая кнопка в приложении = вызов функции</li>
+        <li>🖨️ <code>print()</code> — тоже функция (просто написана кем-то до тебя)</li>
+        <li>⛏️ Весь Minecraft = тысячи функций, вызывающих друг друга</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Fun fact:</strong> Функция <code>range()</code>, которую ты уже использовал — это тоже функция! Кто-то её написал, чтобы тебе не пришлось. 🤯</p>
+      <p style="margin-top:1rem;"><strong>Ты прошёл все основы Модуля 1!</strong> Алгоритмы, переменные, условия, циклы, функции — это фундамент любого языка программирования. Дальше — структуры данных и паттерны.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-05">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/lessons/m1-lesson-04">← Урок 1.4: Циклы</a>
+    <a href="/course-map">Карта курса →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>
