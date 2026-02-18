@@ -409,12 +409,51 @@ function initLessonComplete() {
   });
 }
 
+// ===== CODE INPUT VALIDATION =====
+function initCodeInputs() {
+  document.querySelectorAll('.code-input-block').forEach(block => {
+    const btn = block.querySelector('.code-run-btn');
+    const textarea = block.querySelector('.code-textarea');
+    if (!btn || !textarea) return;
+    const checks = (block.dataset.check || '').split('|').map(s => s.trim().toLowerCase()).filter(Boolean);
+    let feedback = block.querySelector('.code-feedback');
+    if (!feedback) {
+      feedback = document.createElement('div');
+      feedback.className = 'code-feedback';
+      block.appendChild(feedback);
+    }
+    btn.addEventListener('click', () => {
+      const code = textarea.value.trim().toLowerCase();
+      if (!code) {
+        feedback.className = 'code-feedback show warning';
+        feedback.textContent = '✏️ Напиши свой код в поле выше';
+        return;
+      }
+      if (checks.length === 0) {
+        feedback.className = 'code-feedback show correct';
+        feedback.textContent = '✅ Код записан! Сравни с решением ниже.';
+        return;
+      }
+      const allMatch = checks.every(pattern => code.includes(pattern));
+      if (allMatch) {
+        feedback.className = 'code-feedback show correct';
+        feedback.textContent = '✅ Отлично! Похоже на правильное решение!';
+        MineCode.addXP(10, 'code-check');
+      } else {
+        feedback.className = 'code-feedback show wrong';
+        feedback.textContent = '🤔 Почти! Проверь: используешь ли ты нужные команды? Попробуй ещё раз.';
+      }
+    });
+  });
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   MineCode.initHeader();
   MineCode.initParticles();
   initQuizzes();
   initBossQuiz();
+  initCodeInputs();
   initLessonComplete();
   if (document.querySelector('.module-card')) updateCourseMap();
 });
