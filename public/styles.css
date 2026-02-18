@@ -795,3 +795,9 @@ details > div, details > p, details > pre {
   border: 1px solid rgba(255,215,0,0.3);
   color: var(--gold);
 }
+
+
+/* Multi-level hint progression */
+.hint-level-1 summary { color: var(--diamond); }
+.hint-level-2 summary { color: var(--gold); }
+.hint-level-3 summary { color: var(--green); font-weight: 600; }

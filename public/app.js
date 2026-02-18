@@ -429,6 +429,11 @@ function initCodeInputs() {
         feedback.textContent = '✏️ Напиши свой код в поле выше';
         return;
       }
+      if (code.length < 10) {
+        feedback.className = 'code-feedback show warning';
+        feedback.textContent = '✏️ Маловато кода. Попробуй написать полное решение!';
+        return;
+      }
       if (checks.length === 0) {
         feedback.className = 'code-feedback show correct';
         feedback.textContent = '✅ Код записан! Сравни с решением ниже.';
@@ -441,7 +446,14 @@ function initCodeInputs() {
         MineCode.addXP(10, 'code-check');
       } else {
         feedback.className = 'code-feedback show wrong';
-        feedback.textContent = '🤔 Почти! Проверь, что используешь все нужные переменные. Загляни в подсказку если застрял.';
+        const missingCount = checks.filter(p => !code.includes(p)).length;
+        if (missingCount === 1) {
+          feedback.textContent = '🤔 Почти! Не хватает одной детали. Открой подсказку, если застрял.';
+        } else if (missingCount <= 2) {
+          feedback.textContent = '🤔 На правильном пути! Не хватает пары элементов. Посмотри подсказки ниже.';
+        } else {
+          feedback.textContent = '💪 Хорошая попытка! Посмотри подсказки — они помогут разобраться.';
+        }
       }
     });
   });
