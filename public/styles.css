@@ -460,8 +460,9 @@ details > div, details > p, details > pre {
 }
 
 .module-header {
-  display: flex; align-items: center; gap: 0.75rem;
+  display: flex; align-items: flex-start; gap: 0.75rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .module-number {
@@ -499,6 +500,15 @@ details > div, details > p, details > pre {
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.03);
   font-size: 0.9rem;
+  flex-wrap: nowrap;
+}
+
+.lesson-time {
+  color: var(--text-dimmer);
+  font-size: 0.8rem;
+  margin-left: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .module-lessons li:last-child { border-bottom: none; }
@@ -686,6 +696,52 @@ details > div, details > p, details > pre {
 
 .reflection-box li {
   padding: 0.3rem 0;
+}
+
+/* ===== CODE INPUT ===== */
+.code-input-block {
+  margin: 1rem 0;
+}
+
+.code-textarea {
+  width: 100%;
+  min-height: 120px;
+  background: var(--darkest);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  resize: vertical;
+  -webkit-appearance: none;
+}
+
+.code-textarea:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.code-textarea::placeholder {
+  color: var(--text-dimmer);
+}
+
+.code-run-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--green);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.code-run-btn:hover {
+  background: var(--green-dark);
 }
 
 /* ===== FOOTER ===== */
