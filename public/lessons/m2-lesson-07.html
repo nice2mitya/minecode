@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👹 Boss 2.7: Система инвентаря</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 2 → Boss Level 2.7</div>
+    <h1 class="lesson-title">👹 Boss Level: Система инвентаря</h1>
+    <p class="lesson-subtitle">Финальный проект модуля: архитектура инвентаря с поиском, фильтрами и событиями.</p>
+  </div>
+
+  <img src="/images/hero.png" alt="👹 Boss Level: Система инвентаря" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>Ты строишь полноценную систему инвентаря, как в реальной игре: структура данных + события + состояния + модульность.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p>Проект объединяет всё из модуля:<br>- массивы и словари для хранения предметов;<br>- вложенные структуры для категорий;<br>- Observer для обновления UI;<br>- State для режимов инвентаря;<br>- модульность для масштабирования.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m2-07-q1" data-correct="B" data-explanation="Словарь по id даёт прямой доступ.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Какая структура лучше для быстрого доступа к предмету по id?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> list без индексов</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> dict по ключу id</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> только строка</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> случайный массив</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика</h2>
+    <p><strong>Этап 1: заполни ключи предмета: id и rarity.</strong></p>
+    <div class="fill-code-block" data-task-id="m2-07-t1">
+      <pre class="fill-code"><code>item = {"id": "iron_sword", "rarity": "rare"}
+print(item)</code></pre>
+      <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: id/rarity.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Этап 2: допиши режимы состояния инвентаря.</strong></p>
+    <div class="fill-code-block" data-task-id="m2-07-t2">
+      <pre class="fill-code"><code>state = "browse"
+if click_item:
+    state = "equip"</code></pre>
+      <p>Проверь себя: browse/equip.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m2-07-q2" data-correct="B" data-explanation="Выбор — это событие, которое меняет состояние интерфейса.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что должно происходить при выборе предмета?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Ничего</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Событие + обновление состояния/UI</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Сброс всего инвентаря</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Удаление всех предметов</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: мини-проект</h2>
+    <p>Собери итоговый прототип: список предметов + фильтр по редкости + поиск по имени + событие on_item_selected + переключение состояния browse/equip/sort.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m2-07-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Boss финал <span class="boss-xp">+120 XP</span></div>
+    <p>Финальная проверка модуля: архитектурное мышление, контроль качества и рабочий прототип.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Сделать без структуры, потом чинить</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Сначала план, затем реализация и проверка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Копировать решение без понимания</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пропустить тесты ради скорости</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ты прошёл архитектурный модуль: умеешь собирать систему из компонентов, а не просто писать отдельные куски кода.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m2-07">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/lessons/m2-lesson-06">← Модульность — блоки Redstone</a>
+    <a href="/lessons/m3-lesson-01">Линейный поиск — ищем алмазы →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

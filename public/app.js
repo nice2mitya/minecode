@@ -458,6 +458,26 @@ const LESSON_PREREQS = {
   'm1-04': 'm1-03',
   'm1-05': 'm1-04',
   'm1-06': 'm1-05',
+  'm2-01': 'm1-06',
+  'm2-02': 'm2-01',
+  'm2-03': 'm2-02',
+  'm2-04': 'm2-03',
+  'm2-05': 'm2-04',
+  'm2-06': 'm2-05',
+  'm2-07': 'm2-06',
+  'm3-01': 'm2-07',
+  'm3-02': 'm3-01',
+  'm3-03': 'm3-02',
+  'm3-04': 'm3-03',
+  'm3-05': 'm3-04',
+  'm3-06': 'm3-05',
+  'm3-07': 'm3-06',
+  'm4-01': 'm3-07',
+  'm4-02': 'm4-01',
+  'm4-03': 'm4-02',
+  'm4-04': 'm4-03',
+  'm4-05': 'm4-04',
+  'm4-06': 'm4-05',
 };
 
 function isLessonUnlocked(lessonId) {
@@ -476,7 +496,7 @@ function initLessonLocking() {
 
   if (!isLessonUnlocked(currentLesson)) {
     const prereq = LESSON_PREREQS[currentLesson];
-    const prereqNum = prereq.replace('m1-0', '1.');
+    const prereqNum = prereq.replace('m', '').replace('-', '.');
 
     const overlay = document.createElement('div');
     overlay.className = 'lesson-locked-overlay';

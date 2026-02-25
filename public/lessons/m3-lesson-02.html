@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 3.2: Бинарный поиск</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 3 → Урок 3.2</div>
+    <h1 class="lesson-title">Бинарный поиск</h1>
+    <p class="lesson-subtitle">Ищем быстро в отсортированных данных, деля диапазон пополам.</p>
+  </div>
+
+  <img src="/images/hero.png" alt="Бинарный поиск" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>Ищешь книгу в алфавитном каталоге: открыл середину, понял в какую половину идти, повторил.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p>Бинарный поиск работает только на отсортированных данных.<br>Шаги:<br>1) взять середину;<br>2) сравнить с целью;<br>3) отбросить половину диапазона.<br><br>Сложность: O(log n).</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-02-q1" data-correct="A" data-explanation="Без сортировки бинарный поиск ломается.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Главное требование бинарного поиска?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Список должен быть отсортирован</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Список должен быть коротким</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Нужны только числа</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Нельзя использовать циклы</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика</h2>
+    <p><strong>Задание 1: укажи обязательное условие для бинарного поиска.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-02-t1">
+      <pre class="fill-code"><code>данные = "отсортирован"
+print(данные)</code></pre>
+      <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: отсортирован.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Задание 2: заполни формулу индекса середины.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-02-t2">
+      <pre class="fill-code"><code>mid = (left + right) // 2</code></pre>
+      <p>Проверь себя: 2.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-02-q2" data-correct="A" data-explanation="Каждый шаг сокращает область поиска в 2 раза.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Почему O(log n) быстрее O(n)?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Потому что делим диапазон пополам</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Потому что код короче</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Потому что меньше памяти</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Потому что Python быстрее</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: мини-проект</h2>
+    <p>Напиши функцию binary_search(scores, target) для отсортированного списка уровней игроков.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-02-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Мини-босс <span class="boss-xp">+120 XP</span></div>
+    <p>Комбинируем текущую тему с предыдущими навыками.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Сделать без структуры, потом чинить</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Сначала план, затем реализация и проверка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Копировать решение без понимания</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пропустить тесты ради скорости</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ты освоил ускоренный поиск и ключевую идею «уменьшаем задачу вдвое».</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-02">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/lessons/m3-lesson-01">← Линейный поиск — ищем алмазы</a>
+    <a href="/lessons/m3-lesson-03">Сортировка — порядок в сундуке →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

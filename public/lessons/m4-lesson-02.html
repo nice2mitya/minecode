@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 4.2: Prompt engineering</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 4 → Урок 4.2</div>
+    <h1 class="lesson-title">Prompt engineering — говори с AI точно</h1>
+    <p class="lesson-subtitle">Учимся ставить задачу AI так, чтобы ответ был проверяемым и полезным.</p>
+  </div>
+
+  <img src="/images/hero.png" alt="Prompt engineering — говори с AI точно" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>Команда /give в Minecraft работает, только если параметры точные. С AI так же: неясный запрос = неясный результат.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p>Хороший промпт включает:<br>- роль/контекст;<br>- конкретную цель;<br>- входные данные;<br>- формат ответа;<br>- критерии проверки.<br><br>Не «сделай красиво», а «дай 3 варианта API с плюсами/минусами».</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-02-q1" data-correct="B" data-explanation="Расплывчатый запрос даёт расплывчатый ответ.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что обычно ухудшает ответ AI?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Чёткие ограничения</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Неопределённая постановка задачи</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Явный формат вывода</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Контекст проекта</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика</h2>
+    <p><strong>Задание 1: добавь обязательный блок «формат ответа».</strong></p>
+    <div class="fill-code-block" data-task-id="m4-02-t1">
+      <pre class="fill-code"><code>prompt = "... формат: таблица из 3 пунктов"</code></pre>
+      <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: формат.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Задание 2: укажи требование к верификации.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-02-t2">
+      <pre class="fill-code"><code>prompt += " + проверка граничных случаев"</code></pre>
+      <p>Проверь себя: проверка.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-02-q2" data-correct="B" data-explanation="Тесты делают результат проверяемым.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что полезно добавить в промпт для кода?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Только "быстрее"</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Тест-кейсы и критерии приёмки</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Меньше информации</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Случайные факты</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: мини-проект</h2>
+    <p>Перепиши слабый промпт «сделай систему крафта» в сильный: требования, интерфейс, тест-кейсы, ограничения.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-02-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Мини-босс <span class="boss-xp">+120 XP</span></div>
+    <p>Комбинируем текущую тему с предыдущими навыками.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Сделать без структуры, потом чинить</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Сначала план, затем реализация и проверка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Копировать решение без понимания</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пропустить тесты ради скорости</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ты научился управлять качеством AI-ответа через структуру запроса.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-02">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/lessons/m4-lesson-01">← Что такое AI (без магии)</a>
+    <a href="/lessons/m4-lesson-03">Читаем код AI — как ревьюер →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 4.5: Когда AI врёт</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 4 → Урок 4.5</div>
+    <h1 class="lesson-title">Когда AI врёт — критическое мышление</h1>
+    <p class="lesson-subtitle">Распознаём галлюцинации и строим процесс верификации.</p>
+  </div>
+
+  <img src="/images/hero.png" alt="Когда AI врёт — критическое мышление" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>AI может уверенно говорить неправду. Опасность не в ошибке, а в уверенном тоне.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p>Типовые риски:<br>- выдуманные API/факты;<br>- неверные ссылки;<br>- пропуск ограничений задачи.<br><br>Противоядие:<br>- проверяем источники;<br>- запускаем код;<br>- сверяем с документацией;<br>- задаём уточняющие вопросы.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-05-q1" data-correct="C" data-explanation="Галлюцинация = уверенная выдумка.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что такое галлюцинация AI?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Красивый дизайн ответа</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Правильный ответ без источника</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Убедительно звучащая, но ложная информация</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Любой длинный ответ</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика</h2>
+    <p><strong>Задание 1: укажи действие при сомнительном ответе AI.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-05-t1">
+      <pre class="fill-code"><code>action = "проверить по документации"</code></pre>
+      <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: проверить.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Задание 2: допиши метод защиты от фейкового API.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-05-t2">
+      <pre class="fill-code"><code>source = "официальная дока"</code></pre>
+      <p>Проверь себя: официальная дока.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-05-q2" data-correct="B" data-explanation="Нужны практическая проверка и первоисточник.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Самый надёжный способ проверки кода от AI?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Поверить на слово</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Запустить тесты и сверить с документацией</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Спросить у другого AI и всё</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Скопировать без чтения</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: мини-проект</h2>
+    <p>Собери личный «протокол верификации AI» из 6 пунктов и примени к одному примеру ответа модели.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-05-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Мини-босс <span class="boss-xp">+120 XP</span></div>
+    <p>Комбинируем текущую тему с предыдущими навыками.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Сделать без структуры, потом чинить</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Сначала план, затем реализация и проверка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Копировать решение без понимания</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пропустить тесты ради скорости</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ты прокачал иммунитет к галлюцинациям AI и научился отделять уверенный текст от проверенного знания.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-05">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/lessons/m4-lesson-04">← Vibe coding — итеративная разработка с AI</a>
+    <a href="/lessons/m4-lesson-06">👹 Boss Level: Свой проект с AI →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

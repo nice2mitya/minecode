@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 4.1: Что такое AI (без магии)</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 4 → Урок 4.1</div>
+    <h1 class="lesson-title">Что такое AI (без магии)</h1>
+    <p class="lesson-subtitle">Разбираем AI как инструмент поиска паттернов, а не «волшебный мозг».</p>
+  </div>
+
+  <img src="/images/hero.png" alt="Что такое AI (без магии)" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>AI кажется магией, пока не разложишь его на шаги: данные, обучение, проверка, применение.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p>AI-модель учится находить закономерности в данных.<br><br>Важно помнить:<br>- модель не «понимает мир» как человек;<br>- она предсказывает наиболее вероятный ответ;<br>- качество зависит от данных и проверки.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-01-q1" data-correct="B" data-explanation="Модель статистически предсказывает вероятный ответ.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что делает модель в основе?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Делает магию</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Предсказывает по паттернам</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Всегда знает правду</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пишет только стихи</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика</h2>
+    <p><strong>Задание 1: заполни три этапа: данные → обучение → проверка.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-01-t1">
+      <pre class="fill-code"><code>pipeline = ["данные", "обучение", "проверка"]
+print(pipeline)</code></pre>
+      <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: данные/обучение.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Задание 2: впиши слово для результата модели.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-01-t2">
+      <pre class="fill-code"><code>result = "предсказание"</code></pre>
+      <p>Проверь себя: предсказание.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-01-q2" data-correct="B" data-explanation="Мусор на входе — мусор на выходе.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">От чего сильнее всего зависит качество модели?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> От цвета интерфейса</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> От данных и валидации</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> От длины названия</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> От количества эмодзи</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: мини-проект</h2>
+    <p>Составь мини-кейс: «AI помогает сортировать тикеты поддержки». Опиши данные, метрику качества и риск ошибки.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-01-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Мини-босс <span class="boss-xp">+120 XP</span></div>
+    <p>Комбинируем текущую тему с предыдущими навыками.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Сделать без структуры, потом чинить</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Сначала план, затем реализация и проверка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Копировать решение без понимания</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пропустить тесты ради скорости</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Теперь ты смотришь на AI как инженер: оцениваешь входы, ограничения и критерии качества.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-01">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/lessons/m3-lesson-07">← 👹 Boss Level: Умный моб</a>
+    <a href="/lessons/m4-lesson-02">Prompt engineering — говори с AI точно →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок 2.1: Массивы — сундук с отсеками</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Деревянный</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/course-map">Карта курса</a> → Модуль 2 → Урок 2.1</div>
+    <h1 class="lesson-title">Массивы — сундук с отсеками</h1>
+    <p class="lesson-subtitle">Как хранить много значений в одном месте и доставать нужное по индексу.</p>
+  </div>
+
+  <img src="/images/hero.png" alt="Массивы — сундук с отсеками" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>Представь: в сундуке 27 слотов. Ты не называешь их «левый верхний второй справа». Ты используешь номер слота. В коде так же работают массивы — коллекции с индексами.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p>Массив — это упорядоченный набор элементов. Каждый элемент имеет индекс: 0, 1, 2...<br>В Python массив чаще всего представлен списком list.<br><br>Пример:<br>блоки = ["земля", "камень", "алмаз"]<br>print(блоки[0])  # земля<br>print(блоки[2])  # алмаз<br><br>Что важно:<br>- индекс начинается с 0;<br>- можно менять элемент по индексу;<br>- удобно перебирать в цикле for.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m2-01-q1" data-correct="C" data-explanation="Индексация в списке начинается с 0.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что вернёт выражение <code>блоки[0]</code>, если <code>блоки = ["камень", "уголь"]</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> "уголь"</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Ошибка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> "камень"</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 0</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Практика</h2>
+    <p><strong>Задание 1: в первом пропуске напиши индекс алмаза, во втором — новый элемент для второго слота.</strong></p>
+    <div class="fill-code-block" data-task-id="m2-01-t1">
+      <pre class="fill-code"><code>элементы = ["земля", "камень", "алмаз"]
+print(элементы[2])
+элементы[1] = "золото"</code></pre>
+      <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: 2/золото.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Задание 2: заполни диапазон цикла, чтобы пройти по всем 4 слотам.</strong></p>
+    <div class="fill-code-block" data-task-id="m2-01-t2">
+      <pre class="fill-code"><code>инвентарь = ["меч", "еда", "факел", "лопата"]
+for i in range(4):
+    print(i, инвентарь[i])</code></pre>
+      <p>Проверь себя: 4.</p>
+      <button class="code-run-btn">▶ Проверить</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m2-01-q2" data-correct="B" data-explanation="Индекс 1 — это второй элемент списка.">
+    <div class="quiz-header">🧩 Квиз <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Что делает <code>блоки[1] = "алмаз"</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Добавляет элемент в конец</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Заменяет второй элемент</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Удаляет второй элемент</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Сортирует список</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Сборка: мини-проект</h2>
+    <p>Собери систему «быстрый хотбар»: массив из 9 слотов, где 0-2 боевые предметы, 3-5 ресурсы, 6-8 утилиты. Выведи массив и замени пустые слоты на "пусто".</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m2-01-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Мини-босс <span class="boss-xp">+120 XP</span></div>
+    <p>Комбинируем текущую тему с предыдущими навыками.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Сделать без структуры, потом чинить</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Сначала план, затем реализация и проверка</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Копировать решение без понимания</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Пропустить тесты ради скорости</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Попробовать снова</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Теперь ты умеешь хранить группы данных, читать и менять элементы по индексу, проходить массив циклом. В реальных играх так хранят инвентари, очереди действий и логи событий.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m2-01">✅ Урок пройден — получить 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/lessons/m1-lesson-06">← Урок 1.6: Boss Level</a>
+    <a href="/lessons/m2-lesson-02">Словари — книга зачарований →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>
