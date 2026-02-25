@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.5: Functions - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 1 → Lesson 1.5</div>
+    <h1 class="lesson-title">Functions - create your own teams</h1>
+    <p class="lesson-subtitle">I wrote once - call as many times as you want.</p>
+  </div>
+
+  <img src="/images/lesson-1-5.png" alt="Lesson 1.5 - Functions" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Start</h2>
+    <p>You already know how to build a wall. What if you need 10 different walls in different places? Copy the code 10 times?</p>
+    <p><strong>No.</strong> You create a function - your own team. I wrote it once, call as many times as you want.</p>
+    <p>A function is like a crafting recipe. Once you write down the pickaxe recipe, you can craft as many pickaxes as you like without having to remember the location of the ingredients each time.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Theory: Functions</h2>
+
+    <h3>def name(): - create a function</h3>
+    <p>Keyword <code>def</code> (from “define” - define) creates a new command:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">build_a house</span>():
+    <span class="fn">put up_walls</span>()
+    <span class="fn">put_the_roof on</span>()
+    <span class="fn">put_the_door</span>()</code></pre>
+    <p>Now <code>build_house()</code> - your personal team. I wrote once - you build houses everywhere:</p>
+    <pre><code><span class="fn">build_a house</span>()   <span class="cm"># house number 1</span>
+<span class="fn">forward</span>()
+<span class="fn">build_a house</span>()   <span class="cm"># house number 2</span>
+<span class="fn">forward</span>()
+<span class="fn">build_a house</span>()   <span class="cm"># house number 3</span></code></pre>
+
+    <h3>Settings - Customizable Features</h3>
+    <p>Do you want walls of different sizes? Add parameters:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">build_a wall</span>(width, height):
+    <span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(height):
+        <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(width):
+            <span class="fn">put_block</span>()
+
+<span class="fn">build_a wall</span>(<span class="nb">10</span>, <span class="nb">5</span>)   <span class="cm">#wall 10×5</span>
+<span class="fn">build_a wall</span>(<span class="nb">3</span>, <span class="nb">20</span>)    <span class="cm"># tower 3×20</span></code></pre>
+    <p>Parameters are like ingredients in a recipe. Different ingredients → different results.</p>
+
+    <h3>return — function result</h3>
+    <p>A function can not only do something, but also <strong>return result</strong>:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">area</span>(a, b):
+    <span class="kw">return</span> a*b
+
+result = <span class="fn">area</span>(<span class="nb">10</span>, <span class="nb">5</span>)   <span class="cm"># result = 50</span></code></pre>
+    <p><strong>Analogy:</strong> function = crafting recipe. Parameters = ingredients. <code>return</code> = crafting result.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q1" data-correct="B" data-explanation="def (from define) creates a new function - your own command, which can be called as many times as you like.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What does a keyword do? <code>def</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Removes a variable</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Creates a new function (command)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Starts a loop</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Displays text on the screen</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q2" data-correct="C" data-explanation="double(5) substitutes x = 5 into the formula x * 2, resulting in 10.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      What will the call return? <code>double(5)</code>?
+      <pre><code><span class="kw">def</span> <span class="fn">double</span>(x):
+    <span class="kw">return</span> x * <span class="nb">2</span></code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 5</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 2</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 10</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Error</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice: Creating functions</h2>
+
+    <p><strong>Task 1:</strong> Create a function <code>line</code>, which builds a line of a given length.</p>
+    <div class="fill-code-block" data-task-id="m1-05-t1">
+      <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">line</span>(length):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(length):
+        <span class="fn">put_block</span>()
+        <input class="fill-blank" data-answer="forward" placeholder="???">()</code>
+<code>
+<span class="fn">line</span>(<input class="fill-blank" data-answer="5/10/7/3/8/4/6/9" placeholder="???">)</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>To create a function, you need a three-letter keyword. After each block, the turtle steps forward. You can call the function with any number.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">line</span>(length):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(length):
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()
+
+<span class="fn">line</span>(<span class="nb">5</span>)</code></pre>
+    </details>
+
+    <p><strong>Task 2:</strong> Function with return - calculate the area of the wall.</p>
+    <div class="fill-code-block" data-task-id="m1-05-t2">
+      <pre class="fill-code"><code><span class="kw">def</span> <span class="fn">wall_area</span>(width, height):
+    <input class="fill-blank" data-answer="return" placeholder="???"> width * height</code>
+<code>
+blocks = <span class="fn">wall_area</span>(<span class="nb">10</span>, <input class="fill-blank" data-answer="5/4/3/6/7/8" placeholder="???">)
+<span class="fn">print</span>(blocks)</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>For a function to return a result, use a 6-letter keyword. The second parameter is any number (wall height).</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">wall_area</span>(width, height):
+    <span class="kw">return</span> width * height
+
+blocks = <span class="fn">wall_area</span>(<span class="nb">10</span>, <span class="nb">5</span>)
+<span class="fn">print</span>(blocks)   <span class="cm"># 50</span></code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q3" data-correct="A" data-explanation="Yes! Calling a function inside another function is the basis of programming. This is how complex programs are built from simple bricks.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Is it possible to call a function inside another function?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Yes, this is the basis of programming</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> No, there will be an error</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Only if the function is small</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Only in Python 4</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: Custom teams in action</h2>
+    <p>You've just created your first functions. Now you have <code>line()</code> and <code>wall_area()</code> - teams that did not exist before you.</p>
+    <p>You know what? <strong>print() is also a function.</strong> It's just that someone wrote it before you. A <code>range()</code>, which you used in the last lesson? Also a function! Someone created it so you wouldn't have to.</p>
+    <p>Programming is about creating new tools from existing ones. Like crafting in Minecraft: from basic resources → complex items.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-05-boss" data-xp="100">
+    <div class="boss-header">👹Boss: Automatic Farm <span class="boss-xp">+100 XP</span></div>
+    <p>Create a function that builds a bed of a given size and plants it:</p>
+
+    <div class="fill-code-block" data-task-id="m1-05-boss">
+      <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">build_a bed</span>(length, width):
+    <span class="kw">for</span> row <span class="kw">in</span> <span class="fn">range</span>(width):
+        <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(length):
+            <span class="fn">dig up</span>()
+            <input class="fill-blank" data-answer="plant" placeholder="???">()</code>
+<code>            <span class="fn">forward</span>()
+        <span class="fn">next_row</span>()</code>
+<code>
+<span class="fn">build_a bed</span>(<input class="fill-blank" data-answer="8/5/10/6/7/4/3/9" placeholder="???">, <input class="fill-blank" data-answer="4/3/5/6/8/2/7" placeholder="???">)</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Hint</summary>
+      <p>The function starts with def. After digging() you need to plant the seeds. You can call the function with any bed size.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">build_a bed</span>(length, width):
+    <span class="kw">for</span> row <span class="kw">in</span> <span class="fn">range</span>(width):
+        <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(length):
+            <span class="fn">dig up</span>()
+            <span class="fn">plant</span>()
+            <span class="fn">forward</span>()
+        <span class="fn">next_row</span>()
+
+<span class="fn">build_a bed</span>(<span class="nb">8</span>, <span class="nb">4</span>)</code></pre>
+    </details>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Results</h2>
+      <p><strong>Now you know:</strong></p>
+      <ul>
+        <li>✅ <code>def</code> - creates a new function</li>
+        <li>✅ Parameters - make the function customizable</li>
+        <li>✅ <code>return</code> - returns the result</li>
+        <li>✅ Function = written once, used everywhere</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Functions in the real world:</strong></p>
+      <ul>
+        <li>📱 Every button in the application = function call</li>
+        <li>🖨️ <code>print()</code> - also a function (just written by someone before you)</li>
+        <li>⛏️ Entire Minecraft = thousands of functions calling each other</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Fun fact:</strong> Function <code>range()</code>, which you have already used - this is also a function! Someone wrote it so you wouldn't have to. 🤯</p>
+      <p style="margin-top:1rem;"><strong>You've covered all the basics of Module 1!</strong> Algorithms, variables, conditions, loops, functions are the foundation of any programming language. Next are data structures and patterns.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-05">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m1-lesson-04">← Lesson 1.4: Loops</a>
+    <a href="/en/lessons/m1-lesson-06">👹 Boss Level →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

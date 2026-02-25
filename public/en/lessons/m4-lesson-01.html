@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4.1: What is AI (without magic)</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 4 → Lesson 4.1</div>
+    <h1 class="lesson-title">What is AI (without magic)</h1>
+    <p class="lesson-subtitle">Let’s look at AI as a pattern search tool, not a “magic brain.”</p>
+  </div>
+
+  <img src="/images/lesson-4-hero.webp" alt="What is AI (without magic)" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>AI seems like magic until you break it down into steps: data, training, testing, applying.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>The AI model learns to find patterns in the data.<br><br>Important to remember:<br>- the model does not “understand the world” like a person;<br>- it predicts the most likely answer;<br>- quality depends on data and verification.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-01-q1" data-correct="B" data-explanation="The model statistically predicts the likely answer.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What does the underlying model do?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Makes magic</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Predicts by patterns</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Always knows the truth</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Writes only poetry</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Task 1: complete three steps: data → training → verification.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-01-t1">
+      <pre class="fill-code"><code>pipeline = ["data", "training", "validation"]
+print(pipeline)</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key Answers: Data/Learning.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Task 2: write the word for the model result.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-01-t2">
+      <pre class="fill-code"><code>result = "prediction"</code></pre>
+      <p>Test yourself: prediction.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-01-q2" data-correct="B" data-explanation="Garbage in, garbage out.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What determines the quality of a model the most?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> From the interface color</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> From data and validation</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> From title length</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> From the number of emoji</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Create a mini-case: “AI helps sort support tickets.” Describe the data, quality metrics and risk of error.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-01-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini boss <span class="boss-xp">+120 XP</span></div>
+    <p>We combine the current topic with previous skills.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Now you look at AI like an engineer: evaluating inputs, limitations and quality criteria.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-01">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m3-lesson-07">← 👹 Boss Level: Smart mob</a>
+    <a href="/en/lessons/m4-lesson-02">Prompt engineering - speak to AI accurately →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

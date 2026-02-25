@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👹 Boss 3.7: Smart mob</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 3 → Boss Level 3.7</div>
+    <h1 class="lesson-title">👹 Boss Level: Smart mob</h1>
+    <p class="lesson-subtitle">Final AI behavioral project with pathfinding and states.</p>
+  </div>
+
+  <img src="/images/lesson-3-hero.webp" alt="👹 Boss Level: Smart mob" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>The mob must patrol, notice the player, look for a path and attack at the right moment.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>The project unites:<br>- search and sorting of priorities;<br>- pathfinding for movement;<br>- state machine for behavior;<br>- optimization of update frequency.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-07-q1" data-correct="B" data-explanation="Behavior modes require a state machine.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What best controls mob behavior modes?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> One long print</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> State machine</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Random sorting</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Array only</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Step 1: Select the initial state and detection radius.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-07-t1">
+      <pre class="fill-code"><code>state = "patrol"
+vision = 6</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key answers: patrol/6.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Stage 2: add a transition to chase when a player is detected.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-07-t2">
+      <pre class="fill-code"><code>if player_seen:
+    state = "chase"</code></pre>
+      <p>Test yourself: chase.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-07-q2" data-correct="B" data-explanation="A complete recalculation of every tick is too expensive.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Why limit the frequency of pathfinding recalculation?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> To make it more beautiful</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> To reduce load and lags</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> To remove states</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> To disable AI</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Collect the complete cycle: patrol → chase → attack → return. Add a “cooldown” timer and target loss processing.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-07-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Boss final <span class="boss-xp">+120 XP</span></div>
+    <p>Final module check: architectural thinking, quality control and working prototype.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>You have completed the engineering module: you know how to assemble algorithms into a living behavioral system.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-07">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m3-lesson-06">← Optimization - why the server lags</a>
+    <a href="/en/lessons/m4-lesson-01">What is AI (without magic) →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

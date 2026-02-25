@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Map - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <h1 style="font-size:2rem;margin-bottom:0.5rem;">📚 Course map</h1>
+  <p style="color:var(--text-dim);margin-bottom:2rem;">Four modules. From the first block to AI collaboration.</p>
+
+  <!-- MODULE 1 -->
+  <div class="module-card">
+    <div class="module-header">
+      <span class="module-number">Module 1</span>
+      <span class="module-title">🧱 First block - Introduction to programming</span>
+    </div>
+    <p style="color:var(--text-dim);font-size:0.9rem;font-style:italic;margin-bottom:0.8rem;">You are already a programmer - you just don’t know it yet.</p>
+    <div class="module-progress-bar"><div class="module-progress-fill" style="width:0%"></div></div>
+    <ul class="module-lessons">
+      <li data-lesson-id="m1-01"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m1-lesson-01">1.1 - What is code</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m1-02"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m1-lesson-02">1.2 - Variables: data inventory</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m1-03"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m1-lesson-03">1.3 — Conditions: if creeper then run</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m1-04"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m1-lesson-04">1.4 - Cycles: build a wall in 3 seconds</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m1-05"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m1-lesson-05">1.5 — Functions: creating your own teams</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m1-06"><span class="lesson-status-icon">👹</span> <a href="/en/lessons/m1-lesson-06">1.6 — 👹 Boss Level: Automatic Farm</a> <span class="lesson-time">30 min</span></li>
+    </ul>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module-card">
+    <div class="module-header">
+      <span class="module-number">Module 2</span>
+      <span class="module-title">🏗️ Architect - Data structures and patterns</span>
+    </div>
+    <p style="color:var(--text-dim);font-size:0.9rem;font-style:italic;margin-bottom:0.8rem;">One block is nothing. The block system is strength.</p>
+    <div class="module-progress-bar"><div class="module-progress-fill" style="width:0%"></div></div>
+    <ul class="module-lessons">
+      <li data-lesson-id="m2-01"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m2-lesson-01">2.1 - Arrays: chest with compartments</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m2-02"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m2-lesson-02">2.2 - Dictionaries: book of enchantments</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m2-03"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m2-lesson-03">2.3 — Nested structures: a world of chunks</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m2-04"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m2-lesson-04">2.4 - Observer Pattern</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m2-05"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m2-lesson-05">2.5 - State Pattern</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m2-06"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m2-lesson-06">2.6 - Modularity: Redstone blocks</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m2-07"><span class="lesson-status-icon">👹</span> <a href="/en/lessons/m2-lesson-07">2.7 - 👹 Boss: Inventory system</a> <span class="lesson-time">30 min</span></li>
+    </ul>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module-card">
+    <div class="module-header">
+      <span class="module-number">Module 3</span>
+      <span class="module-title">⚙️ Engineer - Algorithms and problem solving</span>
+    </div>
+    <p style="color:var(--text-dim);font-size:0.9rem;font-style:italic;margin-bottom:0.8rem;">Any problem can be solved. The question is how fast.</p>
+    <div class="module-progress-bar"><div class="module-progress-fill" style="width:0%"></div></div>
+    <ul class="module-lessons">
+      <li data-lesson-id="m3-01"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m3-lesson-01">3.1 — Linear search: looking for diamonds</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m3-02"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m3-lesson-02">3.2 - Binary search</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m3-03"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m3-lesson-03">3.3 - Sorting</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m3-04"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m3-lesson-04">3.4 - Pathfinding: Mob AI</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m3-05"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m3-lesson-05">3.5 - Recursion</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m3-06"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m3-lesson-06">3.6 — Optimization</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m3-07"><span class="lesson-status-icon">👹</span> <a href="/en/lessons/m3-lesson-07">3.7 — 👹 Boss: Smart mob</a> <span class="lesson-time">35 min</span></li>
+    </ul>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module-card">
+    <div class="module-header">
+      <span class="module-number">Module 4</span>
+      <span class="module-title">🤖 Vibe Coder - AI Era</span>
+    </div>
+    <p style="color:var(--text-dim);font-size:0.9rem;font-style:italic;margin-bottom:0.8rem;">AI writes code. You decide WHAT code to write.</p>
+    <div class="module-progress-bar"><div class="module-progress-fill" style="width:0%"></div></div>
+    <ul class="module-lessons">
+      <li data-lesson-id="m4-01"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m4-lesson-01">4.1 — What is AI (without magic)</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m4-02"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m4-lesson-02">4.2 — Prompt engineering</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m4-03"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m4-lesson-03">4.3 — Reading the AI code</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m4-04"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m4-lesson-04">4.4 — Vibe coding</a> <span class="lesson-time">25 min</span></li>
+      <li data-lesson-id="m4-05"><span class="lesson-status-icon">📖</span> <a href="/en/lessons/m4-lesson-05">4.5 - When AI lies</a> <span class="lesson-time">20 min</span></li>
+      <li data-lesson-id="m4-06"><span class="lesson-status-icon">👹</span> <a href="/en/lessons/m4-lesson-06">4.6 — 👹 Boss: Your own project with AI</a> <span class="lesson-time">40 min</span></li>
+    </ul>
+  </div>
+</main>
+
+<footer class="site-footer">
+  MineCode.ru - learning to think like a programmer © 2026
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

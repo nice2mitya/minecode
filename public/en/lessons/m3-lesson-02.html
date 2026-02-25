@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3.2: Binary Search</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 3 → Lesson 3.2</div>
+    <h1 class="lesson-title">Binary search</h1>
+    <p class="lesson-subtitle">We search quickly in the sorted data, dividing the range in half.</p>
+  </div>
+
+  <img src="/images/lesson-3-hero.webp" alt="Binary search" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>You are looking for a book in an alphabetical catalogue: you open the middle, understand which half to go to, repeat.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>Binary search only works on sorted data.<br>Steps:<br>1) take the middle;<br>2) compare with the target;<br>3) discard half the range.<br><br>Complexity: O(log n).</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-02-q1" data-correct="A" data-explanation="Without sorting, binary search breaks down.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">The main requirement of binary search?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> The list must be sorted</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> The list should be short</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> All you need is numbers</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Can't use loops</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Task 1: indicate the required condition for binary search.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-02-t1">
+      <pre class="fill-code"><code>data = "sorted"
+print(data)</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key Answers: Sorted.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Task 2: fill out the midpoint index formula.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-02-t2">
+      <pre class="fill-code"><code>mid = (left + right) // 2</code></pre>
+      <p>Check yourself: 2.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-02-q2" data-correct="A" data-explanation="Each step reduces the search area by 2 times.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Why is O(log n) faster than O(n)?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Because we divide the range in half</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Because the code is shorter</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Because there is less memory</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Because Python is faster</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Write a function binary_search(scores, target) for a sorted list of player levels.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-02-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini boss <span class="boss-xp">+120 XP</span></div>
+    <p>We combine the current topic with previous skills.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>You have mastered accelerated search and the key idea of “cutting the task in half.”</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-02">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m3-lesson-01">← Linear search - looking for diamonds</a>
+    <a href="/en/lessons/m3-lesson-03">Sorting - order in the chest →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

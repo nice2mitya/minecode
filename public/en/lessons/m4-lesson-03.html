@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4.3: Reading AI Code</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 4 → Lesson 4.3</div>
+    <h1 class="lesson-title">Reading AI code - like a reviewer</h1>
+    <p class="lesson-subtitle">We check the AI code for logic, safety and edge cases.</p>
+  </div>
+
+  <img src="/images/lesson-4-hero.webp" alt="Reading AI code - like a reviewer" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>AI can write working code, but miss one detail and the whole thing breaks. Your superpower: review and verification.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>Review checklist:<br>1) does the code solve the problem?<br>2) edge cases processed?<br>3) readability and names?<br>4) are there any dangerous places?<br>5) are there tests?<br><br>AI speeds up the draft, but the final quality is your responsibility.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-03-q1" data-correct="B" data-explanation="Edge cases need to be specifically checked.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What does AI most often miss without an explicit request?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Music comments</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Boundary Cases</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Padding is always perfect</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> File name</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Task 1: choose the first verification step.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-03-t1">
+      <pre class="fill-code"><code>step = "check with requirement"</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key Answers: requirement.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Task 2: add the type of tests for non-standard inputs.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-03-t2">
+      <pre class="fill-code"><code>tests = ["happy", "edge", "error"]</code></pre>
+      <p>Test yourself: edge.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-03-q2" data-correct="C" data-explanation="Launch ≠ correctness in all scenarios.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">The phrase "code runs" means that...</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> The decision is definitely correct</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> The code is already available for production</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Only that there is no instant startup error</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> No tests needed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Take a fragment of AI code (any example) and make review comments: 3 strengths, 3 risks, 2 edits.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-03-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini boss <span class="boss-xp">+120 XP</span></div>
+    <p>We combine the current topic with previous skills.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>You have become not a “passive AI user”, but a technical editor of the result.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-03">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m4-lesson-02">← Prompt engineering - speak to AI accurately</a>
+    <a href="/en/lessons/m4-lesson-04">Vibe coding - iterative development with AI →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,6 +1,12 @@
 /* ===== MineCode Gamification Engine ===== */
 
-const MINECODE_LANG = window.__MINECODE_LANG || (window.location.pathname.startsWith('/es') ? 'es' : 'ru');
+function detectLangFromPath(pathname = '/') {
+  const m = pathname.match(/^\/(es|en)(?:\/|$)/);
+  return m ? m[1] : 'ru';
+}
+
+const MINECODE_LANG = window.__MINECODE_LANG || detectLangFromPath(window.location.pathname);
+const SUPPORTED_LANGS = ['ru', 'es', 'en'];
 
 const I18N = {
   ru: {
@@ -87,6 +93,48 @@ const I18N = {
     anti_copy: '🚫 ¡Intenta escribirlo tú! Copiar la solución no es aprender.',
     module1_complete_done: '✅ ¡Módulo 1 completado!',
   },
+  en: {
+    level_wood: 'Wooden',
+    level_stone: 'Stone',
+    level_iron: 'Iron',
+    level_diamond: 'Diamond',
+    level_netherite: 'Netherite',
+    ach_first_block_name: '🔨 First block',
+    ach_first_block_desc: 'Completed your first lesson',
+    ach_quiz_master_3_name: '🧠 Quiz starter',
+    ach_quiz_master_3_desc: 'Answered 3 quizzes correctly',
+    ach_quiz_master_10_name: '🎓 Quiz master',
+    ach_quiz_master_10_desc: 'Answered 10 quizzes correctly',
+    ach_boss_slayer_name: '👹 Boss slayer',
+    ach_boss_slayer_desc: 'Completed your first Boss Challenge',
+    ach_streak_3_name: '🔥 3-day streak',
+    ach_streak_3_desc: '3 days in a row',
+    ach_streak_7_name: '🔥🔥 Weekly streak',
+    ach_streak_7_desc: '7 days in a row',
+    level_up_title: '⬆️ LEVEL UP',
+    achievement_title: '🏆 ACHIEVEMENT',
+    level_up_name: '{icon} New level!',
+    level_up_desc: 'You are now {level}',
+    replay: '🔄 Run again',
+    quiz_correct: '✅ Correct! {explanation}',
+    quiz_wrong: '❌ Incorrect. {explanation}',
+    fill_quiz_correct: '✅ All correct!',
+    fill_quiz_wrong: '❌ Not quite. Try again!',
+    already_completed: '✅ Already completed!',
+    boss_already: '✅ Boss defeated!',
+    boss_defeated: '✅ BOSS DEFEATED! 🏆',
+    boss_retry: '❌ Don’t give up! Try again.',
+    lesson_locked_title: 'Lesson locked',
+    lesson_locked_subtitle: 'Complete lesson {lesson} first',
+    course_map: '← Course map',
+    lesson_done: '✅ Lesson completed',
+    fill_already_solved: '✅ Already solved!',
+    fill_all_correct: '✅ All correct! Great job!',
+    fill_one_wrong: '🤔 Almost. One field is wrong. It is highlighted in red.',
+    fill_many_wrong: '💪 {count} fields are wrong. Fix the red fields.',
+    anti_copy: '🚫 Try to write it yourself! Copying the solution is not learning.',
+    module1_complete_done: '✅ Module 1 completed!',
+  },
 };
 
 function t(key, vars = {}) {
@@ -99,27 +147,45 @@ function t(key, vars = {}) {
   return text;
 }
 
+function stripLocalePrefix(path) {
+  if (!path || !path.startsWith('/')) return path;
+  if (path === '/es' || path.startsWith('/es/')) return path.slice(3) || '/';
+  if (path === '/en' || path.startsWith('/en/')) return path.slice(3) || '/';
+  return path;
+}
+
 function localizedPath(path, lang = MINECODE_LANG) {
   if (!path || !path.startsWith('/')) return path;
-  if (lang === 'es') {
-    if (path === '/es' || path.startsWith('/es/')) return path;
-    return path === '/' ? '/es' : `/es${path}`;
-  }
-  if (path === '/es') return '/';
-  if (path.startsWith('/es/')) return path.slice(3);
-  return path;
+  const cleanPath = stripLocalePrefix(path);
+  if (lang === 'ru') return cleanPath;
+  return cleanPath === '/' ? `/${lang}` : `/${lang}${cleanPath}`;
 }
 
 function initLanguageToggle() {
   const headerStats = document.querySelector('.header-stats');
   if (!headerStats) return;
 
-  const btn = document.createElement('a');
-  btn.className = 'lang-toggle-btn';
-  btn.href = localizedPath(window.location.pathname, MINECODE_LANG === 'es' ? 'ru' : 'es');
-  btn.textContent = MINECODE_LANG === 'es' ? 'RU' : 'ES';
-  btn.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;padding:0.3rem 0.55rem;border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:0.72rem;color:var(--text);text-decoration:none;';
-  headerStats.appendChild(btn);
+  const wrap = document.createElement('div');
+  wrap.className = 'lang-toggle-wrap';
+  wrap.style.cssText = 'display:inline-flex;gap:0.25rem;align-items:center;';
+
+  const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
+
+  SUPPORTED_LANGS.forEach(lang => {
+    const btn = document.createElement('a');
+    btn.className = `lang-toggle-btn${lang === MINECODE_LANG ? ' is-active' : ''}`;
+    btn.href = `${localizedPath(window.location.pathname, lang)}${suffix}`;
+    btn.textContent = lang.toUpperCase();
+
+    const base = 'display:inline-flex;align-items:center;justify-content:center;padding:0.3rem 0.5rem;border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:0.68rem;text-decoration:none;';
+    const active = 'background:var(--green);color:#111;border-color:var(--green);';
+    const idle = 'color:var(--text);';
+    btn.style.cssText = `${base}${lang === MINECODE_LANG ? active : idle}`;
+
+    wrap.appendChild(btn);
+  });
+
+  headerStats.appendChild(wrap);
 }
 
 const MineCode = {

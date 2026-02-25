@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MineCode - Programming via Minecraft</title>
+<meta name="description" content="A free programming course for schoolchildren in grades 6-9 through the Minecraft universe. We teach you to think, not type syntax.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <section class="hero">
+    <div class="hero-logo">
+      <span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span>
+    </div>
+    <p class="hero-tagline">
+      Free programming course for schoolchildren.<br>
+      Via Minecraft. Without being boring. With quizzes and XP.
+    </p>
+    <img src="/images/hero.png" alt="MineCode - programming via Minecraft" class="hero-image">
+    <a href="/en/course-map" class="cta-btn">🚀 Start learning</a>
+  </section>
+
+  <section class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🧱</span>
+      <div class="feature-title">Blocks → Code</div>
+      <div class="feature-desc">From crafting to Python. Every recipe is an algorithm</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <div class="feature-title">Interactive</div>
+      <div class="feature-desc">Quiz, puzzles and Boss Challenge in every lesson</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🏆</span>
+      <div class="feature-title">XP and levels</div>
+      <div class="feature-desc">Level up from Wooden to Netherite</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🤖</span>
+      <div class="feature-title">AI era</div>
+      <div class="feature-desc">We teach you to work WITH neural networks, and not instead of them</div>
+    </div>
+  </section>
+
+  <section class="xp-preview">
+    <h3>🎮 Progression system</h3>
+    <p style="color:var(--text-dim);margin-bottom:1rem;font-size:0.9rem;">Earn XP for quizzes and lessons. Level up.</p>
+    <div class="level-progression">
+      <span class="level-item active">🪵 Wooden</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">🪨 Stone</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">⛓️ Iron</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">💎 Diamond</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">🔮 Netherite</span>
+    </div>
+  </section>
+
+  <section class="landing-modules">
+    <h2>📚 4 modules - from zero to AI</h2>
+
+    <div class="module-card" onclick="location.href='/course-map'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Module 1</span>
+        <span class="module-title">🧱 First block</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Variables, Conditions, Loops, Functions - Basics via Minecraft</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">5 lessons + Boss Level • ~2.5 hours</div>
+    </div>
+
+    <div class="module-card" onclick="location.href='/lessons/m2-lesson-01'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Module 2</span>
+        <span class="module-title">🏗️ Architect</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Data structures and design patterns</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">✅ Available • 7 lessons</div>
+    </div>
+
+    <div class="module-card" onclick="location.href='/lessons/m3-lesson-01'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Module 3</span>
+        <span class="module-title">⚙️ Engineer</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Algorithms and problem solving</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">✅ Available • 7 lessons</div>
+    </div>
+
+    <div class="module-card" onclick="location.href='/lessons/m4-lesson-01'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Module 4</span>
+        <span class="module-title">🤖 Vibe Coder</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">AI collaboration, prompt engineering, vibe coding</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">✅ Available • 6 lessons</div>
+    </div>
+  </section>
+
+  <section class="landing-flow">
+    <h2>🧭 How the training goes</h2>
+    <div class="flow-grid">
+      <article class="flow-card">
+        <span class="flow-step">Step 1</span>
+        <h3>Look and understand</h3>
+        <p>A short theory using examples from Minecraft: no water, only logic and meaning.</p>
+      </article>
+      <article class="flow-card">
+        <span class="flow-step">Step 2</span>
+        <h3>Solve problems</h3>
+        <p>Quiz and code problems immediately test whether you understand the idea.</p>
+      </article>
+      <article class="flow-card">
+        <span class="flow-step">Step 3</span>
+        <h3>Assemble the project</h3>
+        <p>Each block ends with a mini-project and a Boss challenge.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-roadmap">
+    <h2>🗺️ What already exists and what’s next</h2>
+    <div class="roadmap-grid">
+      <article class="roadmap-card ready">
+        <div class="roadmap-head"><span>✅ Available now</span><strong>Modules 1–4</strong></div>
+        <p>A complete base to get started: logic, data structures, algorithms and AI collaboration - 26 lessons with practice and Boss challenges.</p>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="roadmap-head"><span>🧩 Transitional mini-stage</span><strong>Bridge to Projects</strong></div>
+        <p>A short bridge for beginners: how to choose an idea, break it down into steps, not be afraid of mistakes and read traces.</p>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="roadmap-head"><span>🛠 In development (Q2 2026)</span><strong>Module 5: Builder Lab</strong></div>
+        <p>3 real mini-projects with templates and step-by-step analysis: from idea to demo and retro.</p>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="roadmap-head"><span>🔬 In research</span><strong>Module 6: Team &amp; Product</strong></div>
+        <p>Git-flow, code review, team roles and product mindset - in simple language for teenagers.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-faq">
+    <h2>❓ Frequently asked questions</h2>
+    <details>
+      <summary>Do you need programming experience?</summary>
+      <div>No. The course is designed to start from scratch. The main thing is curiosity and a willingness to think.</div>
+    </details>
+    <details>
+      <summary>How much time do you need per week?</summary>
+      <div>Optimally 2-3 short sessions of 25-40 minutes. You can go at your own pace.</div>
+    </details>
+    <details>
+      <summary>Is this about Python or about Minecraft?</summary>
+      <div>Both: Minecraft is a clear metaphor, Python is a language for practice and systems thinking.</div>
+    </details>
+  </section>
+
+  <section style="text-align:center;margin:3rem 0 1rem;">
+    <a href="/en/course-map" class="cta-btn">⛏️ Start from the first lesson</a>
+    <p style="color:var(--text-dimmer);font-size:0.85rem;margin-top:1rem;">Free. No registration. Forever.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  MineCode.ru - learning to think like a programmer © 2026
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

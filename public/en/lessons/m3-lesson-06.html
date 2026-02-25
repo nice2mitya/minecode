@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3.6: Optimization - why the server lags</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 3 → Lesson 3.6</div>
+    <h1 class="lesson-title">Optimization - why the server lags</h1>
+    <p class="lesson-subtitle">We reduce time/memory and remove bottlenecks.</p>
+  </div>
+
+  <img src="/images/lesson-3-hero.webp" alt="Optimization - why the server lags" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>When a server lags, the problem is not in “magic”, but in specific hot spots: extra cycles, heavy operations, extra entities.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>Optimization starts with measurement.<br><br>Approach:<br>1) measure (where it’s slow);<br>2) looking for a bottleneck;<br>3) change the algorithm/structure;<br>4) measure again.<br><br>Without measurements, it’s easy to “optimize” the wrong thing.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-06-q1" data-correct="B" data-explanation="Without data, it's easy to miss priorities.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Optimization without profiling often leads to...</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> precise improvement</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> random and useless edits</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> automatic acceleration</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> reducing bugs everywhere</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Task 1: indicate the first optimization step.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-06-t1">
+      <pre class="fill-code"><code>step1 = "freezing"
+print(step1)</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key answers: freezing.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Task 2: choose a faster search by id.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-06-t2">
+      <pre class="fill-code"><code>storage = "dict" # instead of a list for direct access</code></pre>
+      <p>Test yourself: dict.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-06-q2" data-correct="B" data-explanation="The dictionary provides quick access by key.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Which is usually faster for key access?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> list with linear search</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> dict</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> bubble sort</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> while True</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Take the old search for items in the list and rewrite it under the index_by_id dictionary. Compare the number of operations.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-06-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini boss <span class="boss-xp">+120 XP</span></div>
+    <p>We combine the current topic with previous skills.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>You learned to think like an engineer: first data, then changes, then checking the result.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-06">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m3-lesson-05">← Recursion is a function that calls itself</a>
+    <a href="/en/lessons/m3-lesson-07">👹 Boss Level: Smart mob →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

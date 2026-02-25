@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.2: Variables - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 1 → Lesson 1.2</div>
+    <h1 class="lesson-title">Variables - Data Inventory</h1>
+    <p class="lesson-subtitle">Where the program stores its things.</p>
+  </div>
+
+  <img src="/images/lesson-1-2.png" alt="Lesson 1.2" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Start</h2>
+    <p>You have an inventory in Minecraft. 36 slots. You can put one thing in each: a sword, food, blocks.</p>
+    <p>Now imagine: you are building a house. You need to remember its dimensions - width 10, length 15, height 5. Where to store these numbers?</p>
+    <p>There is a way to do this in programming. <strong>variables</strong>. These are like inventory slots, but for data. You put a value there, give it a name and use it when needed.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Theory: Variables</h2>
+    <p><strong>Variable</strong> is a named memory location. She has:</p>
+    <ul>
+      <li><strong>Name</strong> - like a signature on a chest</li>
+      <li><strong>Meaning</strong> - what lies inside</li>
+      <li><strong>Type</strong> - what type of data</li>
+    </ul>
+    <pre><code><span class="cm"># Create variables</span>
+<span class="fn">width</span> = <span class="nb">10</span>
+<span class="fn">length</span> = <span class="nb">15</span>
+<span class="fn">height</span> = <span class="nb">5</span>
+<span class="fn">material</span> = <span class="st">"stone"</span>
+<span class="fn">there is a_roof</span> = <span class="kw">True</span></code></pre>
+
+    <table>
+      <tr><th>Name</th><th>Meaning</th><th>Type</th><th>Minecraft analogy</th></tr>
+      <tr><td><code>width</code></td><td>10</td><td>number (int)</td><td>Stack of 10 blocks</td></tr>
+      <tr><td><code>length</code></td><td>15</td><td>number (int)</td><td>Stack of 15 blocks</td></tr>
+      <tr><td><code>height</code></td><td>5</td><td>number (int)</td><td>Stack of 5 blocks</td></tr>
+      <tr><td><code>material</code></td><td>"stone"</td><td>text (string)</td><td>Sign with inscription</td></tr>
+      <tr><td><code>there is a_roof</code></td><td>True</td><td>boolean (bool)</td><td>Lever: on/off</td></tr>
+    </table>
+
+    <h3>Basic Data Types</h3>
+    <ul>
+      <li><strong>int</strong> (integer) — <code>64</code>, <code>0</code>, <code>-5</code>. The number of items in the stack.</li>
+      <li><strong>float</strong> (fractional number) — <code>3.14</code>, <code>0.5</code>. Health level: 18.5 HP.</li>
+      <li><strong>string</strong> (text) — <code>"Hello"</code>, <code>"diamond_sword"</code>. Item name.</li>
+      <li><strong>bool</strong> (logical) - <code>True</code> or <code>False</code>. Lever: on or off.</li>
+    </ul>
+
+    <h3>Variables can be changed</h3>
+    <p>This is the same <em>re</em>exchangeable. The value can be updated:</p>
+    <pre><code><span class="fn">health</span> = <span class="nb">20</span>        <span class="cm"># Full HP</span>
+<span class="fn">health</span> = <span class="nb">20</span> - <span class="nb">7</span>    <span class="cm"># A creeper exploded nearby</span>
+<span class="fn">health</span> = <span class="nb">13</span>        <span class="cm"># Now 13 HP</span></code></pre>
+
+    <p>And use it in calculations:</p>
+    <pre><code><span class="fn">width</span> = <span class="nb">10</span>
+<span class="fn">length</span> = <span class="nb">15</span>
+<span class="fn">area</span> = width * length    <span class="cm"># 150</span>
+<span class="fn">perimeter</span> = <span class="nb">2</span> * (width + length)  <span class="cm">#50 wall blocks</span></code></pre>
+
+    <p>Why is this cool? Because if you decide to change the size of the house, you need to change <strong>ONE</strong> number, rather than rewriting the entire program.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q1" data-correct="C" data-explanation="A variable is a named memory location, like a signed slot in inventory.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Which of these best describes the variable?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Computer command</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Button in the program</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Named location for storing data</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Computer type</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+
+    <p><strong>Task 1: Resource Calculator</strong></p>
+    <p>You are building a rectangular wall. Fill out the formula to count blocks.</p>
+    <div class="fill-code-block" data-task-id="m1-02-t1">
+      <pre class="fill-code"><code><span class="cm"># Wall block calculator</span>
+<span class="fn">wall_length</span> = <span class="nb">10</span>
+<span class="fn">wall_height</span> = <span class="nb">4</span>
+<span class="fn">blocks_needed</span> = <input class="fill-blank" data-answer="wall_length" placeholder="???"> * <input class="fill-blank" data-answer="wall_height" placeholder="???">    <span class="cm"># = 40</span></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>The area of a rectangle is the length times the height. Use variable names!</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="fn">blocks_needed</span> = wall_length * wall_height    <span class="cm"># 40</span></code></pre>
+    </details>
+
+    <p><strong>Task 2: Mob characteristics</strong></p>
+    <p>Create variables to describe the creeper. Fill in the values:</p>
+    <div class="fill-code-block" data-task-id="m1-02-t2">
+      <pre class="fill-code"><code><span class="cm"># Creeper characteristics</span>
+<span class="fn">name</span> = <input class="fill-blank" data-answer='"Creeper"/"creeper"/"creeper"' placeholder="???">
+<span class="fn">health</span> = <input class="fill-blank" data-answer="20" placeholder="???">
+<span class="fn">explosion_damage</span> = <input class="fill-blank" data-answer="49" placeholder="???">
+<span class="fn">afraid of cats</span> = <input class="fill-blank" data-answer="true" placeholder="???"></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>Name - text in quotes. Creeper health = 20 HP. Max. explosion damage = 49. Afraid of cats = True.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="fn">name</span> = <span class="st">"Creeper"</span>
+<span class="fn">health</span> = <span class="nb">20</span>
+<span class="fn">explosion_damage</span> = <span class="nb">49</span>
+<span class="fn">afraid of cats</span> = <span class="kw">True</span></code></pre>
+    </details>
+
+    <p><strong>Task 3: Exchange of values</strong></p>
+    <p>Swap the contents of the two slots. Hint: a third variable is needed.</p>
+    <div class="fill-code-block" data-task-id="m1-02-t3">
+      <pre class="fill-code"><code><span class="fn">slot_1</span> = <span class="st">"sword"</span>
+<span class="fn">slot_2</span> = <span class="st">"shield"</span>
+
+<span class="cm"># Exchange:</span>
+<span class="fn">temporary</span> = <input class="fill-blank" data-answer="slot_1" placeholder="???">
+<span class="fn">slot_1</span> = <input class="fill-blank" data-answer="slot_2" placeholder="???">
+<span class="fn">slot_2</span> = <input class="fill-blank" data-answer="temporary/temp" placeholder="???"></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>Like two chests: first put the first item in the temporary chest, then move the second to the first, then from the temporary to the second.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="fn">temporary</span> = slot_1     <span class="cm"># temporary = "sword"</span>
+<span class="fn">slot_1</span> = slot_2        <span class="cm"># slot_1 = "shield"</span>
+<span class="fn">slot_2</span> = temporary     <span class="cm"># slot_2 = "sword"</span></code></pre>
+      <p>This is a classic interview challenge. Yes, already in lesson 2 you solve social security problems. 💪</p>
+    </details>
+  </section>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q2" data-correct="D" data-explanation="Result: 10 * 15 = 150 blocks.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      What will this code output?
+      <pre><code><span class="fn">width</span> = <span class="nb">10</span>
+<span class="fn">length</span> = <span class="nb">15</span>
+<span class="fn">area</span> = width * length
+<span class="fn">print</span>(area)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 25</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> "width * length"</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Error</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 150</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q3" data-correct="B" data-explanation="bool stores True or False - like a lever in Minecraft.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What data type is best for a variable <code>there is_shield</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> int (number)</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> bool (boolean)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> string (text)</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> float (fractional number)</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Build: Customizable House</h2>
+    <p>The turtle builds a house, the dimensions of which you set through variables.</p>
+    <pre><code><span class="cm"># Home Settings</span>
+<span class="fn">width</span> = <span class="nb">6</span>
+<span class="fn">length</span> = <span class="nb">8</span>
+<span class="fn">height</span> = <span class="nb">4</span>
+<span class="fn">material</span> = <span class="st">"oak"</span>
+
+<span class="cm"># Turtle builds according to your parameters</span>
+<span class="fn">build_a house</span>(width, length, height, material)</code></pre>
+    <p>Change the variable values and run again. See how the same code builds different houses? This is the power of variables - <strong>you write the code once, and change the result by substituting other data</strong>.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-02-boss" data-correct="C" data-xp="75">
+    <div class="boss-header">👹 Boss: Builder Calculator <span class="boss-xp">+75 XP</span></div>
+    <p>You build a 10x12x5 box using blocks. You need to count the total number of blocks for the walls, floor and ceiling.</p>
+    <p>Floor and ceiling: by <code>10 × 12 = 120</code> everyone. What about the walls?</p>
+    <pre><code><span class="fn">width</span> = <span class="nb">10</span>
+<span class="fn">length</span> = <span class="nb">12</span>
+<span class="fn">height</span> = <span class="nb">5</span>
+
+<span class="fn">floor</span> = width * length           <span class="cm"># 120</span>
+<span class="fn">ceiling</span> = width * length        <span class="cm"># 120</span>
+<span class="fn">walls</span> = ???
+<span class="fn">total</span> = floor + ceiling + walls</code></pre>
+    <p>How many blocks are needed for the walls (wall height = 3 rows, because minus the floor and ceiling)?</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 120</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 88</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 120 (perimeter 40 × 3 rows = 120 if corners are not subtracted)</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 200</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Results</h2>
+      <p><strong>Now you know:</strong></p>
+      <ul>
+        <li>✅ Variable = named cell for data</li>
+        <li>✅ Four basic types: numbers, text, logical</li>
+        <li>✅ Variables can be changed and used in calculations</li>
+        <li>✅ One program + different variables = different results</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Easter egg:</strong> Do you know why a variable for exchanging values is called <code>temp</code>? This is short for temporary. Programmers are lazy - they are too lazy to write complete words. Get used to it. 😎</p>
+      <p style="margin-top:1rem;"><strong>In the next lesson:</strong> the turtle will learn to make decisions. If there is a creeper, we run. If it's a cow, we ignore it. These are called "conditions".</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-02">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m1-lesson-01">← Lesson 1.1: What is code</a>
+    <a href="/en/lessons/m1-lesson-03">Lesson 1.3: Conditions →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

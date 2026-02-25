@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.4: Loops - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 1 → Lesson 1.4</div>
+    <h1 class="lesson-title">Cycles - build a wall in 3 seconds</h1>
+    <p class="lesson-subtitle">Why write the same thing 100 times if you can repeat it once?</p>
+  </div>
+
+  <img src="/images/lesson-1-4.png" alt="Lesson 1.4 - Loops" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Start</h2>
+    <p>Do you remember how you wrote <code>forward()</code> five times in a row in the first lesson? Imagine that you need to build a wall of 100 blocks. write <code>forward()</code> a hundred times?</p>
+    <p><strong>No.</strong> There are cycles for this.</p>
+    <p>A cycle is a “repeat” command. One line instead of a hundred. Programmers are lazy - and this is their superpower.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Theory: For Loop</h2>
+
+    <h3>for i in range(n) — repeat n times</h3>
+    <p>The most common loop in Python. You say “how many times to repeat” - and he repeats.</p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">10</span>):
+    <span class="fn">put_block</span>()
+    <span class="fn">forward</span>()</code></pre>
+    <p>Minecraft analogy: place 10 blocks in a row. Without a loop - 20 lines. With cycle - 3.</p>
+
+    <h3>range() - number generator</h3>
+    <p><code>range(5)</code> gives the numbers: <strong>0, 1, 2, 3, 4</strong></p>
+    <p>⚠️ Starts from scratch! And it ends <em>up to</em> the specified number. <code>range(5)</code> - these are 5 numbers, but the last one is 4, not 5.</p>
+
+    <h3>Loop variable i</h3>
+    <p><code>i</code> - this is a counter. At each step of the cycle it increases. Like the number of the block you are placing.</p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">print</span>(i)    <span class="cm"># will output: 0, 1, 2, 3, 4</span></code></pre>
+
+    <h3>Nested loops are a wall!</h3>
+    <p>Wall = rows × columns. Loop within a loop:</p>
+    <pre><code><span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):       <span class="cm"># 5 lines</span>
+    <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">10</span>):   <span class="cm"># 10 blocks each</span>
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()</code></pre>
+    <p>Total: 5 × 10 = <strong>50 blocks</strong>. Two lines of code instead of fifty.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q1" data-correct="B" data-explanation="range(3) gives the numbers 0, 1, 2 - this is exactly 3 iterations.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">How many times will it be executed <code>for i in range(3)</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 2</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 3</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 4</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 0</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q2" data-correct="A" data-explanation="range(4) gives 0, 1, 2, 3. print(i) prints each number.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      What will this code output?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">4</span>):
+    <span class="fn">print</span>(i)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 0 1 2 3</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 1 2 3 4</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 0 1 2 3 4</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 4</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice: Building in cycles</h2>
+
+    <p><strong>Task 1:</strong> Build a line of 7 blocks.</p>
+    <div class="fill-code-block" data-task-id="m1-04-t1">
+      <pre class="fill-code"><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="7" placeholder="???">):
+    <span class="fn">put_block</span>()
+    <input class="fill-blank" data-answer="forward" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>You need 7 blocks - that means range(???). After each block, the turtle takes a step forward.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">7</span>):
+    <span class="fn">put_block</span>()
+    <span class="fn">forward</span>()</code></pre>
+    </details>
+
+    <p><strong>Task 2:</strong> Build a wall 4 height × 6 width (nested loop).</p>
+    <div class="fill-code-block" data-task-id="m1-04-t2">
+      <pre class="fill-code"><code><span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="4" placeholder="???">):
+    <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="6" placeholder="???">):
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()
+    <span class="cm"># move to next row</span></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>Height = number of rows (outer loop). Width = number of blocks in each line (inner loop).</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">4</span>):
+    <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">6</span>):
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()
+    <span class="cm"># move to next row</span></code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q3" data-correct="C" data-explanation="Nested loop: 3 × 5 = 15 blocks. The outer loop is repeated 3 times, the inner loop 5 times for each iteration.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      How many blocks will this code produce?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">3</span>):
+    <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">put_block</span>()</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 8</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 5</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 15</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 3</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Build: The Wall in Action</h2>
+    <p>Imagine: you wrote 3 lines of code, clicked “run” - and the turtle itself built a wall of 24 blocks. Without a single manual click.</p>
+    <p>This is what loops do: <strong>turn minutes of manual work into seconds of automatic</strong>. It's like the difference between digging for diamonds with your hands and using a pickaxe with Efficiency V.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-04-boss" data-xp="75">
+    <div class="boss-header">👹Boss: Pixel Art <span class="boss-xp">+75 XP</span></div>
+    <p>The turtle draws a 5x5 square from blocks. Fill in the blanks:</p>
+
+    <div class="fill-code-block" data-task-id="m1-04-boss">
+      <pre class="fill-code"><code><span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+    <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()
+    <span class="cm"># return to the beginning of the row and go up</span>
+    <input class="fill-blank" data-answer="turn around" placeholder="???">()</code>
+<code>    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">forward</span>()
+    <input class="fill-blank" data-answer="turn around" placeholder="???">()</code>
+<code>    <span class="fn">up</span>()</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Hint</summary>
+      <p>5x5 square - both range() are the same. After each row, the turtle turns around, goes back, turns around again and rises one block up.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()
+    <span class="fn">turn around</span>()
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">forward</span>()
+    <span class="fn">turn around</span>()
+    <span class="fn">up</span>()</code></pre>
+    </details>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Results</h2>
+      <p><strong>Now you know:</strong></p>
+      <ul>
+        <li>✅ <code>for i in range(n)</code> - repeat n times</li>
+        <li>✅ <code>range(5)</code> gives the numbers 0, 1, 2, 3, 4</li>
+        <li>✅ Nested loops - a loop within a loop (rows × columns)</li>
+        <li>✅ Loops turn 100 lines into 3</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Loops in the real world:</strong></p>
+      <ul>
+        <li>📧 Spam filter checks every letter - cycle</li>
+        <li>🖥️ Screen pixels are updated 60 times/sec - cycle</li>
+        <li>⛏️ Minecraft generates chunks - nested loops</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>In the next lesson:</strong> Let's learn how to create our own teams - functions. I wrote it once, use it as much as you want.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-04">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m1-lesson-03">← Lesson 1.3: Conditions</a>
+    <a href="/en/lessons/m1-lesson-05">Lesson 1.5: Functions →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

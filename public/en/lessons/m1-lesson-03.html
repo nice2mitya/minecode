@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.3: Conditions - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 1 → Lesson 1.3</div>
+    <h1 class="lesson-title">Conditions - if creeper then run</h1>
+    <p class="lesson-subtitle">How to teach a program to make decisions.</p>
+  </div>
+
+  <img src="/images/lesson-1-3.png" alt="Lesson 1.3" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Start</h2>
+    <p>You're walking through a cave in Minecraft. There's a mob ahead. What are you doing?</p>
+    <ul>
+      <li>If this <strong>cow</strong> → ignore</li>
+      <li>If this <strong>zombie</strong> → you hit with a sword</li>
+      <li>If this <strong>creeper</strong> → RUN 💨</li>
+      <li>If this <strong>Enderman</strong> → don’t look him in the eyes</li>
+    </ul>
+    <p>You've just met four conditions. Your brain does this automatically: it evaluates the situation and chooses an action. Programs work the same way - but they need to specify each condition explicitly.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Theory: if/else</h2>
+    <p><strong>Condition</strong> - This is a fork in the code. If something is true, we do one thing. If not, something else.</p>
+    <pre><code><span class="fn">mob</span> = <span class="st">"creeper"</span>
+
+<span class="kw">if</span> mob == <span class="st">"creeper"</span>:
+    <span class="fn">print</span>(<span class="st">"LET'S RUN!"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="st">"Let's attack!"</span>)</code></pre>
+
+    <p>Let's break it down piece by piece:</p>
+    <ul>
+      <li><code>if</code> - “if”</li>
+      <li><code>mob == "creeper"</code> — check (two characters <code>=</code> - this is a comparison, one <code>=</code> - assignment)</li>
+      <li><code>:</code> — colon after the condition (Python wants it this way, don’t argue)</li>
+      <li>Indentation (4 spaces) - what is done if the condition is true</li>
+      <li><code>else:</code> - “otherwise” (everything else)</li>
+    </ul>
+
+    <h3>elif - when there are more than two options</h3>
+    <pre><code><span class="fn">mob</span> = <span class="st">"zombie"</span>
+
+<span class="kw">if</span> mob == <span class="st">"creeper"</span>:
+    <span class="fn">print</span>(<span class="st">"LET'S RUN!"</span>)
+<span class="kw">elif</span> mob == <span class="st">"zombie"</span>:
+    <span class="fn">print</span>(<span class="st">"We hit with a sword"</span>)
+<span class="kw">elif</span> mob == <span class="st">"skeleton"</span>:
+    <span class="fn">print</span>(<span class="st">"Hide behind the shield"</span>)
+<span class="kw">elif</span> mob == <span class="st">"enderman"</span>:
+    <span class="fn">print</span>(<span class="st">"Don't make eye contact"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="st">"Something unknown. Be careful."</span>)</code></pre>
+    <p><code>elif</code> is an abbreviation for “else if”. You can bet as much as you like.</p>
+
+    <h3>Comparison Operators</h3>
+    <table>
+      <tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code>==</code></td><td>equals</td><td><code>5 == 5</code></td><td>True</td></tr>
+      <tr><td><code>!=</code></td><td>not equal</td><td><code>5 != 3</code></td><td>True</td></tr>
+      <tr><td><code>&gt;</code></td><td>more</td><td><code>10 &gt; 5</code></td><td>True</td></tr>
+      <tr><td><code>&lt;</code></td><td>less</td><td><code>3 &lt; 7</code></td><td>True</td></tr>
+      <tr><td><code>&gt;=</code></td><td>greater than or equal to</td><td><code>5 &gt;= 5</code></td><td>True</td></tr>
+      <tr><td><code>&lt;=</code></td><td>less than or equal to</td><td><code>3 &lt;= 2</code></td><td>False</td></tr>
+    </table>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-03-q1" data-correct="B" data-explanation="== checks for equality. One = is an assignment (writing a value to a variable).">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">How is it different? <code>=</code> from <code>==</code> in Python?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Nothing, it's the same thing</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> <code>=</code> assigns a value <code>==</code> compares</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> <code>==</code> assigns a value <code>=</code> compares</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> <code>==</code> only works with numbers</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+
+    <p><strong>Task 1: Mob classifier</strong></p>
+    <p>Into empty fields <code>???</code> enter the commands: <code>if</code> (if) <code>elif</code> (and if) or <code>else</code> (otherwise). These are the words that tell the program when to execute the code.</p>
+    <div class="fill-code-block" data-task-id="m1-03-t1">
+      <pre class="fill-code"><code><span class="fn">mob</span> = <span class="st">"wolf"</span>
+
+<input class="fill-blank" data-answer="if" placeholder="???"> mob == <span class="st">"creeper"</span>:
+    type = <span class="st">"hostile"</span>
+<input class="fill-blank" data-answer="elif" placeholder="???"> mob == <span class="st">"wolf"</span>:
+    type = <span class="st">"neutral"</span>
+<input class="fill-blank" data-answer="else" placeholder="???">:
+    type = <span class="st">"friendly"</span></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>The first check is if. Additional check - elif. Everything else is else.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">if</span> mob == <span class="st">"creeper"</span>:
+    type = <span class="st">"hostile"</span>
+<span class="kw">elif</span> mob == <span class="st">"wolf"</span>:
+    type = <span class="st">"neutral"</span>
+<span class="kw">else</span>:
+    type = <span class="st">"friendly"</span></code></pre>
+    </details>
+
+    <p><strong>Task 2: Day and night system</strong></p>
+    <p>In Minecraft, the day cycle = 24,000 ticks. Fill in the border numbers:</p>
+    <ul>
+      <li>0-6000: morning ☀️</li>
+      <li>6000-12000: day 🌞</li>
+      <li>12000-18000: evening 🌅</li>
+      <li>18000-24000: night 🌙</li>
+    </ul>
+    <div class="fill-code-block" data-task-id="m1-03-t2">
+      <pre class="fill-code"><code><span class="fn">tick</span> = <span class="nb">14500</span>
+
+<span class="kw">if</span> tick &lt; <input class="fill-blank" data-answer="6000" placeholder="???">:
+    time = <span class="st">"morning ☀️"</span>
+<span class="kw">elif</span> tick &lt; <input class="fill-blank" data-answer="12000" placeholder="???">:
+    time = <span class="st">"day 🌞"</span>
+<span class="kw">elif</span> tick &lt; <input class="fill-blank" data-answer="18000" placeholder="???">:
+    time = <span class="st">"evening 🌅"</span>
+<span class="kw">else</span>:
+    time = <span class="st">"night 🌙"</span></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>Range boundaries: morning ends at 6000, day at 12000, evening at 18000.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="kw">if</span> tick &lt; <span class="nb">6000</span>:
+    time = <span class="st">"morning ☀️"</span>
+<span class="kw">elif</span> tick &lt; <span class="nb">12000</span>:
+    time = <span class="st">"day 🌞"</span>
+<span class="kw">elif</span> tick &lt; <span class="nb">18000</span>:
+    time = <span class="st">"evening 🌅"</span>
+<span class="kw">else</span>:
+    time = <span class="st">"night 🌙"</span></code></pre>
+    </details>
+  </section>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Build: Smart Turtle</h2>
+    <p>Remember the turtle from lesson 1? She walked forward stupidly. Now she will become smarter.</p>
+    <p>The turtle moves around the world and encounters different blocks. She can determine them using the function <code>what_ahead()</code>.</p>
+    <pre><code><span class="fn">block</span> = <span class="fn">what's ahead</span>()
+
+<span class="kw">if</span> block == <span class="st">"air"</span>:
+    <span class="fn">forward</span>()
+<span class="kw">elif</span> block == <span class="st">"ore"</span>:
+    <span class="fn">dig</span>()
+    <span class="fn">forward</span>()
+<span class="kw">elif</span> block == <span class="st">"lava"</span>:
+    <span class="fn">left</span>()
+    <span class="fn">forward</span>()
+    <span class="fn">right</span>()
+    <span class="fn">forward</span>()
+    <span class="fn">right</span>()
+    <span class="fn">forward</span>()
+    <span class="fn">left</span>()
+<span class="kw">elif</span> block == <span class="st">"bedrock"</span>:
+    <span class="fn">print</span>(<span class="st">"We can't go any further"</span>)
+    <span class="fn">turn around</span>()</code></pre>
+    <p>Turtle now <strong>reacts</strong> on the environment, and does not just blindly follow commands. This is already real AI (well, almost).</p>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-03-q3" data-correct="D" data-explanation="Nested conditions are ifs within ifs. Allows you to build decision trees.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      What does this code do if <code>mob = "creeper"</code> and <code>distance = 2</code>?
+      <pre><code><span class="kw">if</span> mob == <span class="st">"creeper"</span>:
+    <span class="kw">if</span> distance &lt; <span class="nb">3</span>:
+        <span class="fn">print</span>(<span class="st">"LET'S RUN!"</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(<span class="st">"Let's shoot"</span>)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> "Let's shoot"</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Nothing</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Error</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> "LET'S RUN!"</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-03-boss" data-correct="B" data-xp="100">
+    <div class="boss-header">👹Boss: Battle Robot <span class="boss-xp">+100 XP</span></div>
+    <p>Turtle fighter in the arena. She has <code>health = 4</code>, <code>mob = "skeleton"</code>, <code>there_shield = False</code>.</p>
+    <p>Rules:</p>
+    <ol>
+      <li>If health &lt;5 - always run away</li>
+      <li>If a creeper is close, run away</li>
+      <li>If it's a zombie, attack with a sword</li>
+      <li>If the skeleton is a shield, block it</li>
+      <li>If there is a skeleton and no shield - zigzag</li>
+    </ol>
+    <p>What would properly written code do in this situation?</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Zigzag run up to the skeleton</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Run away (health &lt; 5 - priority!)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Blocks with a shield</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Attacks with a sword</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Results</h2>
+      <p><strong>Now you know:</strong></p>
+      <ul>
+        <li>✅ <code>if/elif/else</code> - the program can make decisions</li>
+        <li>✅ Comparison operators: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+        <li>✅ Nested conditions - decision tree</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Where is it in the real world:</strong></p>
+      <ul>
+        <li>Mail spam filter: if contains “you won a million” → spam</li>
+        <li>Automatic doors: if motion sensor → open</li>
+        <li>Traffic light: if red → stop, elif green → go</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Fun fact:</strong> All logic of any computer comes down to two operations: comparison (if) and transition (goto). Literally everything. Games, neural networks, operating systems - just a lot <code>if</code>. 🤯</p>
+      <p style="margin-top:1rem;"><strong>In the next lesson:</strong> compound conditions - <code>and</code>, <code>or</code>, <code>not</code>. When you need to check several things at the same time.</p>
+      <p style="margin-top:1rem;"><strong>And then:</strong> We'll finally get rid of the copy-paste. Do you remember how we wrote <code>forward()</code> five times in a row? Loops will solve this problem forever.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-03">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m1-lesson-02">← Lesson 1.2: Variables</a>
+    <a href="/en/lessons/m1-lesson-04">Lesson 1.4: Loops →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

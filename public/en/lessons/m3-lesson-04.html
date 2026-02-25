@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3.4: Pathfinding - Mob AI</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 3 → Lesson 3.4</div>
+    <h1 class="lesson-title">Pathfinding - Mob AI</h1>
+    <p class="lesson-subtitle">We find a path in the grid: from the start to the goal, avoiding obstacles.</p>
+  </div>
+
+  <img src="/images/lesson-3-hero.webp" alt="Pathfinding - Mob AI" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>The zombie knows how to reach the player, even if there are walls and corridors. This means he is looking for a path on the map.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>Pathfinding is often modeled as a graph:<br>- cells/points = vertices;<br>- transitions between them = edges.<br><br>For the “minimum number of steps” on equal edges, BFS (breadth first search) is suitable.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-04-q1" data-correct="B" data-explanation="BFS finds the shortest path based on the number of edges.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What algorithm is usually used to find the shortest path in an unweighted graph?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Bubble sort</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> BFS</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Linear search</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Recursion only</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Task 1: indicate the start and target marks.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-04-t1">
+      <pre class="fill-code"><code>start = "S"
+goal = "G"</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key Answers: S/G.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Task 2: complete the structure for the BFS visit.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-04-t2">
+      <pre class="fill-code"><code>queue = [start]
+visited = set()</code></pre>
+      <p>Test yourself: queue.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-04-q2" data-correct="B" data-explanation="visited prevents you from getting stuck.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What does visited store in BFS?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Only walls</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Already visited peaks</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Only goal</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Random indexes</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Draw a 7x7 grid with obstacles and find the shortest path from S to G (list of coordinates).</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-04-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini boss <span class="boss-xp">+120 XP</span></div>
+    <p>We combine the current topic with previous skills.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>You see how navigation problems come down to data structures and graph algorithms.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-04">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m3-lesson-03">← Sorting - order in the chest</a>
+    <a href="/en/lessons/m3-lesson-05">Recursion is a function that calls itself →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

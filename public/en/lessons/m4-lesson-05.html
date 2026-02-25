@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4.5: When AI lies</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 4 → Lesson 4.5</div>
+    <h1 class="lesson-title">When AI lies - critical thinking</h1>
+    <p class="lesson-subtitle">We recognize hallucinations and build a verification process.</p>
+  </div>
+
+  <img src="/images/lesson-4-hero.webp" alt="When AI lies - critical thinking" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>AI can confidently tell lies. The danger is not in the mistake, but in the confident tone.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Terms:</strong> list, dictionary, loop, function - we write in English, we explain in Russian.</p>
+    <p>Typical risks:<br>- fictitious APIs/facts;<br>- incorrect links;<br>- skipping task constraints.<br><br>Antidote:<br>- checking sources;<br>- run the code;<br>- we check with the documentation;<br>- ask clarifying questions.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-05-q1" data-correct="C" data-explanation="Hallucination = confident fiction.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What is an AI hallucination?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Beautiful response design</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Correct answer without source</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Convincing-sounding but false information</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Any long answer</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice</h2>
+    <p><strong>Task 1: indicate the action if the AI answer is dubious.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-05-t1">
+      <pre class="fill-code"><code>action = "check the documentation"</code></pre>
+      <p>Fill in the gaps in the code in your notebook/editor. Key Answers: Check.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Task 2: add a method to protect against fake API.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-05-t2">
+      <pre class="fill-code"><code>source = "official doc"</code></pre>
+      <p>Check yourself: official doc.</p>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-05-q2" data-correct="B" data-explanation="We need practical verification and a primary source.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">The most reliable way to check code from AI?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Take my word for it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Run tests and check with documentation</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Ask another AI and that's it</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Copy without reading</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Assembly: mini project</h2>
+    <p>Collect a personal 6-point “AI verification protocol” and apply it to one example of a model response.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-05-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini boss <span class="boss-xp">+120 XP</span></div>
+    <p>We combine the current topic with previous skills.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Make it without structure, then fix it</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> First plan, then implement and test</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copy the solution without understanding</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Skip tests for speed</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>You have upgraded your AI immunity to hallucinations and learned to separate confident text from proven knowledge.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-05">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m4-lesson-04">← Vibe coding - iterative development with AI</a>
+    <a href="/en/lessons/m4-lesson-06">👹 Boss Level: Your own project with AI →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

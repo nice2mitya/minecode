@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👹 Boss Level 1.6: Automatic Farm - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+.turtle-canvas {
+  display: block;
+  margin: 1rem auto;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #1a2a1a;
+  max-width: 100%;
+}
+
+.boss-victory {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(76,175,80,0.1));
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-lg);
+}
+
+.boss-victory h2 {
+  color: var(--gold);
+  font-size: 1.8rem;
+  justify-content: center;
+}
+
+.boss-victory .big-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.challenge-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.challenge-header {
+  background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+  padding: 1rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenge-content {
+  padding: 1.5rem;
+}
+
+.boss-title {
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.boss-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 1 → Boss Level 1.6</div>
+    <h1 class="boss-title">👹 Boss Level: Automatic Farm</h1>
+    <p class="boss-subtitle">Everything you learned in module 1 is here. Three tasks. One boss.</p>
+  </div>
+
+  <img src="/images/lesson-1-6.png" alt="Boss Level" class="lesson-hero-image">
+
+  <!-- INTRO -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">⚔️</span> Test</h2>
+    <p>Welcome to <strong>Boss Level</strong>! This is not an ordinary lesson - it is an exam on everything you have learned:</p>
+    <ul>
+      <li>🔄 <strong>Cycles</strong> — automation of repetitive actions</li>
+      <li>⚙️ <strong>Functions</strong> — creating your own teams</li>
+      <li>🧠 <strong>Variables</strong> — data storage</li>
+      <li>❓ <strong>Terms</strong> — decision making</li>
+    </ul>
+    <p>They are waiting for you <strong>3 progressive trials</strong>. Each one is more difficult than the previous one. For correct answers - <strong>visualization of your code in action!</strong></p>
+  </section>
+
+  <!-- CHALLENGE 1: Build Line -->
+  <div class="challenge-card">
+    <div class="challenge-header">
+      <span>🏗️ Challenge 1: Build a line</span>
+      <span class="challenge-xp">+25 XP</span>
+    </div>
+    <div class="challenge-content">
+      <p><strong>Task:</strong> Build a line of 8 blocks. Fill in the blanks.</p>
+      
+      <div class="fill-code-block" data-task-id="boss-c1" data-turtle="line-8">
+        <pre class="fill-code"><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="8" placeholder="???">):
+    <span class="fn">put_block</span>()
+    <input class="fill-blank" data-answer="forward" placeholder="???">()</code></pre>
+        <button class="code-run-btn">▶ Execute code</button>
+        <canvas id="turtle-c1" class="turtle-canvas"></canvas>
+        <div class="code-feedback"></div>
+      </div>
+      
+      <details>
+        <summary>💡 Hint</summary>
+        <p>The cycle must be repeated as many times as there are blocks to be placed. After each block, the turtle must take a step.</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- CHALLENGE 2: Build Wall -->
+  <div class="challenge-card">
+    <div class="challenge-header">
+      <span>🧱 Challenge 2: Build a wall</span>
+      <span class="challenge-xp">+50 XP</span>
+    </div>
+    <div class="challenge-content">
+      <p><strong>Task:</strong> Build a 5x3 (width x height) wall. Fill in the blanks.</p>
+      
+      <div class="fill-code-block" data-task-id="boss-c2" data-turtle="rect-5-3">
+        <pre class="fill-code"><code><span class="kw">for</span> string <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="3" placeholder="???">):
+    <span class="kw">for</span> block <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+        <span class="fn">put_block</span>()
+        <span class="fn">forward</span>()</code></pre>
+        <button class="code-run-btn">▶ Execute code</button>
+        <canvas id="turtle-c2" class="turtle-canvas"></canvas>
+        <div class="code-feedback"></div>
+      </div>
+      
+      <details>
+        <summary>💡 Hint</summary>
+        <p>The outer loop is rows (height). The inner loop is blocks in each line (width).</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- CHALLENGE 3: BOSS - Auto Farm -->
+  <div class="challenge-card" style="border-color: var(--gold);">
+    <div class="challenge-header" style="background: linear-gradient(135deg, #ff6b6b, #4ecdc4);">
+      <span>👹 FINAL BOSS: Automatic Farm</span>
+      <span class="challenge-xp" style="color: var(--gold);">+150 XP</span>
+    </div>
+    <div class="challenge-content">
+      <p><strong>Task:</strong> Create a function that builds a garden bed and plants it. Then call it twice to create a farm.</p>
+      
+      <div class="boss-block" data-boss-id="boss-farm" data-xp="150">
+        <div class="fill-code-block" data-task-id="boss-c3" data-turtle="farm">
+          <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">build_a bed</span>(length):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(length):
+        <span class="fn">dig up</span>()
+        <span class="fn">plant</span>()
+        <input class="fill-blank" data-answer="forward" placeholder="???">()</code>
+<code>
+<span class="cm"># Building the first bed</span>
+<span class="fn">build_a bed</span>(<input class="fill-blank" data-answer="6/8/5/7/4/3/9/10" placeholder="???">)
+
+<span class="cm"># Move to the next row</span>
+<span class="fn">right</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">left</span>()
+
+<span class="cm"># Building a second bed</span>
+<span class="fn">build_a bed</span>(<input class="fill-blank" data-answer="6/8/5/7/4/3/9/10" placeholder="???">)</code></pre>
+          <button class="code-run-btn">▶ Start a farm</button>
+          <canvas id="turtle-c3" class="turtle-canvas"></canvas>
+          <div class="code-feedback"></div>
+        </div>
+      </div>
+      
+      <details>
+        <summary>💡 Hint</summary>
+        <p>The function is created using <code>def</code>. After landing, the turtle moves forward. The length of the bed is any reasonable number (3-10).</p>
+      </details>
+      <details>
+        <summary>✅ Sample solution</summary>
+        <pre><code><span class="kw">def</span> <span class="fn">build_a bed</span>(length):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(length):
+        <span class="fn">dig up</span>()
+        <span class="fn">plant</span>()
+        <span class="fn">forward</span>()
+
+<span class="fn">build_a bed</span>(<span class="nb">6</span>)
+<span class="fn">right</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">left</span>()
+<span class="fn">build_a bed</span>(<span class="nb">6</span>)</code></pre>
+      </details>
+    </div>
+  </div>
+
+  <!-- VICTORY SECTION (Hidden initially, shown via JS when boss completed) -->
+  <div class="boss-victory" id="victory-section" style="display:none;">
+    <div class="big-emoji">🏆</div>
+    <h2>Module 1 completed!</h2>
+    <p style="font-size:1.2rem;margin-bottom:1rem;">Congratulations! You have mastered the basics of programming:</p>
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin:1rem 0;">
+      <div>✅ Algorithms</div>
+      <div>✅ Variables</div>
+      <div>✅ Terms</div>
+      <div>✅ Cycles</div>
+      <div>✅ Features</div>
+    </div>
+    <p style="font-size:1.1rem;color:var(--gold);margin-top:1rem;">Total XP earned: <span id="total-xp">225</span> 🔥</p>
+  </div>
+
+  <!-- MODULE COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-06" id="module-complete-btn" style="display:none;">
+      🎉 Complete Module 1 - get bonus +200 XP
+    </button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/en/lessons/m1-lesson-05">← Lesson 1.5: Functions</a>
+    <a href="/en/course-map">Course Map (Module 2 coming soon) →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+
+<!-- Include turtle canvas before app.js -->
+<script src="/turtle-canvas.js"></script>
+<script src="/app.js"></script>
+
+<script>
+// Boss-specific logic
+document.addEventListener('DOMContentLoaded', () => {
+  let challengesCompleted = 0;
+  const totalChallenges = 3;
+  
+  // Track challenge completion
+  document.querySelectorAll('.fill-code-block').forEach(block => {
+    const feedback = block.querySelector('.code-feedback');
+    if (feedback) {
+      const observer = new MutationObserver(() => {
+        if (feedback.classList.contains('correct')) {
+          challengesCompleted++;
+          if (challengesCompleted === totalChallenges) {
+            showVictory();
+          }
+        }
+      });
+      observer.observe(feedback, { attributes: true, attributeFilter: ['class'] });
+    }
+  });
+  
+  function showVictory() {
+    setTimeout(() => {
+      document.getElementById('victory-section').style.display = 'block';
+      document.getElementById('module-complete-btn').style.display = 'inline-block';
+      
+      // Scroll to victory
+      document.getElementById('victory-section').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+      });
+    }, 1000);
+  }
+  
+  // Module complete button
+  document.getElementById('module-complete-btn')?.addEventListener('click', () => {
+    MineCode.addXP(200, 'Module 1 Complete');
+    const btn = document.getElementById('module-complete-btn');
+    btn.textContent = t('module1_complete_done');
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+  });
+});
+</script>
+
+</body>
+</html>

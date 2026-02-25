@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.1: What is code - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/en" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 Wooden</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/en/course-map">Course map</a> → Module 1 → Lesson 1.1</div>
+    <h1 class="lesson-title">What is the code</h1>
+    <p class="lesson-subtitle">And why are you already a programmer, even if you don’t know about it.</p>
+  </div>
+
+  <img src="/images/lesson-1-1.png" alt="Lesson 1.1" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Start</h2>
+    <p>Open Minecraft. Craft a stone pickaxe.</p>
+    <p>Did you do it? OK. You have just completed the program. No, seriously.</p>
+    <p>Look:</p>
+    <pre><code><span class="nb">1.</span> Open the workbench
+<span class="nb">2.</span> Place 3 cobblestones in the top row
+<span class="nb">3.</span> Place 1 stick in the center
+<span class="nb">4.</span> Place 1 stick in the bottom center
+<span class="nb">5.</span> Take the pickaxe</code></pre>
+    <p>Five steps. Clear sequence. Specific result. If you change the order or ingredients, you will get something different or nothing at all.</p>
+    <p>This is the program - <strong>a set of instructions that are executed in order and produce a result</strong>.</p>
+    <p>Congratulations, you are already thinking like a programmer. All that remains is to learn how to write these instructions so that the computer understands them.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Theory: Algorithm</h2>
+    <p><strong>Algorithm</strong> is a sequence of steps to solve a problem.</p>
+    <p>You use algorithms every day:</p>
+    <ul>
+      <li>Crafting recipe = algorithm</li>
+      <li>Route to school = algorithm</li>
+      <li>Strategy against the Ender Dragon = algorithm (difficult)</li>
+    </ul>
+    <p>Programming is when you write an algorithm in a language that the computer understands.</p>
+
+    <h3>Example: building a line of 5 blocks</h3>
+    <p><strong>In words:</strong></p>
+    <blockquote>Put up a block. Take a step forward. Put up a block. Take a step forward. Put up a block. Take a step forward. Put up a block. Take a step forward. Put up a block.</blockquote>
+    <p><strong>In short (with a loop - but that's lesson 4):</strong></p>
+    <blockquote>Repeat 5 times: place a block, step forward.</blockquote>
+    <p><strong>On the code:</strong></p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">put_block</span>()
+    <span class="fn">step_forward</span>()</code></pre>
+    <p>It is not necessary to understand every line yet. The main thing is to see how verbal instructions turn into code? It's the same algorithm, just written differently.</p>
+
+    <h3>Three properties of a good algorithm</h3>
+    <ol>
+      <li><strong>Accuracy</strong> — every step is unambiguous. “Put a block” - understandable. “Make something beautiful” - no.</li>
+      <li><strong>Order</strong> — steps are performed sequentially. You cannot pick up the pickaxe before you have placed the ingredients.</li>
+      <li><strong>Limb</strong> — the algorithm ends. If your program takes forever, it's a bug.</li>
+    </ol>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-01-q1" data-correct="B" data-explanation="The algorithm is a step-by-step instruction, like a crafting recipe.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">What is an algorithm?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Python program</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Sequence of steps to solve the problem</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Computer virus</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Programming language name</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practice: Write your first algorithm</h2>
+    <p><strong>Assignment:</strong> You have a turtle in the world of Minecraft. She can:</p>
+    <ul>
+      <li><code>forward()</code> - step forward</li>
+      <li><code>back()</code> - step back</li>
+      <li><code>left()</code> - turn left</li>
+      <li><code>right()</code> - turn right</li>
+      <li><code>put_block()</code> - place a block under you</li>
+    </ul>
+
+    <p><strong>Task 1:</strong> Fill in the blanks so that the turtle passes the letter “G” (4 blocks forward, turn right, 2 blocks forward).</p>
+    <div class="fill-code-block" data-task-id="m1-01-t1">
+      <pre class="fill-code"><code><span class="cm"># Draw the turtle with the letter G</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<input class="fill-blank" data-answer="right" placeholder="???">()
+<span class="fn">forward</span>()
+<input class="fill-blank" data-answer="forward" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>The letter G is a line up, then a turn to the right and a line to the right. Which team turns right?</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">right</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()</code></pre>
+    </details>
+
+    <p><strong>Task 2:</strong> And now the letter "P". Complete the turns.</p>
+    <div class="fill-code-block" data-task-id="m1-01-t2">
+      <pre class="fill-code"><code><span class="cm"># Left leg (up)</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="cm"># Crossbar (right)</span>
+<input class="fill-blank" data-answer="right" placeholder="???">()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="cm"># Right leg (down)</span>
+<input class="fill-blank" data-answer="right" placeholder="???">()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<input class="fill-blank" data-answer="forward" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Hint</summary>
+      <p>Letter P - three lines: up, right, down. You need 2 right turns.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="cm"># Left leg (up)</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="cm"># Crossbar (right)</span>
+<span class="fn">right</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="cm"># Right leg (down)</span>
+<span class="fn">right</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()</code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-01-q2" data-correct="C" data-explanation="A good algorithm has all three properties: precision, consistency, finiteness.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">Which of these is NOT a property of a good algorithm?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Accuracy</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Limb</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Beautifulness</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Sequence</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Build: Turtle in Action</h2>
+    <p>We run your algorithm in the virtual world. The turtle follows your commands and leaves blocks.</p>
+    <p><strong>This is what programming is:</strong> wrote → ran it → saw the result → corrected it → ran it again. This cycle is called <strong>debug loop</strong>, and mistakes are a normal part of the process.</p>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-01-q3" data-correct="B" data-explanation="for i in range(5) executes the loop body exactly 5 times: for i = 0, 1, 2, 3, 4.">
+    <div class="quiz-header">🧩 Quiz <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      How many blocks will this code produce?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">place_block</span>()</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 4</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 5</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 6</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Infinitely</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Try again</button>
+  </div>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-01-boss" data-correct="B" data-xp="50">
+    <div class="boss-header">👹Boss: Labyrinth <span class="boss-xp">+50 XP</span></div>
+    <p>Your turtle 🐢 is standing at point H. You need to lead it to exit B. It can: <code>forward()</code>, <code>left()</code>, <code>right()</code>.</p>
+    <p>The turtle looks to the right →</p>
+    <pre><code>┌──┬──┬──┬──┬──┐
+│🐢│ │██│ │ │
+├──┼──┼──┼──┼──┤
+│██│ │██│ │██│
+├──┼──┼──┼──┼──┤
+│ │ │ │ │ │
+├──┼──┼──┼──┼──┤
+│██│██│██│ │🏁│
+└──┴──┴──┴──┴──┘
+
+🐢 = turtle (start, looking right)
+🏁 = exit
+██ = wall (cannot be passed)
+   = free passage</code></pre>
+    <p><strong>Fill in the blanks:</strong> What commands does the turtle need to get to the exit?</p>
+
+    <div class="fill-code-block" data-task-id="m1-01-boss">
+      <pre class="fill-code"><code><span class="fn">forward</span>()          <span class="cm"># right by 1</span>
+<input class="fill-blank" data-answer="right" placeholder="???">()          <span class="cm"># turn down</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()          <span class="cm"># 2 cells down</span>
+<input class="fill-blank" data-answer="left" placeholder="???">()           <span class="cm"># look to the right</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<input class="fill-blank" data-answer="forward" placeholder="???">()          <span class="cm"># 3 cells to the right</span>
+<span class="fn">right</span>()          <span class="cm"># look down</span>
+<input class="fill-blank" data-answer="forward" placeholder="???">()          <span class="cm"># reached 🏁!</span></code></pre>
+      <button class="code-run-btn">▶ Check</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Hint</summary>
+      <p>Path: right 1, turn down, down 2, turn right, right 3, turn down, down 1.</p>
+    </details>
+    <details>
+      <summary>✅ Solution</summary>
+      <pre><code><span class="fn">forward</span>()          <span class="cm"># right by 1</span>
+<span class="fn">right</span>()          <span class="cm"># now look down</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()          <span class="cm"># went 2 cells down</span>
+<span class="fn">left</span>()           <span class="cm"># look to the right</span>
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()
+<span class="fn">forward</span>()          <span class="cm"># went 3 cells to the right</span>
+<span class="fn">right</span>()          <span class="cm"># look down</span>
+<span class="fn">forward</span>()          <span class="cm"># reached 🏁!</span></code></pre>
+    </details>
+
+    <p style="margin-top:1rem;"><strong>Bonus question:</strong> is there another way? If yes, write it too. In programming there are often more than one correct solution.</p>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Results</h2>
+      <p><strong>Now you know:</strong></p>
+      <ul>
+        <li>✅ A program is a set of instructions in a certain order</li>
+        <li>✅ An algorithm is a way to solve a problem step by step</li>
+        <li>✅ A good algorithm is accurate, consistent and finite</li>
+        <li>✅ Errors are normal. Debug loop is your friend</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>In the next lesson:</strong> we will teach the turtle to remember things. These are called “variables” - and without them not a single program in the world works.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE BUTTON -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-01">✅ Lesson completed - get 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/en/course-map">← Course map</a>
+    <a href="/en/lessons/m1-lesson-02">Lesson 1.2: Variables →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>
