@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1.5: Funciones - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 1 → Lección 1.5</div>
+    <h1 class="lesson-title">Funciones: crea tus propios equipos</h1>
+    <p class="lesson-subtitle">Escribí una vez, llama tantas veces como quieras.</p>
+  </div>
+
+  <img src="/images/lesson-1-5.png" alt="Lección 1.5 - Funciones" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Empezar</h2>
+    <p>Ya sabes cómo construir un muro. ¿Qué pasa si necesitas 10 paredes diferentes en diferentes lugares? ¿Copiar el código 10 veces?</p>
+    <p><strong>No.</strong> Creas una función: tu propio equipo. Lo escribí una vez, llama tantas veces como quieras.</p>
+    <p>Una función es como una receta de elaboración. Una vez que escribas la receta del pico, podrás crear tantos picos como quieras sin tener que recordar la ubicación de los ingredientes cada vez.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Teoría: Funciones</h2>
+
+    <h3>def nombre(): - crear una función</h3>
+    <p>palabra clave <code>def</code> (de “definir” - definir) crea un nuevo comando:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">construir_una casa</span>():
+    <span class="fn">levantar_paredes</span>()
+    <span class="fn">poner_el_techo</span>()
+    <span class="fn">poner_la_puerta</span>()</code></pre>
+    <p>Ahora <code>construir_casa()</code> - tu equipo personal. Escribí una vez: se construyen casas en todas partes:</p>
+    <pre><code><span class="fn">construir_una casa</span>()   <span class="cm"># casa numero 1</span>
+<span class="fn">adelante</span>()
+<span class="fn">construir_una casa</span>()   <span class="cm"># casa numero 2</span>
+<span class="fn">adelante</span>()
+<span class="fn">construir_una casa</span>()   <span class="cm"># casa numero 3</span></code></pre>
+
+    <h3>Configuración - Funciones personalizables</h3>
+    <p>¿Quieres paredes de diferentes tamaños? Agregar parámetros:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">construir_una pared</span>(ancho, alto):
+    <span class="kw">for</span> cuerda <span class="kw">in</span> <span class="fn">range</span>(altura):
+        <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(ancho):
+            <span class="fn">poner_bloque</span>()
+
+<span class="fn">construir_una pared</span>(<span class="nb">10</span>, <span class="nb">5</span>)   <span class="cm">#pared 10×5</span>
+<span class="fn">construir_una pared</span>(<span class="nb">3</span>, <span class="nb">20</span>)    <span class="cm"># torre 3×20</span></code></pre>
+    <p>Los parámetros son como los ingredientes de una receta. Diferentes ingredientes → diferentes resultados.</p>
+
+    <h3>retorno - resultado de la función</h3>
+    <p>Una función no sólo puede hacer algo, sino también <strong>resultado de retorno</strong>:</p>
+    <pre><code><span class="kw">def</span> <span class="fn">zona</span>(a, b):
+    <span class="kw">return</span> a*b
+
+resultado = <span class="fn">zona</span>(<span class="nb">10</span>, <span class="nb">5</span>)   <span class="cm"># resultado = 50</span></code></pre>
+    <p><strong>Analogía:</strong> función = receta de elaboración. Parámetros = ingredientes. <code>return</code> = resultado de elaboración.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q1" data-correct="B" data-explanation="def (de define) crea una nueva función: su propio comando, que puede llamarse tantas veces como desee.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué hace una palabra clave? <code>def</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Elimina una variable</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Crea una nueva función (comando)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Inicia un bucle</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Muestra texto en la pantalla.</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q2" data-correct="C" data-explanation="double(5) sustituye x = 5 en la fórmula x * 2, lo que da como resultado 10.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      ¿Qué devolverá la llamada? <code>doble(5)</code>?
+      <pre><code><span class="kw">def</span> <span class="fn">doble</span>(x):
+    <span class="kw">return</span> x * <span class="nb">2</span></code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 5</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 2</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 10</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> error</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Práctica: Crear funciones</h2>
+
+    <p><strong>Tarea 1:</strong> Crear una función <code>linea</code>, que construye una línea de una longitud determinada.</p>
+    <div class="fill-code-block" data-task-id="m1-05-t1">
+      <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">linea</span>(longitud):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(longitud):
+        <span class="fn">poner_bloque</span>()
+        <input class="fill-blank" data-answer="adelante" placeholder="???">()</code>
+<code>
+<span class="fn">linea</span>(<input class="fill-blank" data-answer="5/10/7/3/8/4/6/9" placeholder="???">)</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Para crear una función, necesita una palabra clave de tres letras. Después de cada bloque, la tortuga da un paso adelante. Puede llamar a la función con cualquier número.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">linea</span>(longitud):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(longitud):
+        <span class="fn">poner_bloque</span>()
+        <span class="fn">adelante</span>()
+
+<span class="fn">linea</span>(<span class="nb">5</span>)</code></pre>
+    </details>
+
+    <p><strong>Tarea 2:</strong> Función con retorno: calcula el área de la pared.</p>
+    <div class="fill-code-block" data-task-id="m1-05-t2">
+      <pre class="fill-code"><code><span class="kw">def</span> <span class="fn">área_pared</span>(ancho, alto):
+    <input class="fill-blank" data-answer="return" placeholder="???"> ancho * alto</code>
+<code>
+bloques = <span class="fn">área_pared</span>(<span class="nb">10</span>, <input class="fill-blank" data-answer="5/4/3/6/7/8" placeholder="???">)
+<span class="fn">print</span>(bloques)</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Para que una función devuelva un resultado, utilice una palabra clave de 6 letras. El segundo parámetro es cualquier número (altura de la pared).</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">área_pared</span>(ancho, alto):
+    <span class="kw">return</span> ancho * alto
+
+bloques = <span class="fn">área_pared</span>(<span class="nb">10</span>, <span class="nb">5</span>)
+<span class="fn">print</span>(bloques)   <span class="cm"># 50</span></code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-05-q3" data-correct="A" data-explanation="¡Sí! Llamar a una función dentro de otra función es la base de la programación. Así es como se construyen programas complejos a partir de simples ladrillos.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Es posible llamar a una función dentro de otra función?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Sí, esta es la base de la programación.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> No, habrá un error.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Sólo si la función es pequeña.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Sólo en Python 4</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Asamblea: equipos personalizados en acción</h2>
+    <p>Acabas de crear tus primeras funciones. ahora tienes <code>línea()</code> y <code>área_pared()</code> - equipos que no existían antes que tú.</p>
+    <p>¿Sabes qué? <strong>print() también es una función.</strong> Es sólo que alguien lo escribió antes que tú. un <code>range()</code>, que usaste en la última lección? ¡También una función! Alguien lo creó para que tú no tuvieras que hacerlo.</p>
+    <p>La programación consiste en crear nuevas herramientas a partir de las existentes. Como hacer manualidades en Minecraft: desde recursos básicos → elementos complejos.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-05-boss" data-xp="100">
+    <div class="boss-header">👹Jefe: Granja automática <span class="boss-xp">+100 XP</span></div>
+    <p>Cree una función que construya una cama de un tamaño determinado y la plante:</p>
+
+    <div class="fill-code-block" data-task-id="m1-05-boss">
+      <pre class="fill-code"><code><input class="fill-blank" data-answer="def" placeholder="???"> <span class="fn">construir una cama</span>(largo, ancho):
+    <span class="kw">for</span> fila <span class="kw">in</span> <span class="fn">range</span>(ancho):
+        <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(longitud):
+            <span class="fn">desenterrar</span>()
+            <input class="fill-blank" data-answer="planta" placeholder="???">()</code>
+<code>            <span class="fn">adelante</span>()
+        <span class="fn">siguiente_fila</span>()</code>
+<code>
+<span class="fn">construir una cama</span>(<input class="fill-blank" data-answer="8/5/10/6/7/4/3/9" placeholder="???">, <input class="fill-blank" data-answer="4/3/5/6/8/2/7" placeholder="???">)</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Pista</summary>
+      <p>La función comienza con def. Después de excavar() necesitas plantar las semillas. Puede llamar a la función con cualquier tamaño de cama.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">def</span> <span class="fn">construir una cama</span>(largo, ancho):
+    <span class="kw">for</span> fila <span class="kw">in</span> <span class="fn">range</span>(ancho):
+        <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(longitud):
+            <span class="fn">desenterrar</span>()
+            <span class="fn">planta</span>()
+            <span class="fn">adelante</span>()
+        <span class="fn">siguiente_fila</span>()
+
+<span class="fn">construir una cama</span>(<span class="nb">8</span>, <span class="nb">4</span>)</code></pre>
+    </details>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Resultados</h2>
+      <p><strong>Ahora lo sabes:</strong></p>
+      <ul>
+        <li>✅ <code>def</code> - crea una nueva función</li>
+        <li>✅ Parámetros: haga que la función sea personalizable</li>
+        <li>✅ <code>return</code> - devuelve el resultado</li>
+        <li>✅ Función = escrita una vez, usada en todas partes</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Funciones en el mundo real:</strong></p>
+      <ul>
+        <li>📱 Cada botón de la aplicación = llamada de función</li>
+        <li>🖨️ <code>print()</code> - también una función (recién escrita por alguien antes que tú)</li>
+        <li>⛏️ Minecraft completo = miles de funciones que se llaman entre sí</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Fun fact:</strong> Función <code>range()</code>, que ya has utilizado: ¡esta también es una función! Alguien lo escribió para que tú no tuvieras que hacerlo. 🤯</p>
+      <p style="margin-top:1rem;"><strong>¡Has cubierto todos los conceptos básicos del Módulo 1!</strong> Algoritmos, variables, condiciones, bucles y funciones son la base de cualquier lenguaje de programación. Lo siguiente son las estructuras y patrones de datos.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-05">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m1-lesson-04">← Lección 1.4: Bucles</a>
+    <a href="/es/lessons/m1-lesson-06">👹 Boss Level →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

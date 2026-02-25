@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👹 Jefe 3.7: mafia inteligente</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 3 → Jefe Nivel 3.7</div>
+    <h1 class="lesson-title">👹 Nivel de jefe: mafia inteligente</h1>
+    <p class="lesson-subtitle">Proyecto final de comportamiento de IA con búsqueda de caminos y estados.</p>
+  </div>
+
+  <img src="/images/lesson-3-hero.webp" alt="👹 Nivel de jefe: mafia inteligente" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>La mafia debe patrullar, fijarse en el jugador, buscar un camino y atacar en el momento adecuado.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Términos:</strong> lista, diccionario, bucle, función: escribimos en inglés, explicamos en ruso.</p>
+    <p>El proyecto une:<br>- búsqueda y clasificación de prioridades;<br>- encontrar caminos para el movimiento;<br>- máquina de estados para el comportamiento;<br>- optimización de la frecuencia de actualización.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-07-q1" data-correct="B" data-explanation="Los modos de comportamiento requieren una máquina de estados.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué controla mejor los modos de comportamiento de la mafia?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Una impresión larga</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> State machine</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> clasificación aleatoria</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Sólo matriz</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+    <p><strong>Paso 1: seleccione el estado inicial y el radio de detección.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-07-t1">
+      <pre class="fill-code"><code>state = "patrol"
+vision = 6</code></pre>
+      <p>Complete los espacios en blanco del código en su cuaderno/editor. Respuestas clave: patrulla/6.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Etapa 2: agrega una transición para perseguir cuando se detecta un jugador.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-07-t2">
+      <pre class="fill-code"><code>if player_seen:
+    state = "chase"</code></pre>
+      <p>Ponte a prueba: persigue.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-07-q2" data-correct="B" data-explanation="Un nuevo cálculo completo de cada tick es demasiado caro.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Por qué limitar la frecuencia de recálculo de la búsqueda de caminos?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Para hacerlo más hermoso</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Para reducir la carga y los retrasos.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Para eliminar estados</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Para desactivar la IA</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Montaje: mini proyecto</h2>
+    <p>Recoge el ciclo completo: patrullar → perseguir → atacar → regresar. Agregue un temporizador de "reutilización" y procesamiento de pérdida de objetivos.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-07-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Jefe final <span class="boss-xp">+120 XP</span></div>
+    <p>Verificación final del módulo: pensamiento arquitectónico, control de calidad y prototipo de trabajo.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hazlo sin estructura y luego arréglalo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Primero planificar, luego implementar y probar</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copiar la solución sin entender.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Saltar pruebas de velocidad</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ha completado el módulo de ingeniería: sabe cómo ensamblar algoritmos en un sistema de comportamiento vivo.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-07">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m3-lesson-06">← Optimización: por qué el servidor se retrasa</a>
+    <a href="/es/lessons/m4-lesson-01">¿Qué es la IA (sin magia) →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

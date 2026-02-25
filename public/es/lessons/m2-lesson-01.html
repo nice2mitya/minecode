@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 2.1: Matrices - Cofre con compartimentos</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 2 → Lección 2.1</div>
+    <h1 class="lesson-title">Matrices - cofre con compartimentos</h1>
+    <p class="lesson-subtitle">Cómo almacenar muchos valores en un solo lugar y obtener lo que necesitas usando un índice.</p>
+  </div>
+
+  <img src="/images/lesson-2-hero.webp" alt="Matrices - cofre con compartimentos" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>Imagínese: hay 27 espacios en un cofre. No los llamas "arriba a la izquierda, segundo a la derecha". Utiliza el número de ranura. Las matrices (colecciones con índices) funcionan de la misma manera en el código.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Términos:</strong> lista, diccionario, bucle, función: escribimos en inglés, explicamos en ruso.</p>
+    <p>Una matriz es una colección ordenada de elementos. Cada elemento tiene un índice: 0, 1, 2...<br>En Python, una matriz suele representarse mediante una lista.<br><br>Ejemplo:<br>bloques = ["tierra", "piedra", "diamante"]<br>print(bloques[0]) # suelo<br>imprimir (bloques [2]) # diamante<br><br>Qué es importante:<br>- el índice comienza desde 0;<br>- puedes cambiar un elemento por índice;<br>- Es conveniente iterar a través de un bucle for.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m2-01-q1" data-correct="C" data-explanation="La indexación en la lista comienza desde 0.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué devuelve la expresión? <code>blocks[0]</code>, si <code>bloques = ["piedra", "carbón"]</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> "carbón"</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> error</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> "piedra"</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 0</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+    <p><strong>Tarea 1: en el primer espacio en blanco escriba el índice del diamante, en el segundo, un nuevo elemento para la segunda ranura.</strong></p>
+    <div class="fill-code-block" data-task-id="m2-01-t1">
+      <pre class="fill-code"><code>elementos = ["tierra", "piedra", "diamante"]
+imprimir (elementos [2])
+artículos[1] = "oro"</code></pre>
+      <p>Complete los espacios en blanco del código en su cuaderno/editor. Respuestas clave: 2/oro.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Tarea 2: Llene el rango del bucle para pasar por las 4 ranuras.</strong></p>
+    <div class="fill-code-block" data-task-id="m2-01-t2">
+      <pre class="fill-code"><code>inventario = ["espada", "comida", "antorcha", "pala"]
+para i en el rango(4):
+    imprimir(yo, inventario[i])</code></pre>
+      <p>Ponte a prueba: 4.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m2-01-q2" data-correct="B" data-explanation="El índice 1 es el segundo elemento de la lista.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué hace? <code>bloques[1] = "diamante"</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Agrega un elemento al final.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Reemplaza el segundo elemento.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Elimina el segundo elemento.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Ordena una lista</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Montaje: mini proyecto</h2>
+    <p>Construya un sistema de “barra de acceso rápido”: una serie de 9 espacios, con 0-2 elementos de combate, 3-5 recursos, 6-8 utilidades. Imprima la matriz y reemplace las ranuras vacías con "vacías".</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m2-01-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini jefe <span class="boss-xp">+120 XP</span></div>
+    <p>Combinamos el tema actual con habilidades previas.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hazlo sin estructura y luego arréglalo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Primero planificar, luego implementar y probar</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copiar la solución sin entender.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Saltar pruebas de velocidad</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ahora puede almacenar grupos de datos, leer y cambiar elementos por índice y recorrer una matriz. En los juegos reales, así es como se almacenan los inventarios, las colas de acciones y los registros de eventos.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m2-01">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m1-lesson-06">← Lección 1.6: Nivel de jefe</a>
+    <a href="/es/lessons/m2-lesson-02">Diccionarios - libro de encantamientos →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

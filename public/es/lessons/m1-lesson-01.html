@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1.1: ¿Qué es el código? - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 1 → Lección 1.1</div>
+    <h1 class="lesson-title">cual es el codigo</h1>
+    <p class="lesson-subtitle">¿Y por qué ya eres programador, aunque no lo sepas?</p>
+  </div>
+
+  <img src="/images/lesson-1-1.png" alt="Lección 1.1" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Empezar</h2>
+    <p>Abre Minecraft. Fabrica un pico de piedra.</p>
+    <p>¿Lo hiciste? DE ACUERDO. Acabas de completar el programa. No, en serio.</p>
+    <p>Mira:</p>
+    <pre><code><span class="nb">1.</span> abrir el banco de trabajo
+<span class="nb">2.</span> Coloca 3 adoquines en la fila superior.
+<span class="nb">3.</span> Coloca 1 palito en el centro.
+<span class="nb">4.</span> Coloque 1 palo en el centro inferior.
+<span class="nb">5.</span> toma el pico</code></pre>
+    <p>Cinco pasos. Secuencia clara. Resultado específico. Si cambias el orden o los ingredientes, obtendrás algo diferente o nada en absoluto.</p>
+    <p>Este es el programa - <strong>Conjunto de instrucciones que se ejecutan en orden y producen un resultado.</strong>.</p>
+    <p>Felicitaciones, ya estás pensando como un programador. Sólo queda aprender a escribir estas instrucciones para que la computadora las entienda.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Teoría: Algoritmo</h2>
+    <p><strong>Algoritmo</strong> Es una secuencia de pasos para resolver un problema.</p>
+    <p>Usas algoritmos todos los días:</p>
+    <ul>
+      <li>Receta de elaboración = algoritmo</li>
+      <li>Ruta a la escuela = algoritmo</li>
+      <li>Estrategia contra el Ender Dragon = algoritmo (difícil)</li>
+    </ul>
+    <p>La programación es cuando escribes un algoritmo en un lenguaje que la computadora entiende.</p>
+
+    <h3>Ejemplo: construir una línea de 5 bloques</h3>
+    <p><strong>En palabras:</strong></p>
+    <blockquote>Pon un bloque. Da un paso adelante. Pon un bloque. Da un paso adelante. Pon un bloque. Da un paso adelante. Pon un bloque. Da un paso adelante. Pon un bloque.</blockquote>
+    <p><strong>En resumen (con un bucle, pero esa es la lección 4):</strong></p>
+    <blockquote>Repita 5 veces: coloque un bloque, dé un paso adelante.</blockquote>
+    <p><strong>En el código:</strong></p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">poner_bloque</span>()
+    <span class="fn">paso_adelante</span>()</code></pre>
+    <p>No es necesario entender cada línea todavía. ¿Lo principal es ver cómo las instrucciones verbales se convierten en código? Es el mismo algoritmo, solo que escrito de manera diferente.</p>
+
+    <h3>Tres propiedades de un buen algoritmo</h3>
+    <ol>
+      <li><strong>Precisión</strong> — cada paso es inequívoco. "Poner un bloque" - comprensible. “Haz algo hermoso” - no.</li>
+      <li><strong>Orden</strong> — los pasos se realizan secuencialmente. No puedes coger el pico antes de haber colocado los ingredientes.</li>
+      <li><strong>miembro</strong> — termina el algoritmo. Si su programa tarda una eternidad, es un error.</li>
+    </ol>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-01-q1" data-correct="B" data-explanation="El algoritmo es una instrucción paso a paso, como una receta de elaboración.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué es un algoritmo?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> programa pitón</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Secuencia de pasos para resolver el problema.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> virus informático</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Nombre del lenguaje de programación</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Práctica: escribe tu primer algoritmo</h2>
+    <p><strong>Asignación:</strong> Tienes una tortuga en el mundo de Minecraft. Ella puede:</p>
+    <ul>
+      <li><code>adelante()</code> - paso adelante</li>
+      <li><code>atrás()</code> - dar un paso atrás</li>
+      <li><code>izquierda()</code> - girar a la izquierda</li>
+      <li><code>derecha()</code> - girar a la derecha</li>
+      <li><code>poner_bloque()</code> - coloca un bloque debajo de ti</li>
+    </ul>
+
+    <p><strong>Tarea 1:</strong> Completa los espacios en blanco para que la tortuga pase la letra “G” (4 cuadras adelante, gira a la derecha, 2 cuadras adelante).</p>
+    <div class="fill-code-block" data-task-id="m1-01-t1">
+      <pre class="fill-code"><code><span class="cm"># Dibuja la tortuga con la letra G.</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<input class="fill-blank" data-answer="correcto" placeholder="???">()
+<span class="fn">adelante</span>()
+<input class="fill-blank" data-answer="adelante" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>La letra G es una línea hacia arriba, luego un giro hacia la derecha y una línea hacia la derecha. ¿Qué equipo gira a la derecha?</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">correcto</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()</code></pre>
+    </details>
+
+    <p><strong>Tarea 2:</strong> Y ahora la letra "P". Completa los turnos.</p>
+    <div class="fill-code-block" data-task-id="m1-01-t2">
+      <pre class="fill-code"><code><span class="cm"># Pierna izquierda (arriba)</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="cm"># Barra transversal (derecha)</span>
+<input class="fill-blank" data-answer="correcto" placeholder="???">()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="cm"># Pierna derecha (abajo)</span>
+<input class="fill-blank" data-answer="correcto" placeholder="???">()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<input class="fill-blank" data-answer="adelante" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Letra P: tres líneas: arriba, derecha, abajo. Necesitas 2 giros a la derecha.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="cm"># Pierna izquierda (arriba)</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="cm"># Barra transversal (derecha)</span>
+<span class="fn">correcto</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="cm"># Pierna derecha (abajo)</span>
+<span class="fn">correcto</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()</code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-01-q2" data-correct="C" data-explanation="Un buen algoritmo tiene las tres propiedades: precisión, consistencia y finitud.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Cuál de estas NO es propiedad de un buen algoritmo?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Precisión</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> miembro</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Belleza</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> secuencia</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Construir: Tortuga en acción</h2>
+    <p>Ejecutamos su algoritmo en el mundo virtual. La tortuga sigue tus órdenes y deja bloques.</p>
+    <p><strong>Esto es lo que es la programación:</strong> escribió → lo ejecutó → vio el resultado → lo corrigió → lo ejecutó nuevamente. Este ciclo se llama <strong>debug loop</strong>, y los errores son una parte normal del proceso.</p>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-01-q3" data-correct="B" data-explanation="for i in range(5) ejecuta el cuerpo del bucle exactamente 5 veces: for i = 0, 1, 2, 3, 4.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      ¿Cuántos bloques producirá este código?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">place_block</span>()</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 4</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 5</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 6</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> infinitamente</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-01-boss" data-correct="B" data-xp="50">
+    <div class="boss-header">👹Jefe: Laberinto <span class="boss-xp">+50 XP</span></div>
+    <p>Tu tortuga 🐢 está parada en el punto H. Debes llevarla a la salida B. Puede: <code>adelante()</code>, <code>izquierda()</code>, <code>derecha()</code>.</p>
+    <p>La tortuga mira hacia la derecha →</p>
+    <pre><code>┌──┬──┬──┬──┬──┐
+│🐢│ │██│ │ │
+├──┼──┼──┼──┼──┤
+│██│ │██│ │██│
+├──┼──┼──┼──┼──┤
+│ │ │ │ │ │
+├──┼──┼──┼──┼──┤
+│██│██│██│ │🏁│
+└──┴──┴──┴──┴──┘
+
+🐢 = tortuga (empieza, mirando hacia la derecha)
+🏁 = salir
+██ = muro (no se puede pasar)
+   = paso libre</code></pre>
+    <p><strong>Complete los espacios en blanco:</strong> ¿Qué comandos necesita la tortuga para llegar a la salida?</p>
+
+    <div class="fill-code-block" data-task-id="m1-01-boss">
+      <pre class="fill-code"><code><span class="fn">adelante</span>()          <span class="cm"># justo al lado de 1</span>
+<input class="fill-blank" data-answer="correcto" placeholder="???">()          <span class="cm"># rechazar</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()          <span class="cm"># 2 celdas abajo</span>
+<input class="fill-blank" data-answer="izquierda" placeholder="???">()           <span class="cm"># mira a la derecha</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<input class="fill-blank" data-answer="adelante" placeholder="???">()          <span class="cm"># 3 celdas a la derecha</span>
+<span class="fn">correcto</span>()          <span class="cm"># mira hacia abajo</span>
+<input class="fill-blank" data-answer="adelante" placeholder="???">()          <span class="cm"># alcanzado 🏁!</span></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Camino: derecha 1, girar hacia abajo, bajar 2, girar a la derecha, derecha 3, girar hacia abajo, bajar 1.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="fn">adelante</span>()          <span class="cm"># justo al lado de 1</span>
+<span class="fn">correcto</span>()          <span class="cm"># ahora mira hacia abajo</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()          <span class="cm"># bajó 2 celdas</span>
+<span class="fn">izquierda</span>()           <span class="cm"># mira a la derecha</span>
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()
+<span class="fn">adelante</span>()          <span class="cm"># fue 3 celdas a la derecha</span>
+<span class="fn">correcto</span>()          <span class="cm"># mira hacia abajo</span>
+<span class="fn">adelante</span>()          <span class="cm"># alcanzado 🏁!</span></code></pre>
+    </details>
+
+    <p style="margin-top:1rem;"><strong>Pregunta extra:</strong> ¿Hay otra manera? Si es así, escríbalo también. En programación suele haber más de una solución correcta.</p>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Resultados</h2>
+      <p><strong>Ahora lo sabes:</strong></p>
+      <ul>
+        <li>✅ Un programa es un conjunto de instrucciones en un orden determinado</li>
+        <li>✅ Un algoritmo es una forma de resolver un problema paso a paso</li>
+        <li>✅ Un buen algoritmo es preciso, consistente y finito</li>
+        <li>✅ Los errores son normales. El bucle de depuración es tu amigo</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>En la próxima lección:</strong> Le enseñaremos a la tortuga a recordar cosas. Se llaman “variables” y sin ellas no funciona ni un solo programa en el mundo.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE BUTTON -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-01">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/es/course-map">← Mapa del curso</a>
+    <a href="/es/lessons/m1-lesson-02">Lección 1.2: Variables →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

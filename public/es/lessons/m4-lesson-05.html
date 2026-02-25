@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 4.5: Cuando la IA miente</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 4 → Lección 4.5</div>
+    <h1 class="lesson-title">Cuando la IA miente: pensamiento crítico</h1>
+    <p class="lesson-subtitle">Reconocemos las alucinaciones y construimos un proceso de verificación.</p>
+  </div>
+
+  <img src="/images/lesson-4-hero.webp" alt="Cuando la IA miente: pensamiento crítico" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>La IA puede decir mentiras con confianza. El peligro no está en el error, sino en el tono confiado.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Términos:</strong> lista, diccionario, bucle, función: escribimos en inglés, explicamos en ruso.</p>
+    <p>Riesgos típicos:<br>- API/hechos ficticios;<br>- enlaces incorrectos;<br>- saltarse las limitaciones de las tareas.<br><br>Antídoto:<br>- comprobar las fuentes;<br>- ejecutar el código;<br>- verificamos con la documentación;<br>- hacer preguntas aclaratorias.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-05-q1" data-correct="C" data-explanation="Alucinación = ficción segura.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué es una alucinación de IA?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hermoso diseño de respuesta</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Respuesta correcta sin fuente.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Información que suena convincente pero falsa</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Cualquier respuesta larga</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+    <p><strong>Tarea 1: indicar la acción si la respuesta de la IA es dudosa.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-05-t1">
+      <pre class="fill-code"><code>acción = "verificar la documentación"</code></pre>
+      <p>Complete los espacios en blanco del código en su cuaderno/editor. Respuestas clave: Verificar.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Tarea 2: agregar un método para protegerse contra API falsas.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-05-t2">
+      <pre class="fill-code"><code>fuente = "documento oficial"</code></pre>
+      <p>Compruébalo tú mismo: documento oficial.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-05-q2" data-correct="B" data-explanation="Necesitamos verificación práctica y una fuente primaria.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿La forma más confiable de verificar el código de la IA?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Toma mi palabra</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Ejecute pruebas y verifique con la documentación.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Pregúntale a otra IA y listo.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Copiar sin leer</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Montaje: mini proyecto</h2>
+    <p>Recopile un “protocolo de verificación de IA” personal de 6 puntos y aplíquelo a un ejemplo de respuesta modelo.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-05-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini jefe <span class="boss-xp">+120 XP</span></div>
+    <p>Combinamos el tema actual con habilidades previas.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hazlo sin estructura y luego arréglalo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Primero planificar, luego implementar y probar</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copiar la solución sin entender.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Saltar pruebas de velocidad</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ha mejorado su inmunidad de IA a las alucinaciones y ha aprendido a separar el texto seguro del conocimiento probado.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-05">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m4-lesson-04">← Codificación Vibe: desarrollo iterativo con IA</a>
+    <a href="/es/lessons/m4-lesson-06">👹 Nivel de jefe: tu propio proyecto con IA →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

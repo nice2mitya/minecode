@@ -34,6 +34,8 @@ function withSafePath(urlPath) {
 
   decoded = decoded.replace(/\\/g, '/');
   if (decoded === '/') decoded = '/index.html';
+  if (decoded === '/es') decoded = '/es/index.html';
+  if (decoded.endsWith('/')) decoded = `${decoded}index.html`;
 
   const normalized = path.normalize(decoded).replace(/^\/+/, '');
   const filePath = path.join(PUBLIC_DIR, normalized);

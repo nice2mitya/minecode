@@ -1,22 +1,144 @@
 /* ===== MineCode Gamification Engine ===== */
 
+const MINECODE_LANG = window.__MINECODE_LANG || (window.location.pathname.startsWith('/es') ? 'es' : 'ru');
+
+const I18N = {
+  ru: {
+    level_wood: 'Деревянный',
+    level_stone: 'Каменный',
+    level_iron: 'Железный',
+    level_diamond: 'Алмазный',
+    level_netherite: 'Незеритовый',
+    ach_first_block_name: '🔨 Первый блок',
+    ach_first_block_desc: 'Прошёл первый урок',
+    ach_quiz_master_3_name: '🧠 Знаток',
+    ach_quiz_master_3_desc: 'Ответил правильно на 3 квиза',
+    ach_quiz_master_10_name: '🎓 Мастер квизов',
+    ach_quiz_master_10_desc: 'Ответил правильно на 10 квизов',
+    ach_boss_slayer_name: '👹 Убийца боссов',
+    ach_boss_slayer_desc: 'Прошёл первый Boss Challenge',
+    ach_streak_3_name: '🔥 Тройка',
+    ach_streak_3_desc: '3 дня подряд',
+    ach_streak_7_name: '🔥🔥 Неделя',
+    ach_streak_7_desc: '7 дней подряд',
+    level_up_title: '⬆️ LEVEL UP',
+    achievement_title: '🏆 ДОСТИЖЕНИЕ',
+    level_up_name: '{icon} Новый уровень!',
+    level_up_desc: 'Ты теперь {level}',
+    replay: '🔄 Запустить заново',
+    quiz_correct: '✅ Верно! {explanation}',
+    quiz_wrong: '❌ Неправильно. {explanation}',
+    fill_quiz_correct: '✅ Всё верно!',
+    fill_quiz_wrong: '❌ Не совсем. Попробуй ещё раз!',
+    already_completed: '✅ Уже пройдено!',
+    boss_already: '✅ Босс повержен!',
+    boss_defeated: '✅ БОСС ПОВЕРЖЕН! 🏆',
+    boss_retry: '❌ Не сдавайся! Попробуй ещё.',
+    lesson_locked_title: 'Урок заблокирован',
+    lesson_locked_subtitle: 'Сначала пройди урок {lesson}',
+    course_map: '← Карта курса',
+    lesson_done: '✅ Урок пройден',
+    fill_already_solved: '✅ Уже решено!',
+    fill_all_correct: '✅ Всё верно! Отличная работа!',
+    fill_one_wrong: '🤔 Почти! Одно поле неправильно. Подсвечено красным.',
+    fill_many_wrong: '💪 {count} поля неверно. Красные поля нужно исправить.',
+    anti_copy: '🚫 Попробуй написать сам! Копировать решение — не учиться.',
+    module1_complete_done: '✅ Модуль 1 завершён!',
+  },
+  es: {
+    level_wood: 'Madera',
+    level_stone: 'Piedra',
+    level_iron: 'Hierro',
+    level_diamond: 'Diamante',
+    level_netherite: 'Netherita',
+    ach_first_block_name: '🔨 Primer bloque',
+    ach_first_block_desc: 'Completaste la primera lección',
+    ach_quiz_master_3_name: '🧠 Experto',
+    ach_quiz_master_3_desc: 'Respondiste correctamente 3 quizzes',
+    ach_quiz_master_10_name: '🎓 Maestro de quizzes',
+    ach_quiz_master_10_desc: 'Respondiste correctamente 10 quizzes',
+    ach_boss_slayer_name: '👹 Cazador de jefes',
+    ach_boss_slayer_desc: 'Completaste tu primer Boss Challenge',
+    ach_streak_3_name: '🔥 Racha 3',
+    ach_streak_3_desc: '3 días seguidos',
+    ach_streak_7_name: '🔥🔥 Semana completa',
+    ach_streak_7_desc: '7 días seguidos',
+    level_up_title: '⬆️ SUBES DE NIVEL',
+    achievement_title: '🏆 LOGRO',
+    level_up_name: '{icon} ¡Nuevo nivel!',
+    level_up_desc: 'Ahora eres {level}',
+    replay: '🔄 Ejecutar de nuevo',
+    quiz_correct: '✅ ¡Correcto! {explanation}',
+    quiz_wrong: '❌ Incorrecto. {explanation}',
+    fill_quiz_correct: '✅ ¡Todo correcto!',
+    fill_quiz_wrong: '❌ Casi. ¡Inténtalo otra vez!',
+    already_completed: '✅ ¡Ya completado!',
+    boss_already: '✅ ¡Jefe derrotado!',
+    boss_defeated: '✅ ¡JEFE DERROTADO! 🏆',
+    boss_retry: '❌ ¡No te rindas! Inténtalo otra vez.',
+    lesson_locked_title: 'Lección bloqueada',
+    lesson_locked_subtitle: 'Primero completa la lección {lesson}',
+    course_map: '← Mapa del curso',
+    lesson_done: '✅ Lección completada',
+    fill_already_solved: '✅ ¡Ya resuelto!',
+    fill_all_correct: '✅ ¡Todo correcto! ¡Gran trabajo!',
+    fill_one_wrong: '🤔 Casi. Un campo está mal. Está marcado en rojo.',
+    fill_many_wrong: '💪 {count} campos están mal. Corrige los campos en rojo.',
+    anti_copy: '🚫 ¡Intenta escribirlo tú! Copiar la solución no es aprender.',
+    module1_complete_done: '✅ ¡Módulo 1 completado!',
+  },
+};
+
+function t(key, vars = {}) {
+  const dict = I18N[MINECODE_LANG] || I18N.ru;
+  const fallback = I18N.ru;
+  let text = dict[key] || fallback[key] || key;
+  for (const [k, v] of Object.entries(vars)) {
+    text = text.replaceAll(`{${k}}`, String(v));
+  }
+  return text;
+}
+
+function localizedPath(path, lang = MINECODE_LANG) {
+  if (!path || !path.startsWith('/')) return path;
+  if (lang === 'es') {
+    if (path === '/es' || path.startsWith('/es/')) return path;
+    return path === '/' ? '/es' : `/es${path}`;
+  }
+  if (path === '/es') return '/';
+  if (path.startsWith('/es/')) return path.slice(3);
+  return path;
+}
+
+function initLanguageToggle() {
+  const headerStats = document.querySelector('.header-stats');
+  if (!headerStats) return;
+
+  const btn = document.createElement('a');
+  btn.className = 'lang-toggle-btn';
+  btn.href = localizedPath(window.location.pathname, MINECODE_LANG === 'es' ? 'ru' : 'es');
+  btn.textContent = MINECODE_LANG === 'es' ? 'RU' : 'ES';
+  btn.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;padding:0.3rem 0.55rem;border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:0.72rem;color:var(--text);text-decoration:none;';
+  headerStats.appendChild(btn);
+}
+
 const MineCode = {
   // Level thresholds
   levels: [
-    { name: 'Деревянный', min: 0, icon: '🪵' },
-    { name: 'Каменный', min: 200, icon: '🪨' },
-    { name: 'Железный', min: 500, icon: '⛓️' },
-    { name: 'Алмазный', min: 1000, icon: '💎' },
-    { name: 'Незеритовый', min: 2000, icon: '🔮' },
+    { name: t('level_wood'), min: 0, icon: '🪵' },
+    { name: t('level_stone'), min: 200, icon: '🪨' },
+    { name: t('level_iron'), min: 500, icon: '⛓️' },
+    { name: t('level_diamond'), min: 1000, icon: '💎' },
+    { name: t('level_netherite'), min: 2000, icon: '🔮' },
   ],
 
   achievements: {
-    first_block: { name: '🔨 Первый блок', desc: 'Прошёл первый урок', xpReq: 100 },
-    quiz_master_3: { name: '🧠 Знаток', desc: 'Ответил правильно на 3 квиза', quizReq: 3 },
-    quiz_master_10: { name: '🎓 Мастер квизов', desc: 'Ответил правильно на 10 квизов', quizReq: 10 },
-    boss_slayer: { name: '👹 Убийца боссов', desc: 'Прошёл первый Boss Challenge', bossReq: 1 },
-    streak_3: { name: '🔥 Тройка', desc: '3 дня подряд', streakReq: 3 },
-    streak_7: { name: '🔥🔥 Неделя', desc: '7 дней подряд', streakReq: 7 },
+    first_block: { name: t('ach_first_block_name'), desc: t('ach_first_block_desc'), xpReq: 100 },
+    quiz_master_3: { name: t('ach_quiz_master_3_name'), desc: t('ach_quiz_master_3_desc'), quizReq: 3 },
+    quiz_master_10: { name: t('ach_quiz_master_10_name'), desc: t('ach_quiz_master_10_desc'), quizReq: 10 },
+    boss_slayer: { name: t('ach_boss_slayer_name'), desc: t('ach_boss_slayer_desc'), bossReq: 1 },
+    streak_3: { name: t('ach_streak_3_name'), desc: t('ach_streak_3_desc'), streakReq: 3 },
+    streak_7: { name: t('ach_streak_7_name'), desc: t('ach_streak_7_desc'), streakReq: 7 },
   },
 
   // Get state from localStorage
@@ -64,7 +186,11 @@ const MineCode = {
 
     const newLevel = this.getLevel(state.xp);
     if (newLevel.name !== oldLevel.name) {
-      this.showAchievement(`${newLevel.icon} Новый уровень!`, `Ты теперь ${newLevel.name}`, true);
+      this.showAchievement(
+        t('level_up_name', { icon: newLevel.icon }),
+        t('level_up_desc', { level: newLevel.name }),
+        true,
+      );
     }
 
     this.updateUI();
@@ -146,7 +272,7 @@ const MineCode = {
       document.body.appendChild(popup);
     }
     popup.innerHTML = `
-      <div class="ach-title">${isLevel ? '⬆️ LEVEL UP' : '🏆 ДОСТИЖЕНИЕ'}</div>
+      <div class="ach-title">${isLevel ? t('level_up_title') : t('achievement_title')}</div>
       <div class="ach-name">${name}</div>
       <div class="ach-desc">${desc}</div>
     `;
@@ -256,7 +382,7 @@ function initTurtleRewards() {
         if (!replayBtn) {
           replayBtn = document.createElement('button');
           replayBtn.className = 'turtle-replay-btn';
-          replayBtn.textContent = '🔄 Запустить заново';
+          replayBtn.textContent = t('replay');
           canvasEl.after(replayBtn);
         }
         replayBtn.style.display = 'inline-block';
@@ -322,7 +448,7 @@ function initQuizzes() {
         if (val === correct) {
           opt.classList.add('correct');
           feedback.className = 'quiz-feedback show correct';
-          feedback.textContent = `✅ Верно! ${explanation}`;
+          feedback.textContent = t('quiz_correct', { explanation });
           if (typeof showConfetti === 'function') showConfetti(opt);
           if (MineCode.completeQuiz(quizId)) {
             MineCode.addXP(xpReward, `Quiz ${quizId}`);
@@ -332,7 +458,7 @@ function initQuizzes() {
           // Show correct one
           options.forEach(o => { if (o.dataset.value === correct) o.classList.add('correct'); });
           feedback.className = 'quiz-feedback show wrong';
-          feedback.textContent = `❌ Неправильно. ${explanation}`;
+          feedback.textContent = t('quiz_wrong', { explanation });
           if (retryBtn) retryBtn.classList.add('show');
         }
       });
@@ -374,13 +500,13 @@ function initQuizzes() {
 
         if (allCorrect) {
           feedback.className = 'quiz-feedback show correct';
-          feedback.textContent = '✅ Всё верно!';
+          feedback.textContent = t('fill_quiz_correct');
           if (MineCode.completeQuiz(quizId)) {
             MineCode.addXP(xpReward, `Fill quiz ${quizId}`);
           }
         } else {
           feedback.className = 'quiz-feedback show wrong';
-          feedback.textContent = '❌ Не совсем. Попробуй ещё раз!';
+          feedback.textContent = t('fill_quiz_wrong');
         }
       });
     }
@@ -394,7 +520,7 @@ function markQuizCompleted(block, correctValue) {
     if (o.dataset.value === correctValue) o.classList.add('correct');
   });
   const fb = block.querySelector('.quiz-feedback');
-  if (fb) { fb.className = 'quiz-feedback show correct'; fb.textContent = '✅ Уже пройдено!'; }
+  if (fb) { fb.className = 'quiz-feedback show correct'; fb.textContent = t('already_completed'); }
 }
 
 // ===== BOSS QUIZ =====
@@ -409,7 +535,7 @@ function initBossQuiz() {
       const options = block.querySelectorAll('.quiz-option');
       options.forEach(o => { o.classList.add('disabled'); if (o.dataset.value === correct) o.classList.add('correct'); });
       const fb = block.querySelector('.quiz-feedback');
-      if (fb) { fb.className = 'quiz-feedback show correct'; fb.textContent = '✅ Босс повержен!'; }
+      if (fb) { fb.className = 'quiz-feedback show correct'; fb.textContent = t('boss_already'); }
       return;
     }
 
@@ -426,7 +552,7 @@ function initBossQuiz() {
         if (val === correct) {
           opt.classList.add('correct');
           feedback.className = 'quiz-feedback show correct';
-          feedback.textContent = '✅ БОСС ПОВЕРЖЕН! 🏆';
+          feedback.textContent = t('boss_defeated');
           if (typeof showConfetti === 'function') showConfetti(block);
           MineCode.completeBoss(bossId);
           MineCode.addXP(xpReward, `Boss ${bossId}`);
@@ -434,7 +560,7 @@ function initBossQuiz() {
           opt.classList.add('wrong');
           options.forEach(o => { if (o.dataset.value === correct) o.classList.add('correct'); });
           feedback.className = 'quiz-feedback show wrong';
-          feedback.textContent = '❌ Не сдавайся! Попробуй ещё.';
+          feedback.textContent = t('boss_retry');
           if (retryBtn) retryBtn.classList.add('show');
         }
       });
@@ -503,9 +629,9 @@ function initLessonLocking() {
     overlay.innerHTML = `
       <div class="lesson-locked-message">
         <span class="locked-icon">🔒</span>
-        <h2>Урок заблокирован</h2>
-        <p>Сначала пройди урок ${prereqNum}</p>
-        <a href="/course-map" class="cta-btn" style="margin-top:1rem;font-size:0.9rem;">← Карта курса</a>
+        <h2>${t('lesson_locked_title')}</h2>
+        <p>${t('lesson_locked_subtitle', { lesson: prereqNum })}</p>
+        <a href="${localizedPath('/course-map')}" class="cta-btn" style="margin-top:1rem;font-size:0.9rem;">${t('course_map')}</a>
       </div>
     `;
 
@@ -567,7 +693,7 @@ function initLessonComplete() {
   const state = MineCode.getState();
 
   if (state.lessonsCompleted.includes(lessonId)) {
-    btn.textContent = '✅ Урок пройден';
+    btn.textContent = t('lesson_done');
     btn.disabled = true;
     btn.style.opacity = '0.6';
     return;
@@ -576,7 +702,7 @@ function initLessonComplete() {
   btn.addEventListener('click', () => {
     MineCode.completeLesson(lessonId);
     MineCode.addXP(100, `Lesson ${lessonId}`);
-    btn.textContent = '✅ Урок пройден';
+    btn.textContent = t('lesson_done');
     btn.disabled = true;
     btn.style.opacity = '0.6';
   });
@@ -604,7 +730,7 @@ function initFillBlanks() {
         inp.classList.add('correct');
       });
       feedback.className = 'code-feedback show correct';
-      feedback.textContent = '✅ Уже решено!';
+      feedback.textContent = t('fill_already_solved');
       return;
     }
 
@@ -630,7 +756,7 @@ function initFillBlanks() {
 
       if (allCorrect) {
         feedback.className = 'code-feedback show correct';
-        feedback.textContent = '✅ Всё верно! Отличная работа!';
+        feedback.textContent = t('fill_all_correct');
         if (typeof showConfetti === 'function') showConfetti(btn);
         if (MineCode.completeQuiz('fill-' + taskId)) {
           MineCode.addXP(15, 'fill-' + taskId);
@@ -638,10 +764,10 @@ function initFillBlanks() {
         inputs.forEach(inp => inp.disabled = true);
       } else if (wrongCount === 1) {
         feedback.className = 'code-feedback show wrong';
-        feedback.textContent = '🤔 Почти! Одно поле неправильно. Подсвечено красным.';
+        feedback.textContent = t('fill_one_wrong');
       } else {
         feedback.className = 'code-feedback show wrong';
-        feedback.textContent = `💪 ${wrongCount} поля неверно. Красные поля нужно исправить.`;
+        feedback.textContent = t('fill_many_wrong', { count: wrongCount });
       }
     });
   });
@@ -649,6 +775,7 @@ function initFillBlanks() {
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguageToggle();
   MineCode.initHeader();
   MineCode.initParticles();
   initLessonLocking();
@@ -662,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('details summary').forEach(s => {
     s.parentElement.addEventListener('copy', e => {
       e.preventDefault();
-      e.clipboardData.setData('text/plain', '🚫 Попробуй написать сам! Копировать решение — не учиться.');
+      e.clipboardData.setData('text/plain', t('anti_copy'));
     });
   });
   if (document.querySelector('.module-card')) updateCourseMap();

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1.4: Bucles - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 1 → Lección 1.4</div>
+    <h1 class="lesson-title">Ciclos: construye un muro en 3 segundos</h1>
+    <p class="lesson-subtitle">¿Por qué escribir lo mismo 100 veces si puedes repetirlo una vez?</p>
+  </div>
+
+  <img src="/images/lesson-1-4.png" alt="Lección 1.4 - Bucles" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Empezar</h2>
+    <p>¿Recuerdas cómo escribiste? <code>adelante()</code> ¿cinco veces seguidas en la primera lección? Imagina que necesitas construir un muro de 100 bloques. escribir <code>adelante()</code> cien veces?</p>
+    <p><strong>No.</strong> Hay ciclos para esto.</p>
+    <p>Un ciclo es un comando de “repetición”. Una línea en lugar de cien. Los programadores son vagos y ese es su superpoder.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Teoría: bucle For</h2>
+
+    <h3>para i en rango (n) - repetir n veces</h3>
+    <p>El bucle más común en Python. Dices "cuántas veces repetir" y él repite.</p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">10</span>):
+    <span class="fn">poner_bloque</span>()
+    <span class="fn">adelante</span>()</code></pre>
+    <p>Analogía de Minecraft: coloca 10 bloques seguidos. Sin bucle - 20 líneas. Con ciclo - 3.</p>
+
+    <h3>rango() - generador de números</h3>
+    <p><code>range(5)</code> da los numeros: <strong>0, 1, 2, 3, 4</strong></p>
+    <p>⚠️ ¡Empieza desde cero! y termina <em>hasta</em> el número especificado. <code>range(5)</code> - Estos son 5 números, pero el último es 4, no 5.</p>
+
+    <h3>Variable de bucle i</h3>
+    <p><code>i</code> - esto es un contador. En cada paso del ciclo aumenta. Como el número del bloque que estás colocando.</p>
+    <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="fn">print</span>(i)    <span class="cm"># generará: 0, 1, 2, 3, 4</span></code></pre>
+
+    <h3>¡Los bucles anidados son una pared!</h3>
+    <p>Muro = filas × columnas. Bucle dentro de un bucle:</p>
+    <pre><code><span class="kw">for</span> cuerda <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):       <span class="cm"># 5 líneas</span>
+    <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">10</span>):   <span class="cm"># 10 bloques cada uno</span>
+        <span class="fn">poner_bloque</span>()
+        <span class="fn">adelante</span>()</code></pre>
+    <p>Total: 5 × 10 = <strong>50 bloques</strong>. Dos líneas de código en lugar de cincuenta.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q1" data-correct="B" data-explanation="range(3) da los números 0, 1, 2; esto es exactamente 3 iteraciones.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Cuántas veces se ejecutará? <code>for i in range(3)</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 2</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 3</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 4</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 0</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q2" data-correct="A" data-explanation="range(4) da 0, 1, 2, 3. print(i) imprime cada número.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      ¿Qué generará este código?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">4</span>):
+    <span class="fn">print</span>(i)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 0 1 2 3</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 1 2 3 4</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 0 1 2 3 4</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 4</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Práctica: Construir en ciclos</h2>
+
+    <p><strong>Tarea 1:</strong> Construye una línea de 7 bloques.</p>
+    <div class="fill-code-block" data-task-id="m1-04-t1">
+      <pre class="fill-code"><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="7" placeholder="???">):
+    <span class="fn">poner_bloque</span>()
+    <input class="fill-blank" data-answer="adelante" placeholder="???">()</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Necesitas 7 bloques, eso significa rango (???). Después de cada bloque, la tortuga da un paso adelante.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">7</span>):
+    <span class="fn">poner_bloque</span>()
+    <span class="fn">adelante</span>()</code></pre>
+    </details>
+
+    <p><strong>Tarea 2:</strong> Construya una pared de 4 de alto × 6 de ancho (bucle anidado).</p>
+    <div class="fill-code-block" data-task-id="m1-04-t2">
+      <pre class="fill-code"><code><span class="kw">for</span> cuerda <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="4" placeholder="???">):
+    <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="6" placeholder="???">):
+        <span class="fn">poner_bloque</span>()
+        <span class="fn">adelante</span>()
+    <span class="cm"># pasar a la siguiente fila</span></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Altura = número de filas (bucle exterior). Ancho = número de bloques en cada línea (bucle interno).</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">for</span> cuerda <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">4</span>):
+    <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">6</span>):
+        <span class="fn">poner_bloque</span>()
+        <span class="fn">adelante</span>()
+    <span class="cm"># pasar a la siguiente fila</span></code></pre>
+    </details>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-04-q3" data-correct="C" data-explanation="Bucle anidado: 3 × 5 = 15 bloques. El bucle exterior se repite 3 veces, el bucle interior 5 veces por cada iteración.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      ¿Cuántos bloques producirá este código?
+      <pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">3</span>):
+    <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">poner_bloque</span>()</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 8</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 5</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 15</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 3</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Construir: El muro en acción</h2>
+    <p>Imagínese: escribió 3 líneas de código, hizo clic en "ejecutar" y la tortuga construyó una pared de 24 bloques. Sin un solo clic manual.</p>
+    <p>Esto es lo que hacen los bucles: <strong>convertir minutos de trabajo manual en segundos de trabajo automático</strong>. Es como la diferencia entre cavar en busca de diamantes con las manos y usar un pico con Eficiencia V.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-04-boss" data-xp="75">
+    <div class="boss-header">👹Jefe: Pixel Art <span class="boss-xp">+75 XP</span></div>
+    <p>La tortuga dibuja un cuadrado de 5x5 a partir de bloques. Complete los espacios en blanco:</p>
+
+    <div class="fill-code-block" data-task-id="m1-04-boss">
+      <pre class="fill-code"><code><span class="kw">for</span> cuerda <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+    <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(<input class="fill-blank" data-answer="5" placeholder="???">):
+        <span class="fn">poner_bloque</span>()
+        <span class="fn">adelante</span>()
+    <span class="cm"># volver al principio de la fila y subir</span>
+    <input class="fill-blank" data-answer="dar la vuelta" placeholder="???">()</code>
+<code>    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">adelante</span>()
+    <input class="fill-blank" data-answer="dar la vuelta" placeholder="???">()</code>
+<code>    <span class="fn">arriba</span>()</code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Cuadrado de 5x5: ambos rangos () son iguales. Después de cada fila, la tortuga da vuelta, retrocede, da otra vuelta y sube un bloque.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">for</span> cuerda <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+    <span class="kw">for</span> bloquear <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">poner_bloque</span>()
+        <span class="fn">adelante</span>()
+    <span class="fn">dar la vuelta</span>()
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">5</span>):
+        <span class="fn">adelante</span>()
+    <span class="fn">dar la vuelta</span>()
+    <span class="fn">arriba</span>()</code></pre>
+    </details>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Resultados</h2>
+      <p><strong>Ahora lo sabes:</strong></p>
+      <ul>
+        <li>✅ <code>for i in range(n)</code> - repetir n veces</li>
+        <li>✅ <code>range(5)</code> da los números 0, 1, 2, 3, 4</li>
+        <li>✅ Bucles anidados: un bucle dentro de otro bucle (filas × columnas)</li>
+        <li>✅ Los bucles convierten 100 líneas en 3</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Bucles en el mundo real:</strong></p>
+      <ul>
+        <li>📧 El filtro de spam comprueba cada letra - ciclo</li>
+        <li>🖥️ Los píxeles de la pantalla se actualizan 60 veces por segundo - ciclo</li>
+        <li>⛏️ Minecraft genera fragmentos: bucles anidados</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>En la próxima lección:</strong> Aprendamos a crear nuestros propios equipos - funciones. Lo escribí una vez, úsalo todo lo que quieras.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-04">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m1-lesson-03">← Lección 1.3: Condiciones</a>
+    <a href="/es/lessons/m1-lesson-05">Lección 1.5: Funciones →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

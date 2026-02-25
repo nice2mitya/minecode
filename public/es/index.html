@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MineCode - Programación a través de Minecraft</title>
+<meta name="description" content="Un curso gratuito de programación para escolares de 6º a 9º curso a través del universo Minecraft. Te enseñamos a pensar, no a escribir la sintaxis.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <section class="hero">
+    <div class="hero-logo">
+      <span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span>
+    </div>
+    <p class="hero-tagline">
+      Curso gratuito de programación para escolares.<br>
+      A través de Minecraft. Sin resultar aburrido. Con cuestionarios y XP.
+    </p>
+    <img src="/images/hero.png" alt="MineCode - programación a través de Minecraft" class="hero-image">
+    <a href="/es/course-map" class="cta-btn">🚀 Empieza a aprender</a>
+  </section>
+
+  <section class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🧱</span>
+      <div class="feature-title">Bloques → Código</div>
+      <div class="feature-desc">De la artesanía a Python. Cada receta es un algoritmo.</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <div class="feature-title">Interactivo</div>
+      <div class="feature-desc">Pruebas, acertijos y Boss Challenge en cada lección</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🏆</span>
+      <div class="feature-title">XP y niveles</div>
+      <div class="feature-desc">Sube de nivel de madera a Netherite</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🤖</span>
+      <div class="feature-title">era de la IA</div>
+      <div class="feature-desc">Te enseñamos a trabajar CON redes neuronales, y no en lugar de ellas</div>
+    </div>
+  </section>
+
+  <section class="xp-preview">
+    <h3>🎮 Sistema de progresión</h3>
+    <p style="color:var(--text-dim);margin-bottom:1rem;font-size:0.9rem;">Gana XP por cuestionarios y lecciones. Elevar a mismo nivel.</p>
+    <div class="level-progression">
+      <span class="level-item active">🪵 De madera</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">🪨 Piedra</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">⛓️ Plancha</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">💎 Diamante</span>
+      <span class="level-arrow">→</span>
+      <span class="level-item">🔮 Netherita</span>
+    </div>
+  </section>
+
+  <section class="landing-modules">
+    <h2>📚 4 módulos: de cero a IA</h2>
+
+    <div class="module-card" onclick="location.href='/course-map'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Módulo 1</span>
+        <span class="module-title">🧱 Primer bloque</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Variables, condiciones, bucles, funciones: conceptos básicos a través de Minecraft</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">5 lecciones + Nivel Jefe • ~2,5 horas</div>
+    </div>
+
+    <div class="module-card" onclick="location.href='/lessons/m2-lesson-01'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Módulo 2</span>
+        <span class="module-title">🏗️ Arquitecto</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Estructuras de datos y patrones de diseño.</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">✅ Disponible • 7 lecciones</div>
+    </div>
+
+    <div class="module-card" onclick="location.href='/lessons/m3-lesson-01'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Módulo 3</span>
+        <span class="module-title">⚙️ Ingeniero</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Algoritmos y resolución de problemas.</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">✅ Disponible • 7 lecciones</div>
+    </div>
+
+    <div class="module-card" onclick="location.href='/lessons/m4-lesson-01'" style="cursor:pointer">
+      <div class="module-header">
+        <span class="module-number">Módulo 4</span>
+        <span class="module-title">🤖 Vibe Coder</span>
+      </div>
+      <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:0.5rem;">Colaboración con IA, ingeniería rápida y codificación por vibración</p>
+      <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">✅ Disponible • 6 lecciones</div>
+    </div>
+  </section>
+
+  <section class="landing-flow">
+    <h2>🧭 Cómo va el entrenamiento</h2>
+    <div class="flow-grid">
+      <article class="flow-card">
+        <span class="flow-step">Paso 1</span>
+        <h3>mirar y entender</h3>
+        <p>Una breve teoría con ejemplos de Minecraft: sin agua, solo lógica y significado.</p>
+      </article>
+      <article class="flow-card">
+        <span class="flow-step">Paso 2</span>
+        <h3>Resolver problemas</h3>
+        <p>Los problemas de prueba y código prueban inmediatamente si comprende la idea.</p>
+      </article>
+      <article class="flow-card">
+        <span class="flow-step">Paso 3</span>
+        <h3>Montar el proyecto</h3>
+        <p>Cada bloque termina con un miniproyecto y un desafío de jefe.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-roadmap">
+    <h2>🗺️ Lo que ya existe y lo que sigue</h2>
+    <div class="roadmap-grid">
+      <article class="roadmap-card ready">
+        <div class="roadmap-head"><span>✅ Disponible ahora</span><strong>Módulos 1 a 4</strong></div>
+        <p>Una base completa para comenzar: lógica, estructuras de datos, algoritmos y colaboración con IA: 26 lecciones con práctica y desafíos de Boss.</p>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="roadmap-head"><span>🧩 Minietapa de transición</span><strong>Bridge to Projects</strong></div>
+        <p>Un breve puente para principiantes: cómo elegir una idea, dividirla en pasos, no tener miedo a los errores y leer las huellas.</p>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="roadmap-head"><span>🛠 En desarrollo (segundo trimestre de 2026)</span><strong>Módulo 5: Laboratorio de construcción</strong></div>
+        <p>3 miniproyectos reales con plantillas y análisis paso a paso: de la idea a la demo y lo retro.</p>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="roadmap-head"><span>🔬 En investigación</span><strong>Módulo 6: Equipo y Producto</strong></div>
+        <p>Git-flow, revisión de código, roles de equipo y mentalidad de producto, en un lenguaje sencillo para adolescentes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-faq">
+    <h2>❓ Preguntas frecuentes</h2>
+    <details>
+      <summary>¿Necesitas experiencia en programación?</summary>
+      <div>No. El curso está diseñado para empezar desde cero. Lo principal es la curiosidad y la voluntad de pensar.</div>
+    </details>
+    <details>
+      <summary>¿Cuánto tiempo necesitas por semana?</summary>
+      <div>Lo ideal es 2-3 sesiones cortas de 25-40 minutos. Puedes ir a tu propio ritmo.</div>
+    </details>
+    <details>
+      <summary>¿Se trata de Python o de Minecraft?</summary>
+      <div>Ambos: Minecraft es una metáfora clara, Python es un lenguaje para la práctica y el pensamiento sistémico.</div>
+    </details>
+  </section>
+
+  <section style="text-align:center;margin:3rem 0 1rem;">
+    <a href="/es/course-map" class="cta-btn">⛏️ Comienza desde la primera lección.</a>
+    <p style="color:var(--text-dimmer);font-size:0.85rem;margin-top:1rem;">Gratis. Sin registro. Para siempre.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  MineCode.ru - aprendiendo a pensar como programador © 2026
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

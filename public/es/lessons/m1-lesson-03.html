@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1.3: Condiciones - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 1 → Lección 1.3</div>
+    <h1 class="lesson-title">Condiciones: si es creeper, entonces corre</h1>
+    <p class="lesson-subtitle">Cómo enseñar un programa a tomar decisiones.</p>
+  </div>
+
+  <img src="/images/lesson-1-3.png" alt="Lección 1.3" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Empezar</h2>
+    <p>Estás caminando por una cueva en Minecraft. Hay una multitud adelante. ¿Qué estás haciendo?</p>
+    <ul>
+      <li>si esto <strong>vaca</strong> → ignorar</li>
+      <li>si esto <strong>zombi</strong> → golpeas con una espada</li>
+      <li>si esto <strong>enredadera</strong> → CORRE 💨</li>
+      <li>si esto <strong>Enderman</strong> → no lo mires a los ojos</li>
+    </ul>
+    <p>Acabas de cumplir cuatro condiciones. Tu cerebro hace esto automáticamente: evalúa la situación y elige una acción. Los programas funcionan de la misma manera, pero deben especificar cada condición explícitamente.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Teoría: si/si no</h2>
+    <p><strong>Condición</strong> - Esta es una bifurcación en el código. Si algo es verdad, hacemos una cosa. Si no, algo más.</p>
+    <pre><code><span class="fn">multitud</span> = <span class="st">"enredadera"</span>
+
+<span class="kw">if</span> multitud == <span class="st">"enredadera"</span>:
+    <span class="fn">print</span>(<span class="st">"¡VAMOS A CORRER!"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="st">"¡Ataquemos!"</span>)</code></pre>
+
+    <p>Analicémoslo pieza por pieza:</p>
+    <ul>
+      <li><code>if</code> - "si"</li>
+      <li><code>mafia == "enredadera"</code> — comprobar (dos caracteres <code>=</code> - esta es una comparación, una <code>=</code> - asignación)</li>
+      <li><code>:</code> - dos puntos después de la condición (Python lo quiere así, no discutas)</li>
+      <li>Sangría (4 espacios): qué se hace si la condición es verdadera</li>
+      <li><code>else:</code> - “de lo contrario” (todo lo demás)</li>
+    </ul>
+
+    <h3>elif - cuando hay más de dos opciones</h3>
+    <pre><code><span class="fn">multitud</span> = <span class="st">"zombi"</span>
+
+<span class="kw">if</span> multitud == <span class="st">"enredadera"</span>:
+    <span class="fn">print</span>(<span class="st">"¡VAMOS A CORRER!"</span>)
+<span class="kw">elif</span> multitud == <span class="st">"zombi"</span>:
+    <span class="fn">print</span>(<span class="st">"Golpeamos con una espada"</span>)
+<span class="kw">elif</span> multitud == <span class="st">"esqueleto"</span>:
+    <span class="fn">print</span>(<span class="st">"Escóndete detrás del escudo"</span>)
+<span class="kw">elif</span> multitud == <span class="st">"enderman"</span>:
+    <span class="fn">print</span>(<span class="st">"No hagas contacto visual"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="st">"Algo desconocido. Ten cuidado".</span>)</code></pre>
+    <p><code>elif</code> es una abreviatura de "si no". Puedes apostar tanto como quieras.</p>
+
+    <h3>Operadores de comparación</h3>
+    <table>
+      <tr><th>Operador</th><th>Significado</th><th>Ejemplo</th><th>Resultado</th></tr>
+      <tr><td><code>==</code></td><td>es igual</td><td><code>5 == 5</code></td><td>True</td></tr>
+      <tr><td><code>!=</code></td><td>no igual</td><td><code>5 != 3</code></td><td>True</td></tr>
+      <tr><td><code>&gt;</code></td><td>más</td><td><code>10 &gt; 5</code></td><td>True</td></tr>
+      <tr><td><code>&lt;</code></td><td>menos</td><td><code>3 &lt; 7</code></td><td>True</td></tr>
+      <tr><td><code>&gt;=</code></td><td>mayor o igual a</td><td><code>5 &gt;= 5</code></td><td>True</td></tr>
+      <tr><td><code>&lt;=</code></td><td>menor o igual a</td><td><code>3 &lt;= 2</code></td><td>False</td></tr>
+    </table>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-03-q1" data-correct="B" data-explanation="== comprueba la igualdad. Uno = es una asignación (escribir un valor en una variable).">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿En qué se diferencia? <code>=</code> de <code>==</code> en Python?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Nada, es lo mismo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> <code>=</code> asigna un valor <code>==</code> compara</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> <code>==</code> asigna un valor <code>=</code> compara</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> <code>==</code> solo funciona con números</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+
+    <p><strong>Tarea 1: clasificador de mafia</strong></p>
+    <p>En campos vacíos <code>???</code> introduce los comandos: <code>if</code> (si) <code>elif</code> (y si) o <code>else</code> (en caso contrario). Estas son las palabras que le indican al programa cuándo ejecutar el código.</p>
+    <div class="fill-code-block" data-task-id="m1-03-t1">
+      <pre class="fill-code"><code><span class="fn">multitud</span> = <span class="st">"lobo"</span>
+
+<input class="fill-blank" data-answer="if" placeholder="???"> multitud == <span class="st">"enredadera"</span>:
+    tipo = <span class="st">"hostil"</span>
+<input class="fill-blank" data-answer="elif" placeholder="???"> multitud == <span class="st">"lobo"</span>:
+    tipo = <span class="st">"neutro"</span>
+<input class="fill-blank" data-answer="else" placeholder="???">:
+    tipo = <span class="st">"amigable"</span></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>La primera comprobación es si. Verificación adicional - elif. Todo lo demás es otra cosa.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">if</span> multitud == <span class="st">"enredadera"</span>:
+    tipo = <span class="st">"hostil"</span>
+<span class="kw">elif</span> multitud == <span class="st">"lobo"</span>:
+    tipo = <span class="st">"neutro"</span>
+<span class="kw">else</span>:
+    tipo = <span class="st">"amigable"</span></code></pre>
+    </details>
+
+    <p><strong>Tarea 2: sistema diurno y nocturno</strong></p>
+    <p>En Minecraft, el ciclo diario = 24.000 ticks. Complete los números del borde:</p>
+    <ul>
+      <li>0-6000: mañana ☀️</li>
+      <li>6000-12000: día 🌞</li>
+      <li>12000-18000: tarde 🌅</li>
+      <li>18000-24000: noche 🌙</li>
+    </ul>
+    <div class="fill-code-block" data-task-id="m1-03-t2">
+      <pre class="fill-code"><code><span class="fn">garrapata</span> = <span class="nb">14500</span>
+
+<span class="kw">if</span> marca &lt; <input class="fill-blank" data-answer="6000" placeholder="???">:
+    tiempo = <span class="st">"mañana ☀️"</span>
+<span class="kw">elif</span> marca &lt; <input class="fill-blank" data-answer="12000" placeholder="???">:
+    tiempo = <span class="st">"día 🌞"</span>
+<span class="kw">elif</span> marca &lt; <input class="fill-blank" data-answer="18000" placeholder="???">:
+    tiempo = <span class="st">"tarde 🌅"</span>
+<span class="kw">else</span>:
+    tiempo = <span class="st">"noche 🌙"</span></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Límites del rango: la mañana termina a las 6000, el día a las 12000, la tarde a las 18000.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="kw">if</span> marca &lt; <span class="nb">6000</span>:
+    tiempo = <span class="st">"mañana ☀️"</span>
+<span class="kw">elif</span> marca &lt; <span class="nb">12000</span>:
+    tiempo = <span class="st">"día 🌞"</span>
+<span class="kw">elif</span> marca &lt; <span class="nb">18000</span>:
+    tiempo = <span class="st">"tarde 🌅"</span>
+<span class="kw">else</span>:
+    tiempo = <span class="st">"noche 🌙"</span></code></pre>
+    </details>
+  </section>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Construir: Tortuga inteligente</h2>
+    <p>¿Recuerdas la tortuga de la lección 1? Ella avanzó estúpidamente. Ahora ella se volverá más inteligente.</p>
+    <p>La tortuga se mueve por el mundo y encuentra diferentes bloques. Ella puede determinarlos usando la función. <code>qué_por delante()</code>.</p>
+    <pre><code><span class="fn">bloquear</span> = <span class="fn">que hay por delante</span>()
+
+<span class="kw">if</span> bloque == <span class="st">"aire"</span>:
+    <span class="fn">adelante</span>()
+<span class="kw">elif</span> bloque == <span class="st">"mineral"</span>:
+    <span class="fn">cavar</span>()
+    <span class="fn">adelante</span>()
+<span class="kw">elif</span> bloque == <span class="st">"lava"</span>:
+    <span class="fn">izquierda</span>()
+    <span class="fn">adelante</span>()
+    <span class="fn">correcto</span>()
+    <span class="fn">adelante</span>()
+    <span class="fn">correcto</span>()
+    <span class="fn">adelante</span>()
+    <span class="fn">izquierda</span>()
+<span class="kw">elif</span> bloque == <span class="st">"lecho de roca"</span>:
+    <span class="fn">print</span>(<span class="st">"No podemos ir más lejos"</span>)
+    <span class="fn">dar la vuelta</span>()</code></pre>
+    <p>Tortuga ahora <strong>reacciona</strong> sobre el medio ambiente y no sigue órdenes ciegamente. Esto ya es IA real (bueno, casi).</p>
+  </section>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-03-q3" data-correct="D" data-explanation="Las condiciones anidadas son condiciones dentro de condiciones. Le permite construir árboles de decisión.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      ¿Qué hace este código si <code>mafia = "enredadera"</code> y <code>distancia = 2</code>?
+      <pre><code><span class="kw">if</span> multitud == <span class="st">"enredadera"</span>:
+    <span class="kw">if</span> distancia &lt; <span class="nb">3</span>:
+        <span class="fn">print</span>(<span class="st">"¡VAMOS A CORRER!"</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(<span class="st">"Disparemos"</span>)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> "Disparemos"</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> nada</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> error</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> "¡VAMOS A CORRER!"</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-03-boss" data-correct="B" data-xp="100">
+    <div class="boss-header">👹Jefe: Robot de batalla <span class="boss-xp">+100 XP</span></div>
+    <p>Luchador de tortugas en la arena. ella tiene <code>salud = 4</code>, <code>mafia = "esqueleto"</code>, <code>hay_escudo = Falso</code>.</p>
+    <p>Reglas:</p>
+    <ol>
+      <li>Si la salud &lt;5 - siempre huye</li>
+      <li>Si una enredadera está cerca, huye</li>
+      <li>Si es un zombie, ataca con una espada.</li>
+      <li>Si el esqueleto es un escudo, bloquéalo.</li>
+      <li>Si hay un esqueleto y no hay escudo - zigzag</li>
+    </ol>
+    <p>¿Qué haría un código escrito correctamente en esta situación?</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Corre en zigzag hasta el esqueleto.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Huir (salud &lt;5 - ¡prioridad!)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Bloques con escudo</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Ataca con una espada</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Resultados</h2>
+      <p><strong>Ahora lo sabes:</strong></p>
+      <ul>
+        <li>✅ <code>if/elif/else</code> - el programa puede tomar decisiones</li>
+        <li>✅ Operadores de comparación: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+        <li>✅ Condiciones anidadas - árbol de decisiones</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>¿Dónde está en el mundo real?</strong></p>
+      <ul>
+        <li>Filtro de spam de correo: si contiene “ganaste un millón” → spam</li>
+        <li>Puertas automáticas: si sensor de movimiento → abierto</li>
+        <li>Semáforo: si es rojo → detenerse, si es verde → continuar</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>Fun fact:</strong> Toda la lógica de cualquier computadora se reduce a dos operaciones: comparación (if) y transición (goto). Literalmente todo. Juegos, redes neuronales, sistemas operativos: mucho <code>if</code>. 🤯</p>
+      <p style="margin-top:1rem;"><strong>En la próxima lección:</strong> condiciones compuestas - <code>and</code>, <code>or</code>, <code>not</code>. Cuando necesitas comprobar varias cosas al mismo tiempo.</p>
+      <p style="margin-top:1rem;"><strong>Y luego:</strong> Finalmente nos desharemos del copiar y pegar. ¿Recuerdas cómo escribimos? <code>adelante()</code> cinco veces seguidas? Los bucles resolverán este problema para siempre.</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-03">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m1-lesson-02">← Lección 1.2: Variables</a>
+    <a href="/es/lessons/m1-lesson-04">Lección 1.4: Bucles →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

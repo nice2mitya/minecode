@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 3.5: Recursión</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 3 → Lección 3.5</div>
+    <h1 class="lesson-title">La recursividad es una función que se llama a sí misma.</h1>
+    <p class="lesson-subtitle">Resolvemos el problema a través de una copia más pequeña de nosotros mismos.</p>
+  </div>
+
+  <img src="/images/lesson-3-hero.webp" alt="La recursividad es una función que se llama a sí misma." class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>La rama del árbol es como un árbol pequeño. Muchas tareas se estructuran de la misma manera: “grande = pequeño + paso”.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Términos:</strong> lista, diccionario, bucle, función: escribimos en inglés, explicamos en ruso.</p>
+    <p>La recursividad funciona cuando hay:<br>1) caso base (cuándo detenerse);<br>2) paso recursivo (cómo reducir el problema).<br><br>Ejemplo factorial:<br>hecho(n) = n * hecho(n-1), si n&gt;1; de lo contrario 1.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-05-q1" data-correct="B" data-explanation="Sin un caso base, habrá un desafío interminable.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué es necesario en una función recursiva?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> variables globales</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Caso base</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Ordenar</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Diccionario</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+    <p><strong>Tarea 1: completar el caso base n == 1.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-05-t1">
+      <pre class="fill-code"><code>if n == 1:
+    return 1</code></pre>
+      <p>Complete los espacios en blanco del código en su cuaderno/editor. Respuestas clave: 1.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Tarea 2: agregar una llamada recursiva para la suma 1...n.</strong></p>
+    <div class="fill-code-block" data-task-id="m3-05-t2">
+      <pre class="fill-code"><code>return n + sum_to_n(n-1)</code></pre>
+      <p>Ponte a prueba: n-1.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m3-05-q2" data-correct="C" data-explanation="De lo contrario no llegaremos a la parada.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">El paso recursivo debería...</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> aumentar tarea</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> No cambies la tarea</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Reducir el problema al caso base.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Quitar función</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Montaje: mini proyecto</h2>
+    <p>Realice un recorrido recursivo por el menú de misiones (categorías anidadas) y muestre todos los nombres de las misiones.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m3-05-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini jefe <span class="boss-xp">+120 XP</span></div>
+    <p>Combinamos el tema actual con habilidades previas.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hazlo sin estructura y luego arréglalo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Primero planificar, luego implementar y probar</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copiar la solución sin entender.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Saltar pruebas de velocidad</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ahora diferenciará entre recursividad y bucle, y comprenderá cuándo el modelo recursivo simplifica el código.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m3-05">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m3-lesson-04">← Búsqueda de caminos: mobs de IA</a>
+    <a href="/es/lessons/m3-lesson-06">Optimización: por qué el servidor se retrasa →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 4.3: Lectura del código AI</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 4 → Lección 4.3</div>
+    <h1 class="lesson-title">Leer código de IA, como un revisor</h1>
+    <p class="lesson-subtitle">Verificamos el código de IA en busca de casos lógicos, de seguridad y extremos.</p>
+  </div>
+
+  <img src="/images/lesson-4-hero.webp" alt="Leer código de IA, como un revisor" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>La IA puede escribir código funcional, pero se pierde un detalle y todo se estropea. Tu superpoder: revisión y verificación.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Términos:</strong> lista, diccionario, bucle, función: escribimos en inglés, explicamos en ruso.</p>
+    <p>Lista de verificación de revisión:<br>1) ¿el código resuelve el problema?<br>2) ¿Se procesan casos extremos?<br>3) legibilidad y nombres?<br>4) ¿Hay lugares peligrosos?<br>5) ¿hay pruebas?<br><br>La IA acelera el borrador, pero la calidad final es tu responsabilidad.</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-03-q1" data-correct="B" data-explanation="Los casos extremos deben comprobarse específicamente.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué es lo que la IA suele pasar por alto sin una petición explícita?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Comentarios musicales</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Casos límite</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> El acolchado siempre es perfecto.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Nombre de archivo</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+    <p><strong>Tarea 1: elige el primer paso de verificación.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-03-t1">
+      <pre class="fill-code"><code>paso = "verificar con requisito"</code></pre>
+      <p>Complete los espacios en blanco del código en su cuaderno/editor. Respuestas clave: requisito.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Tarea 2: agregar el tipo de pruebas para entradas no estándar.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-03-t2">
+      <pre class="fill-code"><code>tests = ["happy", "edge", "error"]</code></pre>
+      <p>Ponte a prueba: ventaja.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-03-q2" data-correct="C" data-explanation="Lanzamiento ≠ corrección en todos los escenarios.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">La frase "código se ejecuta" significa que...</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> La decisión es definitivamente correcta.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> El código ya está disponible para producción.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Sólo que no hay ningún error de inicio instantáneo.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> No se necesitan pruebas</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Montaje: mini proyecto</h2>
+    <p>Tome un fragmento de código de IA (cualquier ejemplo) y haga comentarios de revisión: 3 fortalezas, 3 riesgos, 2 ediciones.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-03-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini jefe <span class="boss-xp">+120 XP</span></div>
+    <p>Combinamos el tema actual con habilidades previas.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hazlo sin estructura y luego arréglalo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Primero planificar, luego implementar y probar</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copiar la solución sin entender.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Saltar pruebas de velocidad</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>No se ha convertido en un "usuario pasivo de IA", sino en un editor técnico del resultado.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-03">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m4-lesson-02">← Ingeniería rápida: hable con la IA con precisión</a>
+    <a href="/es/lessons/m4-lesson-04">Codificación Vibe: desarrollo iterativo con IA →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 4.2: Ingeniería rápida</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 4 → Lección 4.2</div>
+    <h1 class="lesson-title">Ingeniería rápida: hable con la IA con precisión</h1>
+    <p class="lesson-subtitle">Aprendemos a plantear un problema de IA para que la respuesta sea verificable y útil.</p>
+  </div>
+
+  <img src="/images/lesson-4-hero.webp" alt="Ingeniería rápida: hable con la IA con precisión" class="lesson-hero-image">
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Hook</h2>
+    <p>El comando /dar en Minecraft sólo funciona si los parámetros son precisos. Lo mismo ocurre con la IA: solicitud poco clara = resultado poco claro.</p>
+  </section>
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Términos:</strong> lista, diccionario, bucle, función: escribimos en inglés, explicamos en ruso.</p>
+    <p>Un buen mensaje incluye:<br>- rol/contexto;<br>- objetivo específico;<br>- datos de entrada;<br>- formato de respuesta;<br>- criterios de verificación.<br><br>No "hacerlo hermoso", sino "ofrecer 3 opciones de API con ventajas y desventajas".</p>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-02-q1" data-correct="B" data-explanation="Una petición vaga da una respuesta vaga.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué suele degradar una respuesta de IA?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Restricciones claras</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Declaración de problema incierto</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Formato de salida explícito</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Contexto del proyecto</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+    <p><strong>Tarea 1: agregue el bloque "formato de respuesta" requerido.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-02-t1">
+      <pre class="fill-code"><code>Prompt = "... formato: tabla de 3 puntos"</code></pre>
+      <p>Complete los espacios en blanco del código en su cuaderno/editor. Respuestas clave: formato.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+
+    <p><strong>Tarea 2: indicar el requisito de verificación.</strong></p>
+    <div class="fill-code-block" data-task-id="m4-02-t2">
+      <pre class="fill-code"><code>mensaje += "+ comprobando casos extremos"</code></pre>
+      <p>Ponte a prueba: compruébalo.</p>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+  </section>
+
+
+  <div class="quiz-block" data-quiz-id="m4-02-q2" data-correct="B" data-explanation="Las pruebas hacen que el resultado sea verificable.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué es útil agregar a una solicitud de código?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Sólo "más rápido"</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Casos de prueba y criterios de aceptación.</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Menos información</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> hechos aleatorios</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Montaje: mini proyecto</h2>
+    <p>Reescriba el mensaje débil "crear un sistema de creación" en uno fuerte: requisitos, interfaz, casos de prueba, restricciones.</p>
+  </section>
+
+
+  <div class="boss-block" data-boss-id="m4-02-boss" data-correct="B" data-xp="120">
+    <div class="boss-header">👹 Mini jefe <span class="boss-xp">+120 XP</span></div>
+    <p>Combinamos el tema actual con habilidades previas.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> Hazlo sin estructura y luego arréglalo.</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Primero planificar, luego implementar y probar</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Copiar la solución sin entender.</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Saltar pruebas de velocidad</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Reflection</h2>
+      <p>Ha aprendido a gestionar la calidad de una respuesta de IA a través de la estructura de solicitud.</p>
+    </div>
+  </section>
+
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m4-02">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m4-lesson-01">← ¿Qué es la IA (sin magia)</a>
+    <a href="/es/lessons/m4-lesson-03">Leer código AI como un revisor →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>

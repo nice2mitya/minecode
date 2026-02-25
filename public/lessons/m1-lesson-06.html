@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('module-complete-btn')?.addEventListener('click', () => {
     MineCode.addXP(200, 'Module 1 Complete');
     const btn = document.getElementById('module-complete-btn');
-    btn.textContent = '✅ Модуль 1 завершён!';
+    btn.textContent = t('module1_complete_done');
     btn.disabled = true;
     btn.style.opacity = '0.6';
   });

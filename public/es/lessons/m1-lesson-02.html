@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1.2: Variables - MineCode</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="pixel-particles" id="particles"></div>
+
+<header class="site-header">
+  <a href="/es" class="header-logo"><span class="mine">Mine</span><span class="code">Code</span><span class="dot">.ru</span></a>
+  <div class="header-stats">
+    <span class="level-badge">🪵 De madera</span>
+    <div class="xp-display">
+      <div class="xp-bar-container"><div class="xp-bar-fill" style="width:0%"></div></div>
+      <span class="xp-text">0 XP</span>
+    </div>
+    <span class="streak-display"></span>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="/es/course-map">Mapa del curso</a> → Módulo 1 → Lección 1.2</div>
+    <h1 class="lesson-title">Variables - Inventario de datos</h1>
+    <p class="lesson-subtitle">Donde el programa almacena sus cosas.</p>
+  </div>
+
+  <img src="/images/lesson-1-2.png" alt="Lección 1.2" class="lesson-hero-image">
+
+  <!-- HOOK -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🎣</span> Empezar</h2>
+    <p>Tienes un inventario en Minecraft. 36 espacios. Puedes poner una cosa en cada uno: una espada, comida, bloques.</p>
+    <p>Ahora imagina: estás construyendo una casa. Debe recordar sus dimensiones: ancho 10, largo 15, alto 5. ¿Dónde guardar estos números?</p>
+    <p>Hay una manera de hacer esto en programación. <strong>variables</strong>. Son como espacios de inventario, pero para datos. Pones un valor allí, le das un nombre y lo usas cuando sea necesario.</p>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🧠</span> Teoría: variables</h2>
+    <p><strong>variable</strong> es una ubicación de memoria con nombre. Ella tiene:</p>
+    <ul>
+      <li><strong>Nombre</strong> - como una firma en un cofre</li>
+      <li><strong>Significado</strong> - lo que hay dentro</li>
+      <li><strong>Tipo</strong> - qué tipo de datos</li>
+    </ul>
+    <pre><code><span class="cm"># Crear variables</span>
+<span class="fn">ancho</span> = <span class="nb">10</span>
+<span class="fn">longitud</span> = <span class="nb">15</span>
+<span class="fn">altura</span> = <span class="nb">5</span>
+<span class="fn">materiales</span> = <span class="st">"piedra"</span>
+<span class="fn">hay un_techo</span> = <span class="kw">True</span></code></pre>
+
+    <table>
+      <tr><th>Nombre</th><th>Significado</th><th>Tipo</th><th>Analogía de Minecraft</th></tr>
+      <tr><td><code>ancho</code></td><td>10</td><td>número (int)</td><td>Pila de 10 bloques</td></tr>
+      <tr><td><code>longitud</code></td><td>15</td><td>número (int)</td><td>Pila de 15 bloques</td></tr>
+      <tr><td><code>altura</code></td><td>5</td><td>número (int)</td><td>Pila de 5 bloques</td></tr>
+      <tr><td><code>materiales</code></td><td>"piedra"</td><td>texto (cadena)</td><td>Firmar con inscripción</td></tr>
+      <tr><td><code>hay un_techo</code></td><td>True</td><td>booleano (booleano)</td><td>Palanca: encendido/apagado</td></tr>
+    </table>
+
+    <h3>Tipos de datos básicos</h3>
+    <ul>
+      <li><strong>int</strong> (entero) - <code>64</code>, <code>0</code>, <code>-5</code>. La cantidad de elementos en la pila.</li>
+      <li><strong>float</strong> (número fraccionario) — <code>3.14</code>, <code>0.5</code>. Nivel de salud: 18,5 HP.</li>
+      <li><strong>string</strong> (texto) — <code>"Hola"</code>, <code>"diamond_sword"</code>. Nombre del artículo.</li>
+      <li><strong>bool</strong> (lógico) - <code>True</code> o <code>False</code>. Palanca: encendido o apagado.</li>
+    </ul>
+
+    <h3>Las variables se pueden cambiar</h3>
+    <p>Esto es lo mismo <em>re</em>intercambiable. El valor se puede actualizar:</p>
+    <pre><code><span class="fn">salud</span> = <span class="nb">20</span>        <span class="cm"># HP completo</span>
+<span class="fn">salud</span> = <span class="nb">20</span> - <span class="nb">7</span>    <span class="cm"># Una enredadera explotó cerca</span>
+<span class="fn">salud</span> = <span class="nb">13</span>        <span class="cm"># Ahora 13 CV</span></code></pre>
+
+    <p>Y úselo en los cálculos:</p>
+    <pre><code><span class="fn">ancho</span> = <span class="nb">10</span>
+<span class="fn">longitud</span> = <span class="nb">15</span>
+<span class="fn">zona</span> = ancho * largo    <span class="cm"># 150</span>
+<span class="fn">perímetro</span> = <span class="nb">2</span> * (ancho + largo)  <span class="cm">#50 bloques de pared</span></code></pre>
+
+    <p>¿Por qué es esto genial? Porque si decides cambiar el tamaño de la casa, necesitas cambiar <strong>UNO</strong> número, en lugar de reescribir todo el programa.</p>
+  </section>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q1" data-correct="C" data-explanation="Una variable es una ubicación de memoria con nombre, como una ranura firmada en el inventario.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Cuál de estas describe mejor la variable?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> comando de computadora</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> Botón en el programa</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> Ubicación con nombre para almacenar datos</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> Tipo de computadora</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🔧</span> Practica</h2>
+
+    <p><strong>Tarea 1: Calculadora de recursos</strong></p>
+    <p>Estás construyendo un muro rectangular. Complete la fórmula para contar bloques.</p>
+    <div class="fill-code-block" data-task-id="m1-02-t1">
+      <pre class="fill-code"><code><span class="cm"># Calculadora de bloques de pared</span>
+<span class="fn">longitud_de_la_pared</span> = <span class="nb">10</span>
+<span class="fn">altura_de_la_pared</span> = <span class="nb">4</span>
+<span class="fn">bloques_necesarios</span> = <input class="fill-blank" data-answer="longitud_de_la_pared" placeholder="???"> * <input class="fill-blank" data-answer="altura_de_la_pared" placeholder="???">    <span class="cm"># = 40</span></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>El área de un rectángulo es la longitud por la altura. ¡Usa nombres de variables!</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="fn">bloques_necesarios</span> = longitud_pared * altura_pared    <span class="cm"># 40</span></code></pre>
+    </details>
+
+    <p><strong>Tarea 2: Características de la mafia</strong></p>
+    <p>Crea variables para describir la enredadera. Complete los valores:</p>
+    <div class="fill-code-block" data-task-id="m1-02-t2">
+      <pre class="fill-code"><code><span class="cm"># Características de la enredadera</span>
+<span class="fn">nombre</span> = <input class="fill-blank" data-answer='"Enredadera"/"enredadera"/"enredadera"' placeholder="???">
+<span class="fn">salud</span> = <input class="fill-blank" data-answer="20" placeholder="???">
+<span class="fn">daño_explosión</span> = <input class="fill-blank" data-answer="49" placeholder="???">
+<span class="fn">miedo a los gatos</span> = <input class="fill-blank" data-answer="true" placeholder="???"></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Nombre: texto entre comillas. Salud de la enredadera = 20 HP. Máx. daño por explosión = 49. Miedo a los gatos = Verdadero.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="fn">nombre</span> = <span class="st">"Creeper"</span>
+<span class="fn">salud</span> = <span class="nb">20</span>
+<span class="fn">daño_explosión</span> = <span class="nb">49</span>
+<span class="fn">miedo a los gatos</span> = <span class="kw">True</span></code></pre>
+    </details>
+
+    <p><strong>Tarea 3: Intercambio de valores</strong></p>
+    <p>Intercambie el contenido de las dos ranuras. Pista: se necesita una tercera variable.</p>
+    <div class="fill-code-block" data-task-id="m1-02-t3">
+      <pre class="fill-code"><code><span class="fn">ranura_1</span> = <span class="st">"espada"</span>
+<span class="fn">ranura_2</span> = <span class="st">"escudo"</span>
+
+<span class="cm"># Intercambio:</span>
+<span class="fn">temporal</span> = <input class="fill-blank" data-answer="ranura_1" placeholder="???">
+<span class="fn">ranura_1</span> = <input class="fill-blank" data-answer="ranura_2" placeholder="???">
+<span class="fn">ranura_2</span> = <input class="fill-blank" data-answer="temporal/temporal" placeholder="???"></code></pre>
+      <button class="code-run-btn">▶ Comprobar</button>
+      <div class="code-feedback"></div>
+    </div>
+    <details>
+      <summary>💡 Pista</summary>
+      <p>Como dos cofres: primero coloque el primer artículo en el cofre temporal, luego mueva el segundo al primero, luego del temporal al segundo.</p>
+    </details>
+    <details>
+      <summary>✅ Solución</summary>
+      <pre><code><span class="fn">temporal</span> = ranura_1     <span class="cm"># temporal = "espada"</span>
+<span class="fn">ranura_1</span> = ranura_2        <span class="cm"># slot_1 = "escudo"</span>
+<span class="fn">ranura_2</span> = temporal     <span class="cm"># slot_2 = "espada"</span></code></pre>
+      <p>Este es un desafío de entrevista clásico. Sí, ya en la lección 2 resuelves problemas de seguridad social. 💪</p>
+    </details>
+  </section>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q2" data-correct="D" data-explanation="Resultado: 10 * 15 = 150 bloques.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">
+      ¿Qué generará este código?
+      <pre><code><span class="fn">ancho</span> = <span class="nb">10</span>
+<span class="fn">longitud</span> = <span class="nb">15</span>
+<span class="fn">zona</span> = ancho * largo
+<span class="fn">print</span>(área)</code></pre>
+    </div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 25</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> "ancho * largo"</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> error</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 150</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-block" data-quiz-id="m1-02-q3" data-correct="B" data-explanation="bool almacena Verdadero o Falso, como una palanca en Minecraft.">
+    <div class="quiz-header">🧩 Prueba <span class="quiz-xp">+10 XP</span></div>
+    <div class="quiz-question">¿Qué tipo de datos es mejor para una variable? <code>hay_escudo</code>?</div>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> int (número)</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> booleano (booleano)</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> cadena (texto)</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> flotante (número fraccionario)</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- BUILD -->
+  <section class="lesson-section">
+    <h2><span class="section-icon">🏗️</span> Construir: Casa personalizable</h2>
+    <p>La tortuga construye una casa, cuyas dimensiones estableces mediante variables.</p>
+    <pre><code><span class="cm"># Configuración de inicio</span>
+<span class="fn">ancho</span> = <span class="nb">6</span>
+<span class="fn">longitud</span> = <span class="nb">8</span>
+<span class="fn">altura</span> = <span class="nb">4</span>
+<span class="fn">materiales</span> = <span class="st">"roble"</span>
+
+<span class="cm"># Turtle construye según tus parámetros</span>
+<span class="fn">construir_una casa</span>(ancho, largo, alto, material)</code></pre>
+    <p>Cambie los valores de las variables y ejecute nuevamente. ¿Ves cómo el mismo código construye casas diferentes? Este es el poder de las variables. <strong>escribes el código una vez y cambias el resultado sustituyendo otros datos</strong>.</p>
+  </section>
+
+  <!-- BOSS -->
+  <div class="boss-block" data-boss-id="m1-02-boss" data-correct="C" data-xp="75">
+    <div class="boss-header">👹 Jefe: Calculadora de constructores <span class="boss-xp">+75 XP</span></div>
+    <p>Construyes una caja de 10x12x5 usando bloques. Debes contar el número total de bloques para las paredes, el piso y el techo.</p>
+    <p>Suelo y techo: por <code>10 × 12 = 120</code> todos. ¿Qué pasa con las paredes?</p>
+    <pre><code><span class="fn">ancho</span> = <span class="nb">10</span>
+<span class="fn">longitud</span> = <span class="nb">12</span>
+<span class="fn">altura</span> = <span class="nb">5</span>
+
+<span class="fn">piso</span> = ancho * largo           <span class="cm"># 120</span>
+<span class="fn">techo</span> = ancho * largo        <span class="cm"># 120</span>
+<span class="fn">paredes</span> = ???
+<span class="fn">total</span> = suelo + techo + paredes</code></pre>
+    <p>¿Cuántos bloques se necesitan para las paredes (altura de la pared = 3 filas, menos el piso y el techo)?</p>
+    <div class="quiz-options">
+      <div class="quiz-option" data-value="A"><span class="quiz-option-letter">A</span> 120</div>
+      <div class="quiz-option" data-value="B"><span class="quiz-option-letter">B</span> 88</div>
+      <div class="quiz-option" data-value="C"><span class="quiz-option-letter">C</span> 120 (perímetro 40 × 3 filas = 120 si no se restan las esquinas)</div>
+      <div class="quiz-option" data-value="D"><span class="quiz-option-letter">D</span> 200</div>
+    </div>
+    <div class="quiz-feedback"></div>
+    <button class="quiz-retry">🔄 Inténtalo de nuevo</button>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="lesson-section">
+    <div class="reflection-box">
+      <h2><span class="section-icon">💭</span> Resultados</h2>
+      <p><strong>Ahora lo sabes:</strong></p>
+      <ul>
+        <li>✅ Variable = celda con nombre para datos</li>
+        <li>✅ Cuatro tipos básicos: números, texto, lógico</li>
+        <li>✅ Las variables se pueden cambiar y utilizar en cálculos</li>
+        <li>✅ Un programa + diferentes variables = diferentes resultados</li>
+      </ul>
+      <p style="margin-top:1rem;"><strong>huevo de pascua:</strong> ¿Sabes por qué se llama una variable para intercambiar valores? <code>temp</code>? Esta es la abreviatura de temporal. Los programadores son vagos: son demasiado vagos para escribir palabras completas. Acostúmbrate. 😎</p>
+      <p style="margin-top:1rem;"><strong>En la próxima lección:</strong> la tortuga aprenderá a tomar decisiones. Si hay una enredadera, corremos. Si es una vaca, la ignoramos. Estas se llaman "condiciones".</p>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <div style="text-align:center;margin:2rem 0;">
+    <button class="cta-btn lesson-complete-btn" data-lesson-id="m1-02">✅ Lección completada: obtén 100 XP</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="lesson-nav">
+    <a href="/es/lessons/m1-lesson-01">← Lección 1.1: ¿Qué es el código?</a>
+    <a href="/es/lessons/m1-lesson-03">Lección 1.3: Condiciones →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">MineCode.ru © 2026</footer>
+<script src="/app.js"></script>
+</body>
+</html>
