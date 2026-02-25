@@ -615,6 +615,87 @@ details > div, details > p, details > pre {
 .level-item.active { background: var(--green-glow); color: var(--green); }
 .level-arrow { color: var(--text-dimmer); }
 
+/* ===== EXTRA LANDING BLOCKS ===== */
+.landing-flow,
+.landing-roadmap,
+.landing-faq {
+  margin: 2.2rem 0;
+  padding: 1.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.landing-flow h2,
+.landing-roadmap h2,
+.landing-faq h2 {
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.flow-grid,
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+
+.flow-card,
+.roadmap-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.flow-step {
+  display: inline-flex;
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+  background: var(--green-glow);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  margin-bottom: 0.45rem;
+}
+
+.flow-card h3,
+.roadmap-card strong {
+  margin: 0 0 0.3rem;
+  color: #fff;
+}
+
+.flow-card p,
+.roadmap-card p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.roadmap-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.45rem;
+}
+
+.roadmap-head span {
+  color: var(--text-dimmer);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.roadmap-card.ready {
+  border-color: rgba(76,175,80,0.4);
+  background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(74,237,217,0.06));
+}
+
+.landing-faq details {
+  margin: 0.7rem 0;
+}
+
 /* ===== ACHIEVEMENT POPUP ===== */
 .achievement-popup {
   position: fixed; top: 80px; right: 20px;
