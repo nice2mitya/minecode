@@ -30,7 +30,7 @@
     <p class="lesson-subtitle">Строим сложные данные: список словарей и словарь списков.</p>
   </div>
 
-  <img src="/images/hero.png" alt="Вложенные структуры — мир из чанков" class="lesson-hero-image">
+  <img src="/images/lesson-2-hero.webp" alt="Вложенные структуры — мир из чанков" class="lesson-hero-image">
 
   <section class="lesson-section">
     <h2><span class="section-icon">🎣</span> Hook</h2>
@@ -39,6 +39,7 @@
 
   <section class="lesson-section">
     <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Термины:</strong> list, dictionary, loop, function — пишем по-английски, объясняем по-русски.</p>
     <p>Вложенные структуры — это когда внутри списка лежат словари, а внутри словаря — списки.<br><br>Пример:<br>чанк = {<br>  "коорд": [0, 0],<br>  "ресурсы": ["уголь", "железо"],<br>  "мобы": [{"тип": "зомби", "hp": 20}]<br>}<br><br>Такие структуры удобно передавать как JSON и хранить состояние мира.</p>
   </section>
 
@@ -61,8 +62,8 @@
     <h2><span class="section-icon">🔧</span> Практика</h2>
     <p><strong>Задание 1: допиши ключ для списка ресурсов и индекс для первого ресурса.</strong></p>
     <div class="fill-code-block" data-task-id="m2-03-t1">
-      <pre class="fill-code"><code>чанк = {"ресурсы": ["уголь", "железо"]}
-print(чанк["ресурсы"][0])</code></pre>
+      <pre class="fill-code"><code>chunk = {"resources": ["уголь", "железо"]}
+print(chunk["resources"][0])</code></pre>
       <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: ресурсы/0.</p>
       <button class="code-run-btn">▶ Проверить</button>
       <div class="code-feedback"></div>
@@ -70,8 +71,8 @@ print(чанк["ресурсы"][0])</code></pre>
 
     <p><strong>Задание 2: укажи ключ поля hp у первого моба.</strong></p>
     <div class="fill-code-block" data-task-id="m2-03-t2">
-      <pre class="fill-code"><code>чанк = {"мобы": [{"тип": "зомби", "hp": 20}]}
-print(чанк["мобы"][0]["hp"])</code></pre>
+      <pre class="fill-code"><code>chunk = {"mobs": [{"тип": "зомби", "hp": 20}]}
+print(chunk["mobs"][0]["hp"])</code></pre>
       <p>Проверь себя: hp.</p>
       <button class="code-run-btn">▶ Проверить</button>
       <div class="code-feedback"></div>

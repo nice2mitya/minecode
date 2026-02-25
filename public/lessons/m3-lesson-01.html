@@ -30,7 +30,7 @@
     <p class="lesson-subtitle">Базовый поиск: проверяем элементы по очереди.</p>
   </div>
 
-  <img src="/images/hero.png" alt="Линейный поиск — ищем алмазы" class="lesson-hero-image">
+  <img src="/images/lesson-3-hero.webp" alt="Линейный поиск — ищем алмазы" class="lesson-hero-image">
 
   <section class="lesson-section">
     <h2><span class="section-icon">🎣</span> Hook</h2>
@@ -39,6 +39,7 @@
 
   <section class="lesson-section">
     <h2><span class="section-icon">🧠</span> Concept</h2>
+    <p class="terms-hint"><strong>Термины:</strong> list, dictionary, loop, function — пишем по-английски, объясняем по-русски.</p>
     <p>Линейный поиск проходит коллекцию слева направо.<br><br>Псевдокод:<br>for элемент in данные:<br>  если элемент == цель: вернуть индекс<br><br>Плюсы: простота.<br>Минусы: в худшем случае проверяем всё (O(n)).</p>
   </section>
 
@@ -61,8 +62,8 @@
     <h2><span class="section-icon">🔧</span> Практика</h2>
     <p><strong>Задание 1: укажи целевой ресурс и индекс его первого появления.</strong></p>
     <div class="fill-code-block" data-task-id="m3-01-t1">
-      <pre class="fill-code"><code>ресурсы = ["уголь", "железо", "золото", "алмаз"]
-цель = "алмаз"
+      <pre class="fill-code"><code>resources = ["уголь", "железо", "золото", "алмаз"]
+target = "алмаз"
 print(3)</code></pre>
       <p>Заполни пропуски в коде в своей тетради/редакторе. Ключевые ответы: алмаз/3.</p>
       <button class="code-run-btn">▶ Проверить</button>
@@ -71,8 +72,8 @@ print(3)</code></pre>
 
     <p><strong>Задание 2: заполни условие сравнения в цикле.</strong></p>
     <div class="fill-code-block" data-task-id="m3-01-t2">
-      <pre class="fill-code"><code>for r in ресурсы:
-    if r == цель:
+      <pre class="fill-code"><code>for r in resources:
+    if r == target:
         print("Найдено")</code></pre>
       <p>Проверь себя: цель.</p>
       <button class="code-run-btn">▶ Проверить</button>
