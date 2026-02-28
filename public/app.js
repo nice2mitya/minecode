@@ -193,7 +193,7 @@ const MineCode = {
   levels: [
     { name: t('level_wood'), min: 0, icon: '🪵' },
     { name: t('level_stone'), min: 200, icon: '🪨' },
-    { name: t('level_iron'), min: 500, icon: '⛓️' },
+    { name: t('level_iron'), min: 500, icon: '🔩' },
     { name: t('level_diamond'), min: 1000, icon: '💎' },
     { name: t('level_netherite'), min: 2000, icon: '🔮' },
   ],
